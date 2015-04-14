@@ -1,0 +1,58 @@
+{
+    "items": [
+        {
+            "section_title": "",
+            "row_items": [
+                      {
+                      "title":"About this Study",
+                      "details":"AboutStudy",
+                      "icon_image":"aboutthisstudy",
+                      "tint_color" : "blue"
+                      },
+                      
+                      {
+                      "title":"How this Study Works",
+                      "details":"howstudyworks",
+                      "icon_image":"howitworks",
+                      "tint_color" : "purple"
+                      },
+                      
+                      {
+                      "title":"Who Can Participate",
+                      "details":"EligibleToParticipate",
+                      "icon_image":"eligibility",
+                      "tint_color" : "green"
+                      },
+                      {
+                      "title":"Who is Running this Study",
+                      "details":"whoisrunning",
+                      "icon_image":"whoisrunning",
+                      "tint_color" : "yellow"
+                      },
+                      {
+                      "title": "Life After Treatment",
+                      "details": "lifeaftertreatment",
+                      "icon_image": "disease_icon",
+                      "tint_color": "red"
+                      },
+                          
+                          
+                          
+                    {
+                        "title": "Symptoms",
+                        "details": "symptoms",
+                        "icon_image": "symptoms",
+                        "tint_color": "red"
+                    },
+                  
+                    {
+                        "title": "Online Resources",
+                        "details": "online_resources",
+                        "icon_image": "globe_icon",
+                        "tint_color": "gray"
+                    }
+                          
+            ]
+        }
+    ]
+}

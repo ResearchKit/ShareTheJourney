@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="APHDailyJournalIntroViewController">
+            <connections>
+                <outlet property="getStartedButton" destination="Vqu-GO-eVN" id="yKQ-tc-P77"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqu-GO-eVN">
+                    <rect key="frame" x="0.0" y="536" width="600" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="hKS-pX-3Fg"/>
+                    </constraints>
+                    <state key="normal" title="Get Started">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="getStartedWasTapped:" destination="-1" eventType="touchUpInside" id="mlP-Tz-BY9"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Vqu-GO-eVN" secondAttribute="trailing" id="Ikt-oU-KCf"/>
+                <constraint firstItem="Vqu-GO-eVN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="P0k-hP-W71"/>
+                <constraint firstAttribute="bottom" secondItem="Vqu-GO-eVN" secondAttribute="bottom" id="uNt-fp-0DA"/>
+            </constraints>
+            <point key="canvasLocation" x="482" y="300.5"/>
+        </view>
+    </objects>
+</document>

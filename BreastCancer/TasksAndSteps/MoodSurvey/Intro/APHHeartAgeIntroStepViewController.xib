@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="APHHeartAgeIntroStepViewController">
+            <connections>
+                <outlet property="getStartedButton" destination="rNE-b3-Wvt" id="osb-sc-6om"/>
+                <outlet property="tableView" destination="fHo-Jt-XTX" id="vl6-ph-MQA"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fHo-Jt-XTX">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="qvL-kf-SQd"/>
+                        <outlet property="delegate" destination="-1" id="fXc-hd-ieC"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNE-b3-Wvt" customClass="APCButton">
+                    <rect key="frame" x="87" y="452" width="146" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="dRw-Ih-6Yd"/>
+                        <constraint firstAttribute="width" constant="146" id="q8T-vc-LMy"/>
+                    </constraints>
+                    <state key="normal" title="Get Started">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="getStartedWasTapped:" destination="-1" eventType="touchUpInside" id="3KR-IN-t2S"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="fHo-Jt-XTX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="A0i-dx-pRO"/>
+                <constraint firstAttribute="bottom" secondItem="rNE-b3-Wvt" secondAttribute="bottom" constant="8" id="Bo0-D7-KN6"/>
+                <constraint firstItem="fHo-Jt-XTX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="C3Z-Nu-SIf"/>
+                <constraint firstAttribute="trailing" secondItem="fHo-Jt-XTX" secondAttribute="trailing" id="TOV-ha-yPw"/>
+                <constraint firstItem="rNE-b3-Wvt" firstAttribute="top" secondItem="fHo-Jt-XTX" secondAttribute="bottom" constant="12" id="Ti4-uo-4sQ"/>
+                <constraint firstAttribute="centerX" secondItem="rNE-b3-Wvt" secondAttribute="centerX" id="oMV-NO-QK3"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="163" y="250"/>
+        </view>
+    </objects>
+</document>

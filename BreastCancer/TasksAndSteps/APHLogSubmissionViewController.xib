@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="APHLogSubmissionViewController">
+            <connections>
+                <outlet property="submitButton" destination="uJ6-EU-grm" id="Vc5-er-TwD"/>
+                <outlet property="textView" destination="0b9-Vl-YGg" id="qO5-m4-yGW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZjI-59-JNy" userLabel="InstructionView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqb-D6-G3U">
+                            <rect key="frame" x="12" y="12" width="300" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="KUv-Ol-Iqx"/>
+                                <constraint firstAttribute="width" constant="300" id="g5C-b1-Eky"/>
+                            </constraints>
+                            <string key="text">Upon submission your log entry will be sent 
+for review.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="AUj-ZY-jvN"/>
+                        <constraint firstAttribute="centerY" secondItem="Fqb-D6-G3U" secondAttribute="centerY" id="ave-bw-4kS"/>
+                        <constraint firstAttribute="centerX" secondItem="Fqb-D6-G3U" secondAttribute="centerX" constant="-2" id="fb8-YG-zfE"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9K-JY-cja">
+                    <rect key="frame" x="14" y="85" width="46" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="b7B-cY-Fx8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0b9-Vl-YGg">
+                    <rect key="frame" x="8" y="114" width="312" height="314"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJ6-EU-grm" customClass="APCButton">
+                    <rect key="frame" x="87" y="437" width="146" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="146" id="AWJ-gN-i7a"/>
+                        <constraint firstAttribute="height" constant="44" id="NuE-il-SU1"/>
+                    </constraints>
+                    <state key="normal" title="Submit">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="submitButtonTapped:" destination="-1" eventType="touchUpInside" id="SS8-4m-gDY"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="uJ6-EU-grm" secondAttribute="centerX" id="24F-cs-hoN"/>
+                <constraint firstItem="ZjI-59-JNy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3cp-jR-ocC"/>
+                <constraint firstItem="i9K-JY-cja" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="5AQ-xW-Y7b"/>
+                <constraint firstAttribute="bottom" secondItem="uJ6-EU-grm" secondAttribute="bottom" constant="23" id="TKc-s1-nUF"/>
+                <constraint firstAttribute="trailing" secondItem="ZjI-59-JNy" secondAttribute="trailing" id="V4U-N6-32V"/>
+                <constraint firstItem="0b9-Vl-YGg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Zk4-2h-YQQ"/>
+                <constraint firstItem="i9K-JY-cja" firstAttribute="top" secondItem="ZjI-59-JNy" secondAttribute="bottom" constant="21" id="dnX-85-grd"/>
+                <constraint firstItem="0b9-Vl-YGg" firstAttribute="top" secondItem="i9K-JY-cja" secondAttribute="bottom" constant="8" id="ltn-9H-J6L"/>
+                <constraint firstItem="uJ6-EU-grm" firstAttribute="top" secondItem="0b9-Vl-YGg" secondAttribute="bottom" constant="9" id="pwU-Ui-EFW"/>
+                <constraint firstAttribute="trailing" secondItem="0b9-Vl-YGg" secondAttribute="trailing" id="tMm-9Z-J9g"/>
+                <constraint firstItem="ZjI-59-JNy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tY7-Th-mxY"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

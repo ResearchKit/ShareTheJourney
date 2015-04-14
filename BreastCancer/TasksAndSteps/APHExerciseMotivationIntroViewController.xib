@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="APHExerciseMotivationIntroViewController">
+            <connections>
+                <outlet property="exerciseEveryDayLabel" destination="kcF-3k-xEA" id="BYB-u2-zH3"/>
+                <outlet property="exerciseEveryDaySelectedView" destination="H1n-Rc-0S8" id="r0W-Ze-aDP"/>
+                <outlet property="exerciseThreeTimesAWeekLabel" destination="0Nz-UK-hcJ" id="tBJ-fy-yjP"/>
+                <outlet property="exerciseThreeTimesAWeekSelectedView" destination="di4-qu-Dxw" id="liO-A8-oT8"/>
+                <outlet property="fiveThousandStepsLabel" destination="0e0-ao-f2o" id="HVG-Z2-FXJ"/>
+                <outlet property="fiveThousandStepsSelectedView" destination="fRW-XT-LwQ" id="rSe-PT-L6z"/>
+                <outlet property="nextButton" destination="9XK-aI-RfC" id="Ext-zk-8wH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="walkTenThousandStepsLabel" destination="zFI-nF-efd" id="pdo-4X-yfq"/>
+                <outlet property="walkTenThousandStepsSelectedView" destination="rfW-9w-V1n" id="5AP-2q-tk8"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a personal exercise goal to set for yourself from the list below.  We will dig into why and how to get there together." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIE-mk-J7P">
+                    <rect key="frame" x="20" y="0.0" width="280" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="zMT-X4-9DT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbO-g2-A8n">
+                    <rect key="frame" x="0.0" y="78" width="320" height="64"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ywu-Jh-w6k">
+                            <rect key="frame" x="0.0" y="0.0" width="5" height="64"/>
+                            <color key="backgroundColor" red="0.93725490199999995" green="0.0039215686269999999" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="5" id="qN7-dP-sbJ"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Exercise Every Single Day for at least 30 minutes" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcF-3k-xEA">
+                            <rect key="frame" x="15" y="0.0" width="260" height="64"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1n-Rc-0S8" customClass="APCConfirmationView">
+                            <rect key="frame" x="282" y="17" width="30" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="uBK-zV-Ej8"/>
+                                <constraint firstAttribute="width" constant="30" id="yg8-Gb-9Sg"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="ywu-Jh-w6k" secondAttribute="bottom" id="0OB-Dg-7Lx"/>
+                        <constraint firstItem="ywu-Jh-w6k" firstAttribute="top" secondItem="rbO-g2-A8n" secondAttribute="top" id="7dn-Td-Ncr"/>
+                        <constraint firstAttribute="bottom" secondItem="H1n-Rc-0S8" secondAttribute="bottom" constant="17" id="EoA-Gc-iQj"/>
+                        <constraint firstAttribute="trailing" secondItem="H1n-Rc-0S8" secondAttribute="trailing" constant="8" id="JU6-yY-jow"/>
+                        <constraint firstAttribute="height" constant="64" id="YcS-zJ-6dF"/>
+                        <constraint firstItem="H1n-Rc-0S8" firstAttribute="top" secondItem="rbO-g2-A8n" secondAttribute="top" constant="17" id="e8j-k9-l4r"/>
+                        <constraint firstItem="ywu-Jh-w6k" firstAttribute="leading" secondItem="rbO-g2-A8n" secondAttribute="leading" id="hHg-f3-G3i"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SD0-bw-I3V">
+                    <rect key="frame" x="0.0" y="152" width="320" height="64"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAZ-mi-y3E">
+                            <rect key="frame" x="0.0" y="0.0" width="5" height="64"/>
+                            <color key="backgroundColor" red="0.93725490199999995" green="0.0039215686269999999" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="5" id="0to-63-uff"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Exercise at least 3 times per week for at least 30 minutes" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Nz-UK-hcJ">
+                            <rect key="frame" x="15" y="0.0" width="260" height="64"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="di4-qu-Dxw" customClass="APCConfirmationView">
+                            <rect key="frame" x="282" y="17" width="30" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="nzN-rb-alj"/>
+                                <constraint firstAttribute="width" constant="30" id="yh6-ba-Ukp"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="dAZ-mi-y3E" secondAttribute="bottom" id="7Hy-ce-BpI"/>
+                        <constraint firstAttribute="height" constant="64" id="8dX-JD-HkX"/>
+                        <constraint firstAttribute="trailing" secondItem="di4-qu-Dxw" secondAttribute="trailing" constant="8" id="SlT-7l-m2j"/>
+                        <constraint firstItem="di4-qu-Dxw" firstAttribute="top" secondItem="SD0-bw-I3V" secondAttribute="top" constant="17" id="Vvy-oa-ZlW"/>
+                        <constraint firstItem="dAZ-mi-y3E" firstAttribute="top" secondItem="SD0-bw-I3V" secondAttribute="top" id="dQ5-nn-9SB"/>
+                        <constraint firstAttribute="bottom" secondItem="di4-qu-Dxw" secondAttribute="bottom" constant="17" id="kF2-YC-Fpt"/>
+                        <constraint firstItem="dAZ-mi-y3E" firstAttribute="leading" secondItem="SD0-bw-I3V" secondAttribute="leading" id="xvt-54-GWq"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Er7-RS-bpN">
+                    <rect key="frame" x="0.0" y="226" width="320" height="64"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkJ-cA-LqE">
+                            <rect key="frame" x="0.0" y="0.0" width="5" height="64"/>
+                            <color key="backgroundColor" red="0.93725490199999995" green="0.0039215686269999999" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="5" id="wF4-LN-BEU"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Walk 5,000 steps every day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0e0-ao-f2o">
+                            <rect key="frame" x="14" y="0.0" width="260" height="64"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRW-XT-LwQ" customClass="APCConfirmationView">
+                            <rect key="frame" x="282" y="17" width="30" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="YCb-as-VpB"/>
+                                <constraint firstAttribute="width" constant="30" id="z8g-3i-0JZ"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="fRW-XT-LwQ" secondAttribute="trailing" constant="8" id="9jK-Ud-9Mj"/>
+                        <constraint firstAttribute="height" constant="64" id="AMh-jX-1IR"/>
+                        <constraint firstAttribute="bottom" secondItem="OkJ-cA-LqE" secondAttribute="bottom" id="DAJ-7S-io5"/>
+                        <constraint firstItem="OkJ-cA-LqE" firstAttribute="top" secondItem="Er7-RS-bpN" secondAttribute="top" id="JH1-f7-1fV"/>
+                        <constraint firstItem="OkJ-cA-LqE" firstAttribute="leading" secondItem="Er7-RS-bpN" secondAttribute="leading" id="c7W-Sj-Mvg"/>
+                        <constraint firstItem="fRW-XT-LwQ" firstAttribute="top" secondItem="Er7-RS-bpN" secondAttribute="top" constant="17" id="epz-pR-iH3"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9XK-aI-RfC" customClass="APCButton">
+                    <rect key="frame" x="87" y="452" width="146" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="gV7-4S-PUW"/>
+                        <constraint firstAttribute="width" constant="146" id="mgH-eu-1ZI"/>
+                    </constraints>
+                    <state key="normal" title="Next">
+                        <color key="titleColor" red="0.1450980392" green="0.1764705882" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="nextButtonTapped:" destination="-1" eventType="touchUpInside" id="uOS-LZ-cfo"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iy-nu-V5B">
+                    <rect key="frame" x="0.0" y="300" width="320" height="64"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Walk 10,000 steps at least 3 times per week" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFI-nF-efd">
+                            <rect key="frame" x="14" y="0.0" width="260" height="64"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7f-BI-kwB">
+                            <rect key="frame" x="0.0" y="0.0" width="5" height="64"/>
+                            <color key="backgroundColor" red="0.93725490199999995" green="0.0039215686269999999" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="5" id="Ado-Ah-ztQ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfW-9w-V1n" customClass="APCConfirmationView">
+                            <rect key="frame" x="281" y="17" width="30" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="0P6-z3-gw1"/>
+                                <constraint firstAttribute="width" constant="30" id="MQM-8C-hdo"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="f7f-BI-kwB" firstAttribute="leading" secondItem="3iy-nu-V5B" secondAttribute="leading" id="1uZ-cq-VBb"/>
+                        <constraint firstAttribute="trailing" secondItem="rfW-9w-V1n" secondAttribute="trailing" constant="9" id="Fga-dC-bI2"/>
+                        <constraint firstAttribute="height" constant="64" id="eRH-eo-TjG"/>
+                        <constraint firstAttribute="bottom" secondItem="rfW-9w-V1n" secondAttribute="bottom" constant="17" id="ksz-sg-ezr"/>
+                        <constraint firstItem="f7f-BI-kwB" firstAttribute="top" secondItem="3iy-nu-V5B" secondAttribute="top" id="pQu-zU-Cvq"/>
+                        <constraint firstAttribute="bottom" secondItem="f7f-BI-kwB" secondAttribute="bottom" id="rgz-ae-9b9"/>
+                        <constraint firstItem="rfW-9w-V1n" firstAttribute="top" secondItem="3iy-nu-V5B" secondAttribute="top" constant="17" id="xPT-ly-h9h"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3iy-nu-V5B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2pY-0x-LWz"/>
+                <constraint firstItem="SD0-bw-I3V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3WB-al-grZ"/>
+                <constraint firstAttribute="centerX" secondItem="9XK-aI-RfC" secondAttribute="centerX" id="4jZ-kn-WEj"/>
+                <constraint firstItem="3iy-nu-V5B" firstAttribute="top" secondItem="Er7-RS-bpN" secondAttribute="bottom" constant="10" id="D33-Vq-6ba"/>
+                <constraint firstItem="SIE-mk-J7P" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FnX-UJ-3oX"/>
+                <constraint firstAttribute="bottom" secondItem="9XK-aI-RfC" secondAttribute="bottom" constant="8" id="H5B-MW-DkI"/>
+                <constraint firstAttribute="trailing" secondItem="rbO-g2-A8n" secondAttribute="trailing" id="H6e-Tk-loT"/>
+                <constraint firstItem="SIE-mk-J7P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Jzw-gh-agc"/>
+                <constraint firstAttribute="trailing" secondItem="3iy-nu-V5B" secondAttribute="trailing" id="UfE-xU-GpY"/>
+                <constraint firstItem="rbO-g2-A8n" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cQU-C8-zqQ"/>
+                <constraint firstAttribute="trailing" secondItem="SD0-bw-I3V" secondAttribute="trailing" id="cxC-LX-JWG"/>
+                <constraint firstAttribute="trailing" secondItem="Er7-RS-bpN" secondAttribute="trailing" id="gVP-mf-7MA"/>
+                <constraint firstItem="Er7-RS-bpN" firstAttribute="top" secondItem="SD0-bw-I3V" secondAttribute="bottom" constant="10" id="jIB-tS-Nki"/>
+                <constraint firstItem="SD0-bw-I3V" firstAttribute="top" secondItem="rbO-g2-A8n" secondAttribute="bottom" constant="10" id="kln-Yw-hGR"/>
+                <constraint firstItem="Er7-RS-bpN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nGc-TM-mgP"/>
+                <constraint firstAttribute="trailing" secondItem="SIE-mk-J7P" secondAttribute="trailing" constant="20" id="rAU-ch-at5"/>
+                <constraint firstItem="rbO-g2-A8n" firstAttribute="top" secondItem="SIE-mk-J7P" secondAttribute="bottom" constant="8" id="uO5-04-Num"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="-45" y="405"/>
+        </view>
+    </objects>
+</document>

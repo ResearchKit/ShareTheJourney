@@ -1,0 +1,934 @@
+{
+  "name" : "BCS Background Survey",
+    "type" : "Survey",
+  "identifier" : "BCSbackgroundSurvey",
+  "questions" : 
+    
+    [
+     
+        
+             {
+            "guid": "b7a0c639-82fd-4291-8892-d4bec3600fb6",
+            "identifier": "BCPT2",
+            "type": "SurveyQuestion",
+            "detail": "What category below best describes your racial/ethnic background? If you are of mixed racial/ethnic background, choose the category with which you most closely identify",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "White",
+                        "value": "White",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "African American/Black",
+                        "value": "African American/Black",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Asian (Chinese, Japanese, Korean, South East Asian, Filipino)",
+                        "value": "Asian (Chinese, Japanese, Korean, South East Asian, Filipino)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Native Hawaiian or Other Pacific Islander",
+                        "value": "Native Hawaiian or Other Pacific Islander",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Native American/Alaska Native (American Indian, Aleutian, Eskimo)",
+                        "value": "Native American/Alaska Native (American Indian, Aleutian, Eskimo)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Indian Subcontinent",
+                        "value": "Indian Subcontinent",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Other",
+                        "value": "Other",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don't know",
+                        "value": "Don't know",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "fa82f020-4b9c-4735-bc41-7631154512fa",
+            "identifier": "BCPT3",
+            "type": "SurveyQuestion",
+            "detail": "Are you Hispanic or Latina?",
+            "constraints": {
+                "dataType": "boolean",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "true",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "false",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "fe9019ae-19e4-4bb0-b310-c1343eb90418",
+            "identifier": "BCPT4",
+            "type": "SurveyQuestion",
+            "detail": "What is your current marital/relationship status?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Married",
+                        "value": "Married",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Divorced",
+                        "value": "Divorced",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Widowed",
+                        "value": "Widowed",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Legally separated",
+                        "value": "Legally separated",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Married but not living with spouse",
+                        "value": "Married but not living with spouse",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Committed relationship (partner opposite sex)",
+                        "value": "Committed relationship (partner opposite sex)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Committed relationship (partner same sex)",
+                        "value": "Committed relationship (partner same sex)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Single (never married)",
+                        "value": "Single (never married)",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "16269a35-a2a2-4e03-8f08-892da9c78495",
+            "identifier": "BCPT5",
+            "type": "SurveyQuestion",
+            "detail": "What category below best describes the highest level of formal education you have completed?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Grade school (1-8 years)",
+                        "value": "Grade school (1-8 years)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Some high school (9-11 years)",
+                        "value": "Some high school (9-11 years)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "High school graduate or GED (12 years)",
+                        "value": "High school graduate or GED (12 years)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Vocational or training school after high school graduation",
+                        "value": "Vocational or training school after high school graduation",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Some college",
+                        "value": "Some college",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Associate Degree (A.D. or A.A.)",
+                        "value": "Associate Degree (A.D. or A.A.)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "College graduate (B.A. or B.S.)",
+                        "value": "College graduate (B.A. or B.S.)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Some college or professional school after college graduation",
+                        "value": "Some college or professional school after college graduation",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Completed Master#s Degree (M.A., M.S., M.P.H., M.S.W., M.Div., etc.)",
+                        "value": "Completed Master#s Degree (M.A., M.S., M.P.H., M.S.W., M.Div., etc.)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Completed Doctoral Degree (Ph.D., M.D., D.D.S., J.D., etc.)",
+                        "value": "Completed Doctoral Degree (Ph.D., M.D., D.D.S., J.D., etc.)",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "8ce0571a-da27-4b22-a816-4b742de9dd01",
+            "identifier": "BCPT6",
+            "type": "SurveyQuestion",
+            "detail": "What is your current employment status?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Employed full-time (including self-employed)",
+                        "value": "Employed full-time (including self-employed)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Employed part-time (including self-employed)",
+                        "value": "Employed part-time (including self-employed)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Full-time homemaker",
+                        "value": "Full-time homemaker",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Full-time or part-time volunteer",
+                        "value": "Full-time or part-time volunteer",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Full-time or part-time student",
+                        "value": "Full-time or part-time student",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "On temporary medical leave",
+                        "value": "On temporary medical leave",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Retired",
+                        "value": "Retired",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Unemployed",
+                        "value": "Unemployed",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Permanently disabled",
+                        "value": "Permanently disabled",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "1e6e377f-93f0-49ea-bd5a-253766983cb3",
+            "identifier": "BCPT7",
+            "type": "SurveyQuestion",
+            "detail": "Check one income range that best describes your family's total income before taxes for the previous year, including salaries, wages, tips, social security, welfare and any other income.",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Under $15,000",
+                        "value": "Under $15,000",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "$15,001 - $30,000",
+                        "value": "$15,001 - $30,000",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "$30,001 - $60,000",
+                        "value": "$30,001 - $60,000",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "$60,001 - $100,000",
+                        "value": "$60,001 - $100,000",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Over $100,000",
+                        "value": "Over $100,000",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "a31fde51-e443-4f8b-a6ec-994af17450dd",
+            "identifier": "BCPTHealth0",
+            "type": "SurveyQuestion",
+            "detail": "Have you been treated for breast cancer?",
+            "constraints": {
+                "dataType": "boolean",
+                "rules": [
+                    {
+                        "operator": "ne",
+                        "value": "true",
+                        "skipTo": "BCPTHealth12",
+                        "type": "SurveyRule"
+                    },
+                    {
+                        "operator": "de",
+                        "value": "true",
+                        "skipTo": "BCPTHealth12",
+                        "type": "SurveyRule"
+                    }
+                ],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "true",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "false",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "97f70985-184d-4f6b-8d08-58e14a62750a",
+            "identifier": "BCPTHealth1",
+            "type": "SurveyQuestion",
+            "detail": "What was the month and year of your initial breast cancer diagnosis (date of 1st cancer biopsy)?",
+            "constraints": {
+                "dataType": "date",
+                "rules": [],
+                "allowFuture":false,
+                "type": "DateConstraints"
+            },
+            "uiHint": "datepicker"
+        },
+        {
+            "guid": "8c0d66a7-cc20-4ffd-bb8e-7756af2586d8",
+            "identifier": "BCPTHealth2",
+            "type": "SurveyQuestion",
+            "detail": "In which breast(s) was your cancer diagnosed?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Right",
+                        "value": "Right",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Left",
+                        "value": "Left",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Both",
+                        "value": "Both",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "b4f4adfd-4bc5-4fd4-8794-cae08e2251ba",
+            "identifier": "BCPTHealth3",
+            "type": "SurveyQuestion",
+            "detail": "What type(s) of surgery have you had for your breast cancer?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Lumpectomy (left)",
+                        "value": "Lumpectomy (left)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Lumpectomy (right)",
+                        "value": "Lumpectomy (right)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Sentinel node biopsy (left)",
+                        "value": "Sentinel node biopsy (left)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Sentinel node biopsy (right)",
+                        "value": "Sentinel node biopsy (right)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Axillary node dissection (left)",
+                        "value": "Axillary node dissection (left)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Axillary node dissection (right)",
+                        "value": "Axillary node dissection (right)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Mastectomy (left)",
+                        "value": "Mastectomy (left)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Mastectomy (right)",
+                        "value": "Mastectomy (right)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Mastectomy with immediate reconstruction (left)",
+                        "value": "Mastectomy with immediate reconstruction (left)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Mastectomy with immediate reconstruction (right)",
+                        "value": "Mastectomy with immediate reconstruction (right)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Expander with later breast reconstruction planned (left)",
+                        "value": "Expander with later breast reconstruction planned (left)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Expander with later breast reconstruction planned (right)",
+                        "value": "Expander with later breast reconstruction planned (right)",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": true,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "list"
+        },
+        {
+            "guid": "199273e5-5a0f-4a30-8529-8a2c78ce57de",
+            "identifier": "BCPTHealth4",
+            "type": "SurveyQuestion",
+            "detail": "Did you receive chemotherapy after your breast cancer diagnosis or surgery?",
+            "constraints": {
+                "dataType": "boolean",
+                "rules": [
+                    {
+                        "operator": "ne",
+                        "value": "true",
+                        "skipTo": "BCPTHealth5",
+                        "type": "SurveyRule"
+                    },
+                    {
+                        "operator": "de",
+                        "value": "true",
+                        "skipTo": "BCPTHealth5",
+                        "type": "SurveyRule"
+                    }
+                ],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "true",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "false",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "b220100f-2c60-4733-867c-8cc3c62ccf1b",
+            "identifier": "BCPTHealth4a",
+            "type": "SurveyQuestion",
+            "detail": "When did you last have chemotherapy?",
+            "constraints": {
+                "dataType": "date",
+                "rules": [],
+                "allowFuture": false,
+                "type": "DateConstraints"
+            },
+            "uiHint": "datepicker"
+        },
+        {
+            "guid": "6d6c8953-9c54-4f86-9e53-81711d432404",
+            "identifier": "BCPTHealth4b",
+            "type": "SurveyQuestion",
+            "detail": "What kind of chemotherapy treatment did you have?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "TC (Taxotere and Cytoxan)",
+                        "value": "TC (Taxotere and Cytoxan)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "TAC (Taxotere, Adriamycin, and Cytoxan)",
+                        "value": "TAC (Taxotere, Adriamycin, and Cytoxan)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "CMF (Cytoxan, Methotrexate and 5FU)",
+                        "value": "CMF (Cytoxan, Methotrexate and 5FU)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "CMF+A (Cytoxan, Methotrexate, 5FU and Adriamycin)",
+                        "value": "CMF+A (Cytoxan, Methotrexate, 5FU and Adriamycin)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "AC (Adriamycin and Cytoxan)",
+                        "value": "AC (Adriamycin and Cytoxan)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "FAC or CAF (Cytoxan, Adriamycin and 5FU)",
+                        "value": "FAC or CAF (Cytoxan, Adriamycin and 5FU)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "AC+Taxol (Adriamycin, Cytoxan and Taxol)",
+                        "value": "AC+Taxol (Adriamycin, Cytoxan and Taxol)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "CEF or FEC (5FU, Epirubicin and Cytoxan)",
+                        "value": "CEF or FEC (5FU, Epirubicin and Cytoxan)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "TC (Taxotere and Carboplatin)",
+                        "value": "TC (Taxotere and Carboplatin)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Some other chemotherapy not listed above",
+                        "value": "Some other chemotherapy not listed above",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "af879e80-45ef-4caf-8302-42e884d1afbe",
+            "identifier": "BCPTHealth5",
+            "type": "SurveyQuestion",
+            "detail": "Did you receive or are you currently receiving Herceptin (trastuzumab) or some other form of therapy that targets HER2 overexpression in your tumor?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes, Herceptin",
+                        "value": "Yes, Herceptin",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, some other therapy",
+                        "value": "Yes, some other therapy",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "No",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "f179373a-1e8b-4812-ac92-929ff5f8369a",
+            "identifier": "BCPTHealth6",
+            "type": "SurveyQuestion",
+            "detail": "Did you receive radiation as part of your breast cancer treatment?",
+            "constraints": {
+                "dataType": "boolean",
+                "rules": [
+                    {
+                        "operator": "ne",
+                        "value": "true",
+                        "skipTo": "BCPTHealth7",
+                        "type": "SurveyRule"
+                    },
+                    {
+                        "operator": "de",
+                        "value": "true",
+                        "skipTo": "BCPTHealth7",
+                        "type": "SurveyRule"
+                    }
+                ],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "true",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "false",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "3b63a3af-ed4a-46a3-b264-c62d699295ac",
+            "identifier": "BCPTHealth6a",
+            "type": "SurveyQuestion",
+            "detail": "When did you last have radiation?",
+            "constraints": {
+                "dataType": "date",
+                "rules": [],
+                "allowFuture": false,
+                "type": "DateConstraints"
+            },
+            "uiHint": "datepicker"
+        },
+        {
+            "guid": "571ca107-61f7-4188-b26f-e9a798ceb4bc",
+            "identifier": "BCPTHealth7",
+            "type": "SurveyQuestion",
+            "detail": "Did you receive an endocrine therapy in the past for chemoprevention?",
+            "constraints": {
+                "dataType": "boolean",
+                "rules": [
+                    {
+                        "operator": "ne",
+                        "value": "true",
+                        "skipTo": "BCPTHealth8",
+                        "type": "SurveyRule"
+                    },
+                    {
+                        "operator": "de",
+                        "value": "true",
+                        "skipTo": "BCPTHealth8",
+                        "type": "SurveyRule"
+                    }
+                ],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "true",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "false",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "510b2a73-4b7d-4a91-b0a7-1ffe5bba33d5",
+            "identifier": "BCPTHealth7a",
+            "type": "SurveyQuestion",
+            "detail": "What drug did you use for chemoprevention?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Tamoxifen",
+                        "value": "Tamoxifen",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Raloxifene (Evista)",
+                        "value": "Raloxifene (Evista)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Aromatase inhibitor",
+                        "value": "Aromatase inhibitor",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "2a86bc73-2c76-49ec-84a9-6604b5914c78",
+            "identifier": "BCPTHealth7b",
+            "type": "SurveyQuestion",
+            "detail": "When did you last take a drug for chemoprevention?",
+            "constraints": {
+                "dataType": "date",
+                "rules": [],
+                "allowFuture": false,
+                "type": "DateConstraints"
+            },
+            "uiHint": "datepicker"
+        },
+        {
+            "guid": "b41154d7-d26f-4cd6-856b-632a50564d07",
+            "identifier": "BCPTHealth8",
+            "type": "SurveyQuestion",
+            "detail": "Are you receiving endocrine therapy for breast cancer now (tamoxifen, ovarian suppression, Femara (letrozole), Anastrozole (arimidex), Aromasin (exemestane)?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "Yes",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "No",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don't Know",
+                        "value": "Don't Know",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "62231d7e-4a0c-497f-b476-b5d964b6d0b9",
+            "identifier": "BCPTHealth9",
+            "type": "SurveyQuestion",
+            "detail": "Have you ever taken hormone replacement therapy (estrogen in any form, other than birth control pills)?",
+            "constraints": {
+                "dataType": "boolean",
+                "rules": [
+                    {
+                        "operator": "ne",
+                        "value": "true",
+                        "skipTo": "BCPTHealth12",
+                        "type": "SurveyRule"
+                    },
+                    {
+                        "operator": "de",
+                        "value": "true",
+                        "skipTo": "BCPTHealth12",
+                        "type": "SurveyRule"
+                    }
+                ],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "true",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "false",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "de4ac521-981a-48be-baf4-eb5334b068a1",
+            "identifier": "BCPTHealth9a",
+            "type": "SurveyQuestion",
+            "detail": "When did you last have hormone replacement therapy?",
+            "constraints": {
+                "dataType": "date",
+                "rules": [],
+                "allowFuture": false,
+                "type": "DateConstraints"
+            },
+            "uiHint": "datepicker"
+        },
+        {
+            "guid": "e41f76c1-6498-4f2a-9d46-6119ee178c0d",
+            "identifier": "BCPTHealth12",
+            "type": "SurveyQuestion",
+            "detail": "Do you currently have any of the following conditions?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Allergies",
+                        "value": "Allergies",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Arthritis",
+                        "value": "Arthritis",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Asthma",
+                        "value": "Asthma",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Diabetes",
+                        "value": "Diabetes",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Glaucoma",
+                        "value": "Glaucoma",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Frequent headaches/migraines",
+                        "value": "Frequent headaches/migraines",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Heart disease (heart attack, angina, heart failure)",
+                        "value": "Heart disease (heart attack, angina, heart failure)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "High blood pressure",
+                        "value": "High blood pressure",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Osteopenia or osteoporosis requiring medication",
+                        "value": "Osteopenia or osteoporosis requiring medication",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Thyroid problems",
+                        "value": "Thyroid problems",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderate to severe psychological difficulties (such as depression, anxiety, recent suicide attempts, or recent mental health hospitalization)",
+                        "value": "Moderate to severe psychological difficulties (such as depression, anxiety, recent suicide attempts, or recent mental health hospitalization)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Problems with alcohol",
+                        "value": "Problems with alcohol",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Problems with drug use or dependence (either prescription or street drugs)",
+                        "value": "Problems with drug use or dependence (either prescription or street drugs)",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Other medical conditions",
+                        "value": "Other medical conditions",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "I do not have any of these conditions",
+                        "value": "I do not have any of these conditions",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": true,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "list"
+        }
+    ]
+}

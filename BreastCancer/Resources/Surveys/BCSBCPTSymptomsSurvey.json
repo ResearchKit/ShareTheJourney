@@ -1,0 +1,829 @@
+{
+	"name" : "BCS Symptoms Survey",
+    "type" : "Survey",
+  	"identifier" : "BCSSymptomsSurvey",
+  	"questions" : 
+    
+     [
+        {
+            "guid": "8d1bbcac-9205-47d5-a9cb-4015e0d5d15a",
+            "identifier": "q58a",
+            "type": "SurveyQuestion",
+            "detail": "Have hot flashes bothered you in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "3e19223f-8408-42f1-904b-f5a4e2825000",
+            "identifier": "q58b",
+            "type": "SurveyQuestion",
+            "detail": "Has nausea bothered you in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "f821413a-6de3-4870-9430-a5125493f45f",
+            "identifier": "q58c",
+            "type": "SurveyQuestion",
+            "detail": "Has vomiting bothered you in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "920657c6-7f58-471c-a8b1-0929c0a958f1",
+            "identifier": "q58d",
+            "type": "SurveyQuestion",
+            "detail": "Have you had difficulty with bladder control when laughing or crying in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "72ec4296-84d8-4c0c-9579-95b3762a2b5e",
+            "identifier": "q58e",
+            "type": "SurveyQuestion",
+            "detail": "Have you had difficulty with bladder control at other times in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "80ca3b7d-b719-47da-9de2-591595112487",
+            "identifier": "q58f",
+            "type": "SurveyQuestion",
+            "detail": "Have you had vaginal dryness in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "5f3a74ee-aaee-4d78-9ce6-6051df242db9",
+            "identifier": "q58g",
+            "type": "SurveyQuestion",
+            "detail": "Have you had pain with intercourse in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "89cb9db8-fdbd-4339-9d71-82485817c8be",
+            "identifier": "q58h",
+            "type": "SurveyQuestion",
+            "detail": "Have you had general aches and pains in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "a183b1ef-3413-42f2-98c1-278581c91934",
+            "identifier": "q58i",
+            "type": "SurveyQuestion",
+            "detail": "Have you had joint pains in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "75cdfbaf-7f4f-4e71-88c3-572e48d57884",
+            "identifier": "q58j",
+            "type": "SurveyQuestion",
+            "detail": "Have you had muscle stiffness in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "d702a145-4e24-44cd-9157-0a6fb443b43d",
+            "identifier": "q58k",
+            "type": "SurveyQuestion",
+            "detail": "Have you had weight gain in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "666cc3da-81f5-4584-ae2f-9c686a41c024",
+            "identifier": "q58l",
+            "type": "SurveyQuestion",
+            "detail": "Have you been unhappy with the appearance of your body in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "7ce6be20-2fed-4f88-b530-2b9bc5407931",
+            "identifier": "q58m",
+            "type": "SurveyQuestion",
+            "detail": "Have you experienced forgetfulness in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "5edbca2e-2b70-4088-9774-8a23f2a1c80a",
+            "identifier": "q58n",
+            "type": "SurveyQuestion",
+            "detail": "Have you had night sweats in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "d12247d4-d812-48d0-9d58-9673cadcdc45",
+            "identifier": "q58o",
+            "type": "SurveyQuestion",
+            "detail": "Have you had difficulty concentrating in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "de3d262e-989c-4818-9992-795649ad0949",
+            "identifier": "q58p",
+            "type": "SurveyQuestion",
+            "detail": "Have you been easily distracted in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "a25a27a1-1c0b-49f7-9ced-65057f95461e",
+            "identifier": "q58q",
+            "type": "SurveyQuestion",
+            "detail": "Have you had a lack of interest in sex in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "a3893bbb-2687-47eb-9257-208297fa44bf",
+            "identifier": "q58r",
+            "type": "SurveyQuestion",
+            "detail": "Have you experienced low sexual enjoyment in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "48c7123a-990d-420c-9b78-d17f227b4ed3",
+            "identifier": "q58s",
+            "type": "SurveyQuestion",
+            "detail": "Have you had arm swelling (lymphedema) in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "1e647fb1-9e3a-4b4c-8f53-5762d7fa65e4",
+            "identifier": "q58t",
+            "type": "SurveyQuestion",
+            "detail": "Have you had decreased range of motion in the arm on surgery side in the last week?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        }
+    ]
+}

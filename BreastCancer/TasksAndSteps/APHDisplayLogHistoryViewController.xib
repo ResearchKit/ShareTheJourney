@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="APHDisplayLogHistoryViewController">
+            <connections>
+                <outlet property="dateLabel" destination="nfq-NT-OI9" id="eL4-3w-Nej"/>
+                <outlet property="textView" destination="M2G-sK-qVS" id="H2e-yu-AUl"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfq-NT-OI9" userLabel="Date">
+                    <rect key="frame" x="10" y="44" width="289" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="DW8-3f-6ze"/>
+                        <constraint firstAttribute="width" constant="289" id="eQw-cu-WTl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2G-sK-qVS">
+                    <rect key="frame" x="5" y="87" width="306" height="461"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="nfq-NT-OI9" firstAttribute="leading" secondItem="M2G-sK-qVS" secondAttribute="leading" constant="5" id="30f-0r-lpj"/>
+                <constraint firstItem="nfq-NT-OI9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="CBD-Wt-h38"/>
+                <constraint firstAttribute="centerX" secondItem="M2G-sK-qVS" secondAttribute="centerX" constant="2" id="KwM-gO-upJ"/>
+                <constraint firstAttribute="bottom" secondItem="M2G-sK-qVS" secondAttribute="bottom" constant="20" id="Mlo-gx-fqP"/>
+                <constraint firstItem="M2G-sK-qVS" firstAttribute="top" secondItem="nfq-NT-OI9" secondAttribute="bottom" constant="22" id="TFW-zV-L6t"/>
+                <constraint firstItem="nfq-NT-OI9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="ue8-A0-s7V"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

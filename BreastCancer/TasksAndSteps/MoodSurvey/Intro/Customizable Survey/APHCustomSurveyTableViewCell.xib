@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="APHCustomSurveyTableViewCellIdentifier" id="KGk-i7-Jjw" customClass="APHCustomSurveyTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHn-Of-w0X">
+                        <rect key="frame" x="72.5" y="197" width="175" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="K47-a4-hKU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <state key="normal" title="Customize your survey">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdi-1d-8eR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customized survey" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4J-k6-3ur">
+                        <rect key="frame" x="85" y="87" width="151" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="59F-bM-eoP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have the ability to create your own survey question which will be included at the end. Tap here to enter your question." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dde-Lu-VeG">
+                        <rect key="frame" x="18" y="111" width="284" height="76.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.63921568627450975" green="0.63921568627450975" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="xdi-1d-8eR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="5lF-rg-Ugv"/>
+                    <constraint firstAttribute="centerY" secondItem="kHn-Of-w0X" secondAttribute="centerY" constant="-69.25" id="8U7-1u-yvj"/>
+                    <constraint firstItem="b4J-k6-3ur" firstAttribute="top" secondItem="xdi-1d-8eR" secondAttribute="bottom" constant="20" id="9gQ-gg-pMI"/>
+                    <constraint firstItem="b4J-k6-3ur" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="77" id="DMO-OM-HvD"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="b4J-k6-3ur" secondAttribute="trailing" constant="76.5" id="GJJ-Bd-N5p"/>
+                    <constraint firstItem="dde-Lu-VeG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="KnU-4j-gaQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="xdi-1d-8eR" secondAttribute="trailing" constant="-8" id="TSC-PB-kup"/>
+                    <constraint firstItem="dde-Lu-VeG" firstAttribute="top" secondItem="b4J-k6-3ur" secondAttribute="bottom" constant="4" id="Url-xs-Bmt"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="dde-Lu-VeG" secondAttribute="bottom" constant="103.5" id="f1Q-Ob-3BY"/>
+                    <constraint firstAttribute="centerX" secondItem="kHn-Of-w0X" secondAttribute="centerX" id="h4H-2O-DUt"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="dde-Lu-VeG" secondAttribute="trailing" constant="10" id="taE-wH-Kkf"/>
+                    <constraint firstItem="xdi-1d-8eR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="y51-hR-yqJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="customizeSurveyButton" destination="kHn-Of-w0X" id="agV-gn-UCh"/>
+            </connections>
+            <point key="canvasLocation" x="339" y="210"/>
+        </tableViewCell>
+    </objects>
+</document>
