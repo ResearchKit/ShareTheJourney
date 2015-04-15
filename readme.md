@@ -29,7 +29,7 @@ Building the App
 First, check out the source, including all the dependencies:
 
 ```
-git clone --recurse-submodules git@github.com:ResearchKit/ShareTheJourney.git
+git clone --recurse-submodules https://github.com/ResearchKit/ShareTheJourney.git
 ```
 
 ###Building it
