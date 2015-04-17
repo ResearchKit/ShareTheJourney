@@ -762,7 +762,6 @@
 				F534B58019E4681E00C3C152 /* Frameworks */,
 				F534B58119E4681E00C3C152 /* Resources */,
 				F534B70719E4697E00C3C152 /* Embed Frameworks */,
-				F53F27B31A2D37B200A1D725 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -938,22 +937,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		F53F27B31A2D37B200A1D725 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "${SRCROOT}/AppCore/APCAppCore/APCAppCore/Resources/get_debug_ip_address.sh";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F534B57F19E4681E00C3C152 /* Sources */ = {
