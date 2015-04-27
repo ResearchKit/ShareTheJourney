@@ -147,7 +147,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     {
         ORKInstructionStep *step = [[ORKInstructionStep alloc] initWithIdentifier:kCustomMoodSurveyStep101];
         step.title = NSLocalizedString(@"Customize Survey", @"");
-        step.detailText = NSLocalizedString(@"You now have the ability to create your own survey question. Tap next to enter your question.", @"");
+        step.detailText = NSLocalizedString(@"You now have the ability to create your own survey question. Tap Get Started to enter your question.", @"");
 
         [steps addObject:step];
     }

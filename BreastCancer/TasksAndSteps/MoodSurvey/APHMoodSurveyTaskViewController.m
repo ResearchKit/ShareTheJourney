@@ -83,7 +83,11 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
                 ORKChoiceQuestionResult *questionResult = stepResult.results.firstObject;
                 
                 if (questionResult.choiceAnswers != nil) {
-                    resultCollectionDictionary[stepResult.identifier] = (NSNumber *)[questionResult.choiceAnswers firstObject];
+                    id selectedAnswer = [questionResult.choiceAnswers firstObject];
+                    
+                    if (selectedAnswer) {
+                        resultCollectionDictionary[stepResult.identifier] = (NSNumber *)selectedAnswer;
+                    }
                 }
             }
         }

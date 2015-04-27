@@ -83,6 +83,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 @interface APHAppDelegate ()
 
 @property (nonatomic, strong) APHProfileExtender *profileExtender;
+@property  (nonatomic, assign)  NSInteger environment;
 
 @end
 
@@ -102,10 +103,16 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                               };
     
     NSMutableDictionary * dictionary = [super defaultInitializationOptions];
+#ifdef DEBUG
+    self.environment = SBBEnvironmentStaging;
+#else
+    self.environment = SBBEnvironmentProd;
+#endif
+    
     [dictionary addEntriesFromDictionary:@{
                                            kStudyIdentifierKey                  : kStudyIdentifier,
                                            kAppPrefixKey                        : kAppPrefix,
-                                           kBridgeEnvironmentKey                : @(SBBEnvironmentProd),
+                                           kBridgeEnvironmentKey                : @(self.environment),
                                            kHKReadPermissionsKey                : @[
                                                    HKQuantityTypeIdentifierBodyMass,
                                                    HKQuantityTypeIdentifierHeight,
