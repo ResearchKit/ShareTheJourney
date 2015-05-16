@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D87p" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5ya-wm-7z7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5ya-wm-7z7">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -210,7 +210,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Score: 222" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVU-hP-Xp5">
-                                            <rect key="frame" x="17" y="38" width="302" height="21"/>
+                                            <rect key="frame" x="16" y="38" width="303" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="5bz-E3-XK6"/>
                                             </constraints>
@@ -253,6 +253,19 @@
                                                 <constraint firstAttribute="height" constant="25" id="jFR-7v-xQQ"/>
                                             </constraints>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ga-qW-eAx">
+                                            <rect key="frame" x="16" y="37" width="300" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="Hu2-GS-6uu"/>
+                                                <constraint firstAttribute="width" constant="300" id="Nhs-SL-Qe8"/>
+                                            </constraints>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="legendLabelTapped:" destination="qzc-EF-HVO" eventType="touchUpInside" id="Qgn-iL-vHh"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -261,6 +274,7 @@
                                         <constraint firstAttribute="trailing" secondItem="D4R-mv-tub" secondAttribute="trailing" id="16v-7D-1Ly"/>
                                         <constraint firstItem="q5J-At-HhQ" firstAttribute="top" secondItem="Wcx-DF-WGw" secondAttribute="topMargin" constant="-8" id="4DX-37-F9C"/>
                                         <constraint firstItem="9pK-eo-cee" firstAttribute="leading" secondItem="ojs-Cx-KBk" secondAttribute="trailing" id="6HM-WD-FtA"/>
+                                        <constraint firstItem="1ga-qW-eAx" firstAttribute="leading" secondItem="ojs-Cx-KBk" secondAttribute="leading" id="7f3-mi-5TG"/>
                                         <constraint firstItem="4Xf-4r-Yt5" firstAttribute="leading" secondItem="Wcx-DF-WGw" secondAttribute="leading" id="8YG-WO-oSj"/>
                                         <constraint firstItem="D4R-mv-tub" firstAttribute="top" secondItem="Wcx-DF-WGw" secondAttribute="topMargin" constant="55" id="8l2-KP-QbZ"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="zad-iD-10e" secondAttribute="bottom" constant="-1" id="BSi-QV-qXT"/>
@@ -269,16 +283,20 @@
                                         <constraint firstItem="fn3-h2-d3O" firstAttribute="top" secondItem="Wcx-DF-WGw" secondAttribute="topMargin" constant="-7" id="FHc-Cx-v9B"/>
                                         <constraint firstItem="ojs-Cx-KBk" firstAttribute="top" secondItem="Wcx-DF-WGw" secondAttribute="topMargin" id="GI5-PA-qZP"/>
                                         <constraint firstItem="CVU-hP-Xp5" firstAttribute="leading" secondItem="Wcx-DF-WGw" secondAttribute="leadingMargin" constant="9" id="JA9-E9-OS1"/>
+                                        <constraint firstItem="1ga-qW-eAx" firstAttribute="top" secondItem="ojs-Cx-KBk" secondAttribute="bottom" constant="3" id="Ka7-oX-480"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="4Xf-4r-Yt5" secondAttribute="bottom" constant="-8" id="LVV-13-KbO"/>
                                         <constraint firstAttribute="trailing" secondItem="4Xf-4r-Yt5" secondAttribute="trailing" id="MWx-Cw-YfE"/>
+                                        <constraint firstItem="CVU-hP-Xp5" firstAttribute="leading" secondItem="ojs-Cx-KBk" secondAttribute="leading" id="Ncg-qI-1c7"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="fn3-h2-d3O" secondAttribute="bottom" constant="-1" id="OfY-CY-Hgj"/>
                                         <constraint firstItem="CVU-hP-Xp5" firstAttribute="leading" secondItem="34r-p1-WsD" secondAttribute="leading" constant="-70" id="P1X-2I-bso"/>
                                         <constraint firstItem="D4R-mv-tub" firstAttribute="leading" secondItem="Wcx-DF-WGw" secondAttribute="leading" constant="4" id="Rzu-SE-OPV"/>
                                         <constraint firstItem="CVU-hP-Xp5" firstAttribute="top" secondItem="ojs-Cx-KBk" secondAttribute="bottom" constant="4" id="SEg-NC-bQh"/>
                                         <constraint firstItem="34r-p1-WsD" firstAttribute="top" secondItem="ojs-Cx-KBk" secondAttribute="bottom" constant="3" id="TZt-IZ-VtY"/>
                                         <constraint firstItem="ojs-Cx-KBk" firstAttribute="leading" secondItem="Wcx-DF-WGw" secondAttribute="leadingMargin" constant="8" id="WXU-Ui-fCW"/>
+                                        <constraint firstItem="CVU-hP-Xp5" firstAttribute="leading" secondItem="34r-p1-WsD" secondAttribute="trailing" constant="-96" id="Ya7-yR-dsy"/>
                                         <constraint firstItem="19c-eK-UyP" firstAttribute="leading" secondItem="Wcx-DF-WGw" secondAttribute="leading" constant="4" id="Zrn-p6-nOg"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Nsm-cP-VsS" secondAttribute="trailing" constant="2" id="cZi-uF-BlE"/>
+                                        <constraint firstItem="1ga-qW-eAx" firstAttribute="leading" secondItem="ojs-Cx-KBk" secondAttribute="leading" id="izo-eg-xAq"/>
                                         <constraint firstItem="fn3-h2-d3O" firstAttribute="leading" secondItem="Wcx-DF-WGw" secondAttribute="leading" id="jlI-kC-3ck"/>
                                         <constraint firstItem="q5J-At-HhQ" firstAttribute="leading" secondItem="Wcx-DF-WGw" secondAttribute="leading" id="k0n-zC-JTQ"/>
                                         <constraint firstItem="19c-eK-UyP" firstAttribute="top" secondItem="Wcx-DF-WGw" secondAttribute="topMargin" constant="55" id="nwf-ZV-wqH"/>
@@ -286,13 +304,23 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="CVU-hP-Xp5" secondAttribute="trailing" constant="48" id="oPP-g4-NbV"/>
                                         <constraint firstItem="zad-iD-10e" firstAttribute="leading" secondItem="Wcx-DF-WGw" secondAttribute="leading" id="r2R-2O-xGw"/>
                                         <constraint firstAttribute="trailing" secondItem="zad-iD-10e" secondAttribute="trailing" id="tZz-AT-x4X"/>
+                                        <constraint firstItem="1ga-qW-eAx" firstAttribute="leading" secondItem="Wcx-DF-WGw" secondAttribute="leadingMargin" constant="8" id="vyk-Nl-UIq"/>
                                         <constraint firstItem="9pK-eo-cee" firstAttribute="top" secondItem="Wcx-DF-WGw" secondAttribute="topMargin" id="z5m-S6-Epf"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="7f3-mi-5TG"/>
+                                            <exclude reference="izo-eg-xAq"/>
+                                            <exclude reference="JA9-E9-OS1"/>
+                                            <exclude reference="P1X-2I-bso"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="averageImageView" destination="34r-p1-WsD" id="EM1-do-ayj"/>
                                     <outlet property="discreteGraphView" destination="19c-eK-UyP" id="T2u-47-JEO"/>
                                     <outlet property="infoButton" destination="9pK-eo-cee" id="Wdu-zF-BG2"/>
+                                    <outlet property="legendButton" destination="1ga-qW-eAx" id="lCc-h6-rnV"/>
                                     <outlet property="lineGraphView" destination="D4R-mv-tub" id="xpd-4c-Le3"/>
                                     <outlet property="resizeButton" destination="Nsm-cP-VsS" id="kSK-oL-Ou7"/>
                                     <outlet property="subTitleLabel" destination="CVU-hP-Xp5" id="6MX-3f-vNc"/>

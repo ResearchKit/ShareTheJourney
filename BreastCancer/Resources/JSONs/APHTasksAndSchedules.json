@@ -1,6 +1,12 @@
 {
     "tasks": [
               {
+              "taskTitle": "Weekly Exercise Check-in",
+              "taskID": "a-APHWeeklyExerciseSurvey-1259AC11-A719-17A9-ZDBA-FCFCECDED1D6",
+              "taskClassName": "APHExerciseCheckInTaskViewController",
+              "taskCompletionTimeString" : "1 Minutes"
+              },
+              {
               "taskTitle": "Daily Check-in",
               "taskID": "3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF",
               "taskClassName": "APHMoodSurveyTaskViewController",
@@ -39,6 +45,13 @@
               "taskCompletionTimeString" : "(One Time) 23 Questions"
               },
               {
+              "taskTitle" : "Symptoms Survey",
+              "taskID": "2-BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+              "taskFileName" : "BCSBCPTSymptomsSurvey",
+              "taskClassName" : "APCGenericSurveyTaskViewController",
+              "taskCompletionTimeString" : "20 Questions"
+              },
+              {
               "taskTitle" : "Weekly Survey",
               "taskID": "c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSWeeklySurvey",
@@ -47,6 +60,11 @@
               }
               ],
     "schedules": [
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "a-APHWeeklyExerciseSurvey-1259AC11-A719-17A9-ZDBA-FCFCECDED1D6",
+                  },
                   {
                   "scheduleType": "recurring",
                   "scheduleString": "0 5 * * *",
@@ -73,8 +91,13 @@
                   "taskID": "8-Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   },
                   {
-                  "scheduleType": "recurring",
+                  "scheduleType": "once",
                   "scheduleString": "0 5 * * *",
+                  "taskID": "2-BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * FRI",
                   "taskID": "c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   },
                   {

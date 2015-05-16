@@ -2,34 +2,34 @@
 //  APHDashboardViewController.m 
 //  Share the Journey 
 // 
-// Copyright (c) 2015, Sage Bionetworks, Inc.
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without modification, 
+// Copyright (c) 2015, Sage Bionetworks. All rights reserved. 
+// 
+// Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
-//
-// 1. Redistributions of source code must retain the above copyright notice, this 
+// 
+// 1.  Redistributions of source code must retain the above copyright notice, this
 // list of conditions and the following disclaimer.
-//
-// 2. Redistributions in binary form must reproduce the above copyright notice,
-// this list of conditions and the following disclaimer in the documentation and/or
-// other materials provided with the distribution.
-//
-// 3. Neither the name of the copyright holder nor the names of its contributors 
+// 
+// 2.  Redistributions in binary form must reproduce the above copyright notice, 
+// this list of conditions and the following disclaimer in the documentation and/or 
+// other materials provided with the distribution. 
+// 
+// 3.  Neither the name of the copyright holder(s) nor the names of any contributors 
 // may be used to endorse or promote products derived from this software without 
-// specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
+// specific prior written permission. No license is granted to the trademarks of 
+// the copyright holders even if such marks are included in this software. 
+// 
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE 
+// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR 
+// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
+// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+// 
  
 /* Controllers */
 #import "APHDashboardViewController.h"
@@ -39,7 +39,7 @@
 static NSString * const kAPCBasicTableViewCellIdentifier       = @"APCBasicTableViewCell";
 static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetailTableViewCell";
 
-@interface APHDashboardViewController ()<UIViewControllerTransitioningDelegate>
+@interface APHDashboardViewController ()<UIViewControllerTransitioningDelegate, APCCorrelationsSelectorDelegate>
 
 @property (nonatomic, strong) NSMutableArray *rowItemsOrder;
 
@@ -71,7 +71,8 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                                                                      @(kAPHDashboardItemTypeDailyEnergy),
                                                                      @(kAPHDashboardItemTypeDailyExercise),
                                                                      @(kAPHDashboardItemTypeDailySleep),
-                                                                     @(kAPHDashboardItemTypeDailyCognitive)
+                                                                     @(kAPHDashboardItemTypeDailyCognitive),
+                                                                     @(kAPHDashboardItemTypeCorrelation)
                                                                     ]];
             
             APCAppDelegate *appDelegate = (APCAppDelegate *)[UIApplication sharedApplication].delegate;
@@ -84,6 +85,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                                                                          @(kAPHDashboardItemTypeDailyExercise),
                                                                          @(kAPHDashboardItemTypeDailySleep),
                                                                          @(kAPHDashboardItemTypeDailyCognitive),
+                                                                         @(kAPHDashboardItemTypeCorrelation),
                                                                          @(kAPHDashboardItemTypeDailyCustom)
                                                                          ]];
             }
@@ -93,7 +95,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
             
         }
         
-        self.title = NSLocalizedString(@"Dashboard", @"Dashboard");
+        self.title = NSLocalizedString(@"Dashboard", nil);
         
     }
     
@@ -105,6 +107,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prepareCorrelatedScoring) name:APCSchedulerUpdatedScheduledTasksNotification object:nil];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -141,8 +144,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
         [defaults synchronize];
     }
     
-    
-    
     [self prepareScoringObjects];
     [self prepareData];
 }
@@ -150,6 +151,10 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 #pragma mark - Data
@@ -163,60 +168,79 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     
     HKQuantityType *stepQuantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
     self.stepScoring= [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType unit:[HKUnit countUnit] numberOfDays:-kNumberOfDaysToDisplay];
+    self.stepScoring.caption = NSLocalizedString(@"Steps", nil);
 
     self.moodScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                            numberOfDays:-kNumberOfDaysToDisplay
-                                                valueKey:@"moodsurvey103"
-                                                dataKey:nil
-                                                sortKey:nil
-                                             groupBy:APHTimelineGroupDay];
+                                           numberOfDays:-kNumberOfDaysToDisplay
+                                               valueKey:@"moodsurvey103"
+                                             latestOnly:NO];
     self.moodScoring.customMinimumPoint = 1.0;
     self.moodScoring.customMaximumPoint = 5.0;
+    self.moodScoring.caption = NSLocalizedString(@"Mood", nil);
     
     self.energyScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey104"
-                                                      dataKey:nil
-                                                      sortKey:nil
-                                                   groupBy:APHTimelineGroupDay];
+                                               latestOnly:NO];
     self.energyScoring.customMinimumPoint = 1.0;
     self.energyScoring.customMaximumPoint = 5.0;
+    self.energyScoring.caption = NSLocalizedString(@"Energy Level", nil);
     
     self.exerciseScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                  numberOfDays:-kNumberOfDaysToDisplay
-                                                      valueKey:@"moodsurvey106"
-                                                        dataKey:nil
-                                                        sortKey:nil
-                                                     groupBy:APHTimelineGroupDay];
+                                               numberOfDays:-kNumberOfDaysToDisplay
+                                                   valueKey:@"moodsurvey106"
+                                                 latestOnly:NO];
     self.exerciseScoring.customMinimumPoint = 1.0;
     self.exerciseScoring.customMaximumPoint = 5.0;
+    self.exerciseScoring.caption = NSLocalizedString(@"Exercise Level", nil);
     
     self.sleepScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                  numberOfDays:-kNumberOfDaysToDisplay
-                                                      valueKey:@"moodsurvey105"
-                                                     dataKey:nil
-                                                     sortKey:nil
-                                                  groupBy:APHTimelineGroupDay];
+                                            numberOfDays:-kNumberOfDaysToDisplay
+                                                valueKey:@"moodsurvey105"
+                                              latestOnly:NO];
     self.sleepScoring.customMinimumPoint = 1.0;
     self.sleepScoring.customMaximumPoint = 5.0;
+    self.sleepScoring.caption = NSLocalizedString(@"Sleep Quality", nil);
     
     self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                  numberOfDays:-kNumberOfDaysToDisplay
-                                                      valueKey:@"moodsurvey102"
-                                                         dataKey:nil
-                                                         sortKey:nil
-                                                      groupBy:APHTimelineGroupDay];
+                                                numberOfDays:-kNumberOfDaysToDisplay
+                                                    valueKey:@"moodsurvey102"
+                                                  latestOnly:NO];
     self.cognitiveScoring.customMinimumPoint = 1.0;
     self.cognitiveScoring.customMaximumPoint = 5.0;
+    self.cognitiveScoring.caption = NSLocalizedString(@"Thinking", nil);
+    
+    if (!self.correlatedScoring) {
+        [self prepareCorrelatedScoring];
+    }
     
     self.customScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                    numberOfDays:-kNumberOfDaysToDisplay
-                                                        valueKey:@"moodsurvey107"
-                                                         dataKey:nil
-                                                         sortKey:nil
-                                                         groupBy:APHTimelineGroupDay];
+                                             numberOfDays:-kNumberOfDaysToDisplay
+                                                 valueKey:@"moodsurvey107"
+                                               latestOnly:NO];
+    
     self.customScoring.customMinimumPoint = 1.0;
     self.customScoring.customMaximumPoint = 5.0;
+    self.customScoring.caption = NSLocalizedString(@"Custom Question", nil);
+    
+}
+
+- (void)prepareCorrelatedScoring{
+    self.correlatedScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                 numberOfDays:-kNumberOfDaysToDisplay
+                                                     valueKey:@"moodsurvey105"
+                                                   latestOnly:NO];
+    
+    [self.correlatedScoring correlateWithScoringObject:[[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                                           numberOfDays:-kNumberOfDaysToDisplay
+                                                                               valueKey:@"moodsurvey104"
+                                                                             latestOnly:NO]];
+    
+    self.correlatedScoring.caption = NSLocalizedString(@"Data Correlations", nil);
+    
+    //default series
+    self.correlatedScoring.series1Name = self.sleepScoring.caption;
+    self.correlatedScoring.series2Name = self.energyScoring.caption;
 }
 
 - (void)prepareData
@@ -234,9 +258,9 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
             item.identifier = kAPCDashboardProgressTableViewCellIdentifier;
             item.editable = NO;
             item.progress = (CGFloat)completedScheduledTasks/allScheduledTasks;
-            item.caption = NSLocalizedString(@"Activity Completion", @"Activity Completion");
+            item.caption = NSLocalizedString(@"Activity Completion", nil);
             
-            item.info = NSLocalizedString(@"The activity completion indicates the percentage of activities scheduled for today that you have completed.  You can complete more by going to the Activities section and tapping on any incomplete task.", @"");
+            item.info = NSLocalizedString(@"The activity completion indicates the percentage of activities scheduled for today that you have completed.  You can complete more by going to the Activities section and tapping on any incomplete task.", nil);
             
             APCTableViewRow *row = [APCTableViewRow new];
             row.item = item;
@@ -253,7 +277,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 case kAPHDashboardItemTypeHealthKitSteps:{
                     
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Steps", @"");
+                    item.caption = self.stepScoring.caption;
                     item.graphData = self.stepScoring;
                     
                     NSNumber *numberOfDataPoints = [self.stepScoring numberOfDataPoints];
@@ -268,7 +292,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
                     
-                    item.info = NSLocalizedString(@"This graph shows the number of steps that you took each day measured by your phone or fitness tracker (if you have one).", @"");
+                    item.info = NSLocalizedString(@"This graph shows the number of steps that you took each day measured by your phone or fitness tracker (if you have one).", nil);
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -280,8 +304,9 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 case kAPHDashboardItemTypeDailyMood:{
                     
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Mood", @"");
+                    item.caption = self.moodScoring.caption;
                     item.graphData = self.moodScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryYellowColor];
@@ -294,10 +319,10 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                     if ([[self.moodScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Mood-%0.0fg", (double) 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
-                        item.detailText = [NSString stringWithFormat: NSLocalizedString(@"Average : ", @"Average:")];
+                        item.detailText = [NSString stringWithFormat: NSLocalizedString(@"Average : ", nil)];
                     }
                     
-                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for mood each day. ", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for mood each day. ", nil);
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -309,8 +334,9 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 case kAPHDashboardItemTypeDailyEnergy:{
 
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Energy Level", @"");
+                    item.caption = self.energyScoring.caption;
                     item.graphData = self.energyScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryGreenColor];
@@ -323,11 +349,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                     if ([[self.energyScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Energy-%0.0fg", (double) 6 - [[self.energyScoring averageDataPoint] doubleValue]]];
-                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"")];
+                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", nil)];
                     }
                     
                     
-                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for energy each day.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for energy each day.", nil);
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -339,8 +365,9 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 case kAPHDashboardItemTypeDailyExercise:{
                     
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Exercise Level", @"");
+                    item.caption = self.exerciseScoring.caption;
                     item.graphData = self.exerciseScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryYellowColor];
@@ -353,11 +380,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                     if ([[self.exerciseScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Exercise-%0.0fg", (double) 6 - [[self.exerciseScoring averageDataPoint] doubleValue]]];
-                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"")];
+                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", nil)];
                     }
                     
                     
-                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for exercise each day.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for exercise each day.", nil);
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -369,24 +396,25 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 case kAPHDashboardItemTypeDailySleep:{
                     
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Sleep Quality", @"");
+                    item.caption = self.sleepScoring.caption;
                     item.graphData = self.sleepScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
                     
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-1g"];
-                    
+
                     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"datasetValueKey != %@", @(NSNotFound)];
                     NSArray *scoringObjects = [[self.moodScoring allObjects] filteredArrayUsingPredicate:predicate];
                     
                     if ([[self.sleepScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Sleep-%0.0fg", (double) 6 - [[self.sleepScoring averageDataPoint] doubleValue]]];
-                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
+                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", nil)];
                     }
                     
-                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for sleep each day.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for sleep each day.", nil);
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -398,8 +426,9 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 case kAPHDashboardItemTypeDailyCognitive:
                 {
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Thinking", @"");
+                    item.caption = self.cognitiveScoring.caption;
                     item.graphData = self.cognitiveScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryRedColor];
@@ -413,7 +442,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     if ([[self.cognitiveScoring averageDataPoint] doubleValue] > 0 && moodScoringObjects.count > 1) {
                         
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Clarity-%0.0fg", (double) 6 - [[self.cognitiveScoring averageDataPoint] doubleValue]]];
-                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
+                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", nil)];
                     }
                     
                     
@@ -427,15 +456,37 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 }
                     break;
                     
+                case kAPHDashboardItemTypeCorrelation:{
+                    
+                    APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
+                    item.caption = NSLocalizedString(@"Data Correlations", @"");
+                    item.graphData = self.correlatedScoring;
+                    item.graphType = kAPCDashboardGraphTypeLine;
+                    item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
+                    item.editable = YES;
+                    item.tintColor = [UIColor appTertiaryYellowColor];
+                    
+                    NSString *info = [NSString stringWithFormat:@"This chart plots the index of your %@ against the index of your %@. For more comparisons, click the series name.", self.correlatedScoring.series1Name, self.correlatedScoring.series2Name];
+                    item.info = NSLocalizedString(info, nil);
+                    item.detailText = @"";
+                    item.legend = [APCTableViewDashboardGraphItem legendForSeries1:self.correlatedScoring.series1Name series2:self.correlatedScoring.series2Name];
+                    APCTableViewRow *row = [APCTableViewRow new];
+                    row.item = item;
+                    row.itemType = rowType;
+                    [rowItems addObject:row];
+                                        
+                }
+                    break;
+                    
                 case kAPHDashboardItemTypeDailyCustom:
                 {
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Custom Question", @"");
+                    item.caption = self.customScoring.caption;
                     item.graphData = self.customScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryBlueColor];
-                    
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Custom-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Custom-1g"];
                     
@@ -447,7 +498,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
                     }
                     
-                    item.info = NSLocalizedString(@"This graph shows your answers the to custom question that you created as part of your daily check-in questions.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the custom question that you created as part of your daily check-in questions.", nil);
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -465,11 +516,26 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
         
         APCTableViewSection *section = [APCTableViewSection new];
         section.rows = [NSArray arrayWithArray:rowItems];
-        section.sectionTitle = NSLocalizedString(@"Recent Activity", @"");
+        section.sectionTitle = NSLocalizedString(@"Recent Activity", nil);
         [self.items addObject:section];
     }
     
     [self.tableView reloadData];
+}
+
+- (void)dashboardTableViewCellDidTapLegendTitle:(APCDashboardTableViewCell *)__unused cell{
+    
+    APCCorrelationsSelectorViewController *correlationSelector = [[APCCorrelationsSelectorViewController alloc]initWithScoringObjects:[NSArray arrayWithObjects:self.moodScoring, self.energyScoring, self.sleepScoring, self.exerciseScoring, self.cognitiveScoring, self.stepScoring, nil]];
+    correlationSelector.delegate = self;
+    [self.navigationController pushViewController:correlationSelector animated:YES];
+    
+}
+
+#pragma mark - CorrelationsSelector Delegate
+-(void)viewController:(APCCorrelationsSelectorViewController *)__unused viewController didChangeCorrelatedScoringDataSource:(APCScoring *)scoring{
+    self.correlatedScoring = scoring;
+    [self prepareData];
+
 }
 
 @end
