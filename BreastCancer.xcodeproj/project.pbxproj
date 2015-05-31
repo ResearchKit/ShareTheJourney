@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		083D6AF01AA4ADCF0064AADD /* BCSBackgroundSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */; };
-		083D6AF11AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */; };
-		083D6AF61AA4ADCF0064AADD /* BCSWeeklySurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AEF1AA4ADCF0064AADD /* BCSWeeklySurvey.json */; };
 		083D6AFA1AA4AE130064AADD /* APHBackgroundSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D6AF91AA4AE130064AADD /* APHBackgroundSurveyViewController.m */; };
 		083D6AFE1AA4AE430064AADD /* APHSymptomSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D6AFD1AA4AE430064AADD /* APHSymptomSurveyViewController.m */; };
 		083D6B0D1AA4AEAD0064AADD /* APHWeeklySurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D6B0C1AA4AEAD0064AADD /* APHWeeklySurveyViewController.m */; };
+		087B44AA1B1B981100568999 /* APHExerciseCheckInTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087B44A91B1B981100568999 /* APHExerciseCheckInTaskViewController.m */; };
+		087B44AF1B1B982300568999 /* APHExerciseCheckinTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 087B44AC1B1B982300568999 /* APHExerciseCheckinTask.m */; };
+		087B44C21B1B9C6000568999 /* BCS_feedback.json in Resources */ = {isa = PBXBuildFile; fileRef = 087B44BD1B1B9C6000568999 /* BCS_feedback.json */; };
+		087B44C31B1B9C6000568999 /* BCS_mythoughts.json in Resources */ = {isa = PBXBuildFile; fileRef = 087B44BE1B1B9C6000568999 /* BCS_mythoughts.json */; };
+		087B44C41B1B9C6000568999 /* BCSBackgroundSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 087B44BF1B1B9C6000568999 /* BCSBackgroundSurvey.json */; };
+		087B44C51B1B9C6000568999 /* BCSBCPTSymptomsSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 087B44C01B1B9C6000568999 /* BCSBCPTSymptomsSurvey.json */; };
+		087B44C61B1B9C6000568999 /* BCSWeeklySurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 087B44C11B1B9C6000568999 /* BCSWeeklySurvey.json */; };
 		215C53671A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 215C53651A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m */; };
 		215C53681A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 215C53661A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib */; };
 		5A0F98DA1AA2E2A900A2A7EB /* Intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5A0F98D91AA2E2A900A2A7EB /* Intro.mp4 */; };
@@ -32,14 +36,10 @@
 		747FB13E1ABDDD1E00345000 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747FB1301ABDDCAA00345000 /* ResearchKit.framework */; };
 		747FB13F1ABDDD2500345000 /* APCAppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747FB13B1ABDDCBA00345000 /* APCAppCore.framework */; };
 		747FB15B1ABDF02100345000 /* APCAppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 747FB13B1ABDDCBA00345000 /* APCAppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		74D75D561A9ED66200078A73 /* BCS_feedback.json in Resources */ = {isa = PBXBuildFile; fileRef = 74D75D551A9ED66200078A73 /* BCS_feedback.json */; };
-		74D75D591A9ED66E00078A73 /* BCS_mythoughts.json in Resources */ = {isa = PBXBuildFile; fileRef = 74D75D581A9ED66E00078A73 /* BCS_mythoughts.json */; };
 		74EF8E0C1ABEFE7B001B47E1 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 747FB1301ABDDCAA00345000 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		74EF8E0F1ABEFE86001B47E1 /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74EF8E051ABEFE62001B47E1 /* BridgeSDK.framework */; };
 		74EF8E101ABEFE86001B47E1 /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 74EF8E051ABEFE62001B47E1 /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7B0541F71A842B4900B7729D /* APHDynamicMoodSurveyTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0541F61A842B4900B7729D /* APHDynamicMoodSurveyTask.m */; };
-		7B3113361AFFC06F007485F3 /* APHExerciseCheckInTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3113351AFFC06F007485F3 /* APHExerciseCheckInTaskViewController.m */; };
-		7B31133A1AFFC121007485F3 /* APHExerciseCheckinTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3113391AFFC121007485F3 /* APHExerciseCheckinTask.m */; };
 		7B4B18311A8D720400F79C94 /* APHProfileExtender.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4B18301A8D720400F79C94 /* APHProfileExtender.m */; };
 		7B5A5AB51A83FCF700628D4D /* APHCustomSurveyIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A5AB31A83FCF700628D4D /* APHCustomSurveyIntroViewController.m */; };
 		7B5A5AB61A83FCF700628D4D /* APHCustomSurveyIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5A5AB41A83FCF700628D4D /* APHCustomSurveyIntroViewController.xib */; };
@@ -199,15 +199,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSBackgroundSurvey.json; path = ../Surveys/BCSBackgroundSurvey.json; sourceTree = "<group>"; };
-		083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSBCPTSymptomsSurvey.json; path = ../Surveys/BCSBCPTSymptomsSurvey.json; sourceTree = "<group>"; };
-		083D6AEF1AA4ADCF0064AADD /* BCSWeeklySurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSWeeklySurvey.json; path = ../Surveys/BCSWeeklySurvey.json; sourceTree = "<group>"; };
 		083D6AF81AA4AE130064AADD /* APHBackgroundSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHBackgroundSurveyViewController.h; path = "Generic Surveys/APHBackgroundSurveyViewController.h"; sourceTree = "<group>"; };
 		083D6AF91AA4AE130064AADD /* APHBackgroundSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHBackgroundSurveyViewController.m; path = "Generic Surveys/APHBackgroundSurveyViewController.m"; sourceTree = "<group>"; };
 		083D6AFC1AA4AE430064AADD /* APHSymptomSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHSymptomSurveyViewController.h; path = "Generic Surveys/APHSymptomSurveyViewController.h"; sourceTree = "<group>"; };
 		083D6AFD1AA4AE430064AADD /* APHSymptomSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHSymptomSurveyViewController.m; path = "Generic Surveys/APHSymptomSurveyViewController.m"; sourceTree = "<group>"; };
 		083D6B0B1AA4AEAD0064AADD /* APHWeeklySurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHWeeklySurveyViewController.h; path = "Generic Surveys/APHWeeklySurveyViewController.h"; sourceTree = "<group>"; };
 		083D6B0C1AA4AEAD0064AADD /* APHWeeklySurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHWeeklySurveyViewController.m; path = "Generic Surveys/APHWeeklySurveyViewController.m"; sourceTree = "<group>"; };
+		087B44A81B1B981100568999 /* APHExerciseCheckInTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHExerciseCheckInTaskViewController.h; sourceTree = "<group>"; };
+		087B44A91B1B981100568999 /* APHExerciseCheckInTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHExerciseCheckInTaskViewController.m; sourceTree = "<group>"; };
+		087B44AB1B1B982300568999 /* APHExerciseCheckinTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHExerciseCheckinTask.h; path = BreastCancer/TasksAndSteps/APHExerciseCheckinTask.h; sourceTree = SOURCE_ROOT; };
+		087B44AC1B1B982300568999 /* APHExerciseCheckinTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHExerciseCheckinTask.m; path = BreastCancer/TasksAndSteps/APHExerciseCheckinTask.m; sourceTree = SOURCE_ROOT; };
+		087B44BD1B1B9C6000568999 /* BCS_feedback.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCS_feedback.json; sourceTree = "<group>"; };
+		087B44BE1B1B9C6000568999 /* BCS_mythoughts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCS_mythoughts.json; sourceTree = "<group>"; };
+		087B44BF1B1B9C6000568999 /* BCSBackgroundSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSBackgroundSurvey.json; sourceTree = "<group>"; };
+		087B44C01B1B9C6000568999 /* BCSBCPTSymptomsSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSBCPTSymptomsSurvey.json; sourceTree = "<group>"; };
+		087B44C11B1B9C6000568999 /* BCSWeeklySurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSWeeklySurvey.json; sourceTree = "<group>"; };
 		215C53641A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHNotesHeaderTableViewCell.h; path = DailyJournalControllers/APHNotesHeaderTableViewCell.h; sourceTree = "<group>"; };
 		215C53651A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHNotesHeaderTableViewCell.m; path = DailyJournalControllers/APHNotesHeaderTableViewCell.m; sourceTree = "<group>"; };
 		215C53661A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHNotesHeaderTableViewCell.xib; path = DailyJournalControllers/APHNotesHeaderTableViewCell.xib; sourceTree = "<group>"; };
@@ -232,15 +238,9 @@
 		744174E51A923861004A7CC1 /* APHConsentSection.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APHConsentSection.json; sourceTree = "<group>"; };
 		747FB1281ABDDCAA00345000 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = researchkit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		747FB1351ABDDCBA00345000 /* APCAppCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = APCAppCore.xcodeproj; path = AppCore/APCAppCore/APCAppCore.xcodeproj; sourceTree = "<group>"; };
-		74D75D551A9ED66200078A73 /* BCS_feedback.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCS_feedback.json; sourceTree = "<group>"; };
-		74D75D581A9ED66E00078A73 /* BCS_mythoughts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCS_mythoughts.json; sourceTree = "<group>"; };
 		74EF8DF91ABEFE61001B47E1 /* BridgeSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BridgeSDK.xcodeproj; path = BridgeSDK/BridgeSDK.xcodeproj; sourceTree = "<group>"; };
 		7B0541F51A842B4900B7729D /* APHDynamicMoodSurveyTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDynamicMoodSurveyTask.h; sourceTree = "<group>"; };
 		7B0541F61A842B4900B7729D /* APHDynamicMoodSurveyTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDynamicMoodSurveyTask.m; sourceTree = "<group>"; };
-		7B3113341AFFC06F007485F3 /* APHExerciseCheckInTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHExerciseCheckInTaskViewController.h; path = ExerciseCheckIn/APHExerciseCheckInTaskViewController.h; sourceTree = "<group>"; };
-		7B3113351AFFC06F007485F3 /* APHExerciseCheckInTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHExerciseCheckInTaskViewController.m; path = ExerciseCheckIn/APHExerciseCheckInTaskViewController.m; sourceTree = "<group>"; };
-		7B3113381AFFC121007485F3 /* APHExerciseCheckinTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHExerciseCheckinTask.h; sourceTree = "<group>"; };
-		7B3113391AFFC121007485F3 /* APHExerciseCheckinTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHExerciseCheckinTask.m; sourceTree = "<group>"; };
 		7B4B182F1A8D720400F79C94 /* APHProfileExtender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHProfileExtender.h; sourceTree = "<group>"; };
 		7B4B18301A8D720400F79C94 /* APHProfileExtender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHProfileExtender.m; sourceTree = "<group>"; };
 		7B5A5AB21A83FCF700628D4D /* APHCustomSurveyIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHCustomSurveyIntroViewController.h; sourceTree = "<group>"; };
@@ -322,7 +322,6 @@
 		F534B70A19E4699A00C3C152 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F534B70C19E469A000C3C152 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F534B70E19E469A600C3C152 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		F53C19D41AA5888F0019EEE8 /* BridgeSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BridgeSDK.framework; path = AppCore/APCAppCore/BridgeSDK/BridgeSDK.framework; sourceTree = "<group>"; };
 		F53F279C1A2D30D600A1D725 /* APHDataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDataPoint.h; sourceTree = "<group>"; };
 		F53F279D1A2D30D600A1D725 /* APHDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDataPoint.m; sourceTree = "<group>"; };
 		F53F279E1A2D30D600A1D725 /* APHScoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHScoring.h; sourceTree = "<group>"; };
@@ -360,16 +359,27 @@
 			name = "Generic Surveys";
 			sourceTree = "<group>";
 		};
-		5A0F990F1AA425D100A2A7EB /* Surveys */ = {
+		087B44A71B1B981100568999 /* ExerciseCheckIn */ = {
 			isa = PBXGroup;
 			children = (
-				083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */,
-				083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */,
-				083D6AEF1AA4ADCF0064AADD /* BCSWeeklySurvey.json */,
-				74D75D551A9ED66200078A73 /* BCS_feedback.json */,
-				74D75D581A9ED66E00078A73 /* BCS_mythoughts.json */,
+				087B44AB1B1B982300568999 /* APHExerciseCheckinTask.h */,
+				087B44AC1B1B982300568999 /* APHExerciseCheckinTask.m */,
+				087B44A81B1B981100568999 /* APHExerciseCheckInTaskViewController.h */,
+				087B44A91B1B981100568999 /* APHExerciseCheckInTaskViewController.m */,
 			);
-			name = Surveys;
+			path = ExerciseCheckIn;
+			sourceTree = "<group>";
+		};
+		087B44BC1B1B9C6000568999 /* Surveys */ = {
+			isa = PBXGroup;
+			children = (
+				087B44BD1B1B9C6000568999 /* BCS_feedback.json */,
+				087B44BE1B1B9C6000568999 /* BCS_mythoughts.json */,
+				087B44BF1B1B9C6000568999 /* BCSBackgroundSurvey.json */,
+				087B44C01B1B9C6000568999 /* BCSBCPTSymptomsSurvey.json */,
+				087B44C11B1B9C6000568999 /* BCSWeeklySurvey.json */,
+			);
+			path = Surveys;
 			sourceTree = "<group>";
 		};
 		5B1095BE1A9FA0B5006631F5 /* PDF */ = {
@@ -436,17 +446,6 @@
 				74EF8E071ABEFE62001B47E1 /* BridgeSDKTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		7B3113281AFFBFDC007485F3 /* ExerciseCheckIn */ = {
-			isa = PBXGroup;
-			children = (
-				7B3113381AFFC121007485F3 /* APHExerciseCheckinTask.h */,
-				7B3113391AFFC121007485F3 /* APHExerciseCheckinTask.m */,
-				7B3113341AFFC06F007485F3 /* APHExerciseCheckInTaskViewController.h */,
-				7B3113351AFFC06F007485F3 /* APHExerciseCheckInTaskViewController.m */,
-			);
-			name = ExerciseCheckIn;
 			sourceTree = "<group>";
 		};
 		7B5E25C71A20454200A04FEF /* Mood Survey */ = {
@@ -681,6 +680,7 @@
 		F534B5C419E4689D00C3C152 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				087B44BC1B1B9C6000568999 /* Surveys */,
 				5B1095BE1A9FA0B5006631F5 /* PDF */,
 				7B8B67D41A6701B10021606D /* Certificates */,
 				5BBDAEBA1A33DCDA0047DF87 /* HTMLContent */,
@@ -694,7 +694,6 @@
 			isa = PBXGroup;
 			children = (
 				744174E51A923861004A7CC1 /* APHConsentSection.json */,
-				5A0F990F1AA425D100A2A7EB /* Surveys */,
 				5B18CED91A2CFFD1001A905E /* TermsAndConditions.json */,
 				5B15DCF21A114F7000BEA0D1 /* Learn.json */,
 				5B15DCF31A114F7000BEA0D1 /* WithdrawStudy.json */,
@@ -739,7 +738,7 @@
 		F534B60C19E4689D00C3C152 /* TasksAndSteps */ = {
 			isa = PBXGroup;
 			children = (
-				7B3113281AFFBFDC007485F3 /* ExerciseCheckIn */,
+				087B44A71B1B981100568999 /* ExerciseCheckIn */,
 				7B7953031A22849300AA8039 /* ExerciseSurvey */,
 				7B5E25C71A20454200A04FEF /* Mood Survey */,
 				CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */,
@@ -773,7 +772,6 @@
 				74EF8DF91ABEFE61001B47E1 /* BridgeSDK.xcodeproj */,
 				747FB1281ABDDCAA00345000 /* ResearchKit.xcodeproj */,
 				747FB1351ABDDCBA00345000 /* APCAppCore.xcodeproj */,
-				F53C19D41AA5888F0019EEE8 /* BridgeSDK.framework */,
 				F534B70E19E469A600C3C152 /* AVFoundation.framework */,
 				F534B70C19E469A000C3C152 /* Security.framework */,
 				F534B70A19E4699A00C3C152 /* CoreData.framework */,
@@ -917,6 +915,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA3AC111A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib in Resources */,
+				087B44C61B1B9C6000568999 /* BCSWeeklySurvey.json in Resources */,
 				A7D61A5E1A97B2D700637EDA /* 13_RiskToPrivacy@2x.m4v in Resources */,
 				5B15DCF51A114F7000BEA0D1 /* WithdrawStudy.json in Resources */,
 				7B8B67DD1A6711BE0021606D /* APHExerciseMotivationSummaryViewController.storyboard in Resources */,
@@ -934,17 +933,16 @@
 				5BBDAEBB1A33DCDA0047DF87 /* HTMLContent in Resources */,
 				A7D61A5D1A97B2D700637EDA /* 12_IssuesToConside2@2x.m4v in Resources */,
 				A7D61A5C1A97B2D700637EDA /* 11_IssuesToConsider1@2x.m4v in Resources */,
-				74D75D591A9ED66E00078A73 /* BCS_mythoughts.json in Resources */,
-				74D75D561A9ED66200078A73 /* BCS_feedback.json in Resources */,
 				A7D61A5B1A97B2D700637EDA /* 10_PotentialBenifits@2x.m4v in Resources */,
+				087B44C21B1B9C6000568999 /* BCS_feedback.json in Resources */,
+				087B44C51B1B9C6000568999 /* BCSBCPTSymptomsSurvey.json in Resources */,
 				7BB24C321A831DC500AAE097 /* APHCustomSurveyTableViewCell.xib in Resources */,
 				F534B68A19E4689D00C3C152 /* APCParameters.json in Resources */,
-				083D6AF01AA4ADCF0064AADD /* BCSBackgroundSurvey.json in Resources */,
 				A7D61A641A97B2D700637EDA /* 12_IssuesToConside2@3x.m4v in Resources */,
+				087B44C41B1B9C6000568999 /* BCSBackgroundSurvey.json in Resources */,
 				A7D61A5F1A97B2D700637EDA /* 00_Blank_to_Activities@3x.m4v in Resources */,
 				F534B68B19E4689D00C3C152 /* APHTasksAndSchedules.json in Resources */,
 				F534B69D19E4689D00C3C152 /* Main.storyboard in Resources */,
-				083D6AF11AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json in Resources */,
 				A7D61A5A1A97B2D700637EDA /* 02_SensorData_to_DataGathering@2x.m4v in Resources */,
 				5B18CEDA1A2CFFD1001A905E /* TermsAndConditions.json in Resources */,
 				744174E61A923861004A7CC1 /* APHConsentSection.json in Resources */,
@@ -961,7 +959,7 @@
 				7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */,
 				CF2697EB19EC3E4200525E19 /* APHNotesViewController.xib in Resources */,
 				5B1095C01A9FA0B5006631F5 /* consent.pdf in Resources */,
-				083D6AF61AA4ADCF0064AADD /* BCSWeeklySurvey.json in Resources */,
+				087B44C31B1B9C6000568999 /* BCS_mythoughts.json in Resources */,
 				7B5E25D11A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib in Resources */,
 				F534B69C19E4689D00C3C152 /* LaunchScreen.xib in Resources */,
 			);
@@ -984,9 +982,11 @@
 				7B8B67E11A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.m in Sources */,
 				083D6B0D1AA4AEAD0064AADD /* APHWeeklySurveyViewController.m in Sources */,
 				F53F27A11A2D30D600A1D725 /* APHScoring.m in Sources */,
+				087B44AF1B1B982300568999 /* APHExerciseCheckinTask.m in Sources */,
 				7B4B18311A8D720400F79C94 /* APHProfileExtender.m in Sources */,
 				CF2697E619EC3E4200525E19 /* APHContentsViewController.m in Sources */,
 				083D6AFA1AA4AE130064AADD /* APHBackgroundSurveyViewController.m in Sources */,
+				087B44AA1B1B981100568999 /* APHExerciseCheckInTaskViewController.m in Sources */,
 				CF15F24F1A116A5A00D87570 /* APHDailyJournalIntroViewController.m in Sources */,
 				F534B58919E4681E00C3C152 /* main.m in Sources */,
 				CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */,
@@ -996,14 +996,12 @@
 				CF2697E819EC3E4200525E19 /* APHMoodLogDictionaryKeys.m in Sources */,
 				5B1D9D6E1A1BD414000F4AD6 /* APHDashboardViewController.m in Sources */,
 				7BB24C311A831DC500AAE097 /* APHCustomSurveyTableViewCell.m in Sources */,
-				7B31133A1AFFC121007485F3 /* APHExerciseCheckinTask.m in Sources */,
 				5B15DD481A11524900BEA0D1 /* APHAppDelegate.m in Sources */,
 				7BB24C361A831EC900AAE097 /* APHCustomSurveyQuestionViewController.m in Sources */,
 				CF2697E719EC3E4200525E19 /* APHCustomTextView.m in Sources */,
 				F53F27A01A2D30D600A1D725 /* APHDataPoint.m in Sources */,
 				7B8D703E1A1C4B13003A7A5B /* APHLogSubmissionViewController.m in Sources */,
 				215C53671A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m in Sources */,
-				7B3113361AFFC06F007485F3 /* APHExerciseCheckInTaskViewController.m in Sources */,
 				CF2697EA19EC3E4200525E19 /* APHNotesViewController.m in Sources */,
 				7B7953141A2288D600AA8039 /* APHQuestionViewController.m in Sources */,
 				7BA3AC101A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m in Sources */,
@@ -1043,69 +1041,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		3632ABA81A7E91E000F276A8 /* DebugAndSendToDataVerificationServer */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-					"USE_DATA_VERIFICATION_CLIENT=1",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = (
-					"-Wall",
-					"-Wextra",
-				);
-				SDKROOT = iphoneos;
-			};
-			name = DebugAndSendToDataVerificationServer;
-		};
-		3632ABA91A7E91E000F276A8 /* DebugAndSendToDataVerificationServer */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = BreastCancer/BreastCancer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = BreastCancer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-			};
-			name = DebugAndSendToDataVerificationServer;
-		};
 		F534B5A419E4681E00C3C152 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1198,8 +1133,11 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BreastCancer/BreastCancer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
+				);
 				INFOPLIST_FILE = BreastCancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1215,8 +1153,11 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BreastCancer/BreastCancer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
+				);
 				INFOPLIST_FILE = BreastCancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1277,8 +1218,11 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BreastCancer/BreastCancer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"DEVELOPMENT=1",
@@ -1297,7 +1241,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F534B5A419E4681E00C3C152 /* Debug */,
-				3632ABA81A7E91E000F276A8 /* DebugAndSendToDataVerificationServer */,
 				F58767FB19E4A57400254897 /* Development */,
 				F534B5A519E4681E00C3C152 /* Release */,
 			);
@@ -1308,7 +1251,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F534B5A719E4681E00C3C152 /* Debug */,
-				3632ABA91A7E91E000F276A8 /* DebugAndSendToDataVerificationServer */,
 				F58767FC19E4A57400254897 /* Development */,
 				F534B5A819E4681E00C3C152 /* Release */,
 			);
