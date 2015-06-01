@@ -56,8 +56,8 @@ static NSString* const  kBackgroundSurveyIdentifier         = @"1-BackgroundSurv
 /*********************************************************************************/
 #pragma mark - Initializations Options
 /*********************************************************************************/
-static NSString* const  kStudyIdentifier            = @"BreastCancer";
-static NSString* const  kAppPrefix                  = @"breastcancer";
+static NSString* const  kStudyIdentifier            = @"studyname";
+static NSString* const  kAppPrefix                  = @"studyname";
 static NSString* const  kVideoShownKey              = @"VideoShown";
 static NSString* const  kConsentPropertiesFileName  = @"APHConsentSection";
 
