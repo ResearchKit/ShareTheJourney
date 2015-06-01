@@ -93,7 +93,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
             
         }
         
-        self.title = NSLocalizedString(@"Dashboard", @"Dashboard");
+        self.title = NSLocalizedString(@"Dashboard", nil);
         
     }
     
@@ -222,9 +222,9 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
             item.identifier = kAPCDashboardProgressTableViewCellIdentifier;
             item.editable = NO;
             item.progress = (CGFloat)completedScheduledTasks/allScheduledTasks;
-            item.caption = NSLocalizedString(@"Activity Completion", @"Activity Completion");
+            item.caption = NSLocalizedString(@"Activity Completion", nil);
             
-            item.info = NSLocalizedString(@"The activity completion indicates the percentage of activities scheduled for today that you have completed.  You can complete more by going to the Activities section and tapping on any incomplete task.", @"");
+            item.info = NSLocalizedString(@"The activity completion indicates the percentage of activities scheduled for today that you have completed.  You can complete more by going to the Activities section and tapping on any incomplete task.", nil);
             
             APCTableViewRow *row = [APCTableViewRow new];
             row.item = item;
@@ -241,22 +241,21 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 case kAPHDashboardItemTypeHealthKitSteps:{
                     
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Steps", @"");
+                    item.caption = NSLocalizedString(@"Steps", nil);
                     item.graphData = self.stepScoring;
                     
                     NSNumber *numberOfDataPoints = [self.stepScoring numberOfDataPoints];
                     
                     if ([numberOfDataPoints integerValue] > 1) {
                         double avgSteps = [[self.stepScoring averageDataPoint] doubleValue];
-                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %0.0f",
-                                                                                       @"Average: {avg. value}"), avgSteps];
+                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %0.0f", nil), avgSteps];
                     }
                     
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
                     
-                    item.info = NSLocalizedString(@"This graph shows the number of steps that you took each day measured by your phone or fitness tracker (if you have one).", @"");
+                    item.info = NSLocalizedString(@"This graph shows the number of steps that you took each day measured by your phone or fitness tracker (if you have one).", nil);
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -268,7 +267,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 case kAPHDashboardItemTypeDailyMood:{
                     
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Mood", @"");
+                    item.caption = NSLocalizedString(@"Mood", nil);
                     item.graphData = self.moodScoring;
                     item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
@@ -283,10 +282,10 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                     if ([[self.moodScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Mood-%0.0fg", (double) 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
-                        item.detailText = [NSString stringWithFormat: NSLocalizedString(@"Average : ", @"Average:")];
+                        item.detailText = [NSString stringWithFormat: NSLocalizedString(@"Average : ", nil)];
                     }
                     
-                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for mood each day. ", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for mood each day. ", nil);
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -298,7 +297,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 case kAPHDashboardItemTypeDailyEnergy:{
                     
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Energy Level", @"");
+                    item.caption = NSLocalizedString(@"Energy Level", nil);
                     item.graphData = self.energyScoring;
                     item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
@@ -313,11 +312,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                     if ([[self.energyScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Energy-%0.0fg", (double) 6 - [[self.energyScoring averageDataPoint] doubleValue]]];
-                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"")];
+                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", nil)];
                     }
                     
                     
-                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for energy each day.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for energy each day.", nil);
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -329,7 +328,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 case kAPHDashboardItemTypeDailyExercise:{
                     
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Exercise Level", @"");
+                    item.caption = NSLocalizedString(@"Exercise Level", nil);
                     item.graphData = self.exerciseScoring;
                     item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
@@ -344,11 +343,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                     if ([[self.exerciseScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Exercise-%0.0fg", (double) 6 - [[self.exerciseScoring averageDataPoint] doubleValue]]];
-                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"")];
+                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", nil)];
                     }
                     
                     
-                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for exercise each day.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for exercise each day.", nil);
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -360,7 +359,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 case kAPHDashboardItemTypeDailySleep:{
                     
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Sleep Quality", @"");
+                    item.caption = NSLocalizedString(@"Sleep Quality", nil);
                     item.graphData = self.sleepScoring;
                     item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
@@ -375,10 +374,10 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                     if ([[self.sleepScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Sleep-%0.0fg", (double) 6 - [[self.sleepScoring averageDataPoint] doubleValue]]];
-                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
+                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", nil)];
                     }
                     
-                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for sleep each day.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for sleep each day.", nil);
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -390,7 +389,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 case kAPHDashboardItemTypeDailyCognitive:
                 {
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Thinking", @"");
+                    item.caption = NSLocalizedString(@"Thinking", nil);
                     item.graphData = self.cognitiveScoring;
                     item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
@@ -406,11 +405,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     if ([[self.cognitiveScoring averageDataPoint] doubleValue] > 0 && moodScoringObjects.count > 1) {
                         
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Clarity-%0.0fg", (double) 6 - [[self.cognitiveScoring averageDataPoint] doubleValue]]];
-                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
+                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", nil)];
                     }
                     
                     
-                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for your thinking each day.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for your thinking each day.", nil);
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -423,7 +422,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 case kAPHDashboardItemTypeDailyCustom:
                 {
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Custom Question", @"");
+                    item.caption = NSLocalizedString(@"Custom Question", nil);
                     item.graphData = self.customScoring;
                     item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
@@ -438,7 +437,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                     if ([[self.customScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Custom-%0.0fg", (double) 6 - [[self.customScoring averageDataPoint] doubleValue]]];
-                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
+                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", nil)];
                     }
                     
                     item.info = NSLocalizedString(@"This graph shows your answers to the custom question that you created as part of your daily check-in questions.", nil);
@@ -459,7 +458,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
         
         APCTableViewSection *section = [APCTableViewSection new];
         section.rows = [NSArray arrayWithArray:rowItems];
-        section.sectionTitle = NSLocalizedString(@"Recent Activity", @"");
+        section.sectionTitle = NSLocalizedString(@"Recent Activity", nil);
         [self.items addObject:section];
     }
     
