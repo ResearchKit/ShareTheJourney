@@ -45,12 +45,9 @@ static NSString* const  kExerciseSurveyIdentifier           = @"4-APHExerciseSur
 static NSString* const  kFeedbackSurveyIdentifier           = @"8-Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 static NSString* const  kMyThoughtsSurveyIdentifier         = @"7-MyThoughts-14ffde40-1551-4b48-aae2-8fef38d61b61";
 static NSString* const  kSymptomsSurveyIdentifier           = @"2-BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
-static NSString* const  kBCSPAOFISurveyIdentifier           = @"e-PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 static NSString* const  kPersonalHealthSurveyIdentifier     = @"9-PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
-static NSString* const  kSleepQualitySurveyIdentifier       = @"a-PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 static NSString* const  kGeneralHealthSurveyIdentifier      = @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 static NSString* const  kWeeklySurveyIdentifier             = @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
-static NSString* const  kExerciseReadinessSurveyIdentifier  = @"5-parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77";
 static NSString* const  kBackgroundSurveyIdentifier         = @"1-BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 
 /*********************************************************************************/
@@ -227,9 +224,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     APCTaskReminder *dailyJournalReminder = [[APCTaskReminder alloc]initWithTaskID:kDailyJournalSurveyIdentifier reminderBody:NSLocalizedString(@"Daily Journal", nil)];
     APCTaskReminder *exerciseSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kExerciseSurveyIdentifier reminderBody:NSLocalizedString(@"Exercise Survey", nil)];
     APCTaskReminder *myThoughtsSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kMyThoughtsSurveyIdentifier reminderBody:NSLocalizedString(@"My Thoughts Survey", nil)];
-    APCTaskReminder *assessFunctioningSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kBCSPAOFISurveyIdentifier reminderBody:NSLocalizedString(@"Assessment of Functioning", nil)];
     APCTaskReminder *personalHealthSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kPersonalHealthSurveyIdentifier reminderBody:NSLocalizedString(@"Personal Health Survey", nil)];
-    APCTaskReminder *sleepQualitySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kSleepQualitySurveyIdentifier reminderBody:NSLocalizedString(@"Sleep Quality Survey", nil)];
     APCTaskReminder *generalHealthSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kGeneralHealthSurveyIdentifier reminderBody:NSLocalizedString(@"General Health Survey", nil)];
     APCTaskReminder *weeklySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeeklySurveyIdentifier reminderBody:NSLocalizedString(@"Weekly Survey", nil)];
     
@@ -238,9 +233,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     [self.tasksReminder manageTaskReminder:dailyJournalReminder];
     [self.tasksReminder manageTaskReminder:exerciseSurveyReminder];
     [self.tasksReminder manageTaskReminder:myThoughtsSurveyReminder];
-    [self.tasksReminder manageTaskReminder:assessFunctioningSurveyReminder];
     [self.tasksReminder manageTaskReminder:personalHealthSurveyReminder];
-    [self.tasksReminder manageTaskReminder:sleepQualitySurveyReminder];
     [self.tasksReminder manageTaskReminder:generalHealthSurveyReminder];
     [self.tasksReminder manageTaskReminder:weeklySurveyReminder];
     
@@ -279,18 +272,6 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                             kMigrationOffsetByDaysKey: @(5),
                                             kMigrationGracePeriodInDaysKey: @(5),
                                             kMigrationRecurringKindKey: @(APHMigrationRecurringKindWeekly)
-                                         },
-                                        @{
-                                            kMigrationTaskIdKey: @"e-PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
-                                            kMigrationOffsetByDaysKey: @(2),
-                                            kMigrationGracePeriodInDaysKey: @(5),
-                                            kMigrationRecurringKindKey: @(APHMigrationRecurringKindMonthly)
-                                         },
-                                        @{
-                                            kMigrationTaskIdKey: @"a-PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
-                                            kMigrationOffsetByDaysKey: @(3),
-                                            kMigrationGracePeriodInDaysKey: @(5),
-                                            kMigrationRecurringKindKey: @(APHMigrationRecurringKindMonthly)
                                          },
                                         @{
                                             kMigrationTaskIdKey: @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
@@ -433,12 +414,9 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                                  @"8-Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" :             [UIColor lightGrayColor],
                                                  @"7-MyThoughts-14ffde40-1551-4b48-aae2-8fef38d61b61" :           [UIColor lightGrayColor],
                                                  @"2-BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" :   [UIColor lightGrayColor],
-                                                 @"e-PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                 [UIColor lightGrayColor],
                                                  @"9-PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":              [UIColor lightGrayColor],
-                                                 @"a-PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                  [UIColor lightGrayColor],
                                                  @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                  [UIColor lightGrayColor],
                                                  @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                [UIColor lightGrayColor],
-                                                 @"5-parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77":              [UIColor lightGrayColor],
                                                  @"1-BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":      [UIColor lightGrayColor],
                                                  }];
     
