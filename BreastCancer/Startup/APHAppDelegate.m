@@ -450,7 +450,8 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     
     [[UIView appearance] setTintColor:[UIColor appPrimaryColor]];
     
-    self.dataSubstrate.parameters.hideExampleConsent = YES;
+    self.dataSubstrate.parameters.bypassServer = YES;
+    self.dataSubstrate.parameters.hideExampleConsent = NO;
 }
 
 - (void) showOnBoarding
