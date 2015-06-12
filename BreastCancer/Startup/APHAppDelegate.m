@@ -55,20 +55,20 @@ static NSString* const  kBackgroundSurveyIdentifier         = @"1-BackgroundSurv
 /*********************************************************************************/
 #pragma mark - Initializations Options
 /*********************************************************************************/
-static NSString* const  kStudyIdentifier            = @"studyname";
-static NSString* const  kAppPrefix                  = @"studyname";
-static NSString* const  kVideoShownKey              = @"VideoShown";
-static NSString* const  kConsentPropertiesFileName  = @"APHConsentSection";
+static NSString* const  kStudyIdentifier					= @"studyname";
+static NSString* const  kAppPrefix							= @"studyname";
+static NSString* const  kVideoShownKey						= @"VideoShown";
+static NSString* const  kConsentPropertiesFileName			= @"APHConsentSection";
 
-static NSString *const kJsonScheduleStringKey           = @"scheduleString";
-static NSString *const kJsonTasksKey                    = @"tasks";
-static NSString *const kJsonScheduleTaskIDKey           = @"taskID";
-static NSString *const kJsonSchedulesKey                = @"schedules";
+static NSString *const kJsonScheduleStringKey				= @"scheduleString";
+static NSString *const kJsonTasksKey						= @"tasks";
+static NSString *const kJsonScheduleTaskIDKey				= @"taskID";
+static NSString *const kJsonSchedulesKey					= @"schedules";
 
-static NSString *const kMigrationTaskIdKey              = @"taskId";
-static NSString *const kMigrationOffsetByDaysKey        = @"offsetByDays";
-static NSString *const kMigrationGracePeriodInDaysKey   = @"gracePeriodInDays";
-static NSString *const kMigrationRecurringKindKey       = @"recurringKind";
+static NSString *const kMigrationTaskIdKey					= @"taskId";
+static NSString *const kMigrationOffsetByDaysKey			= @"offsetByDays";
+static NSString *const kMigrationGracePeriodInDaysKey		= @"gracePeriodInDays";
+static NSString *const kMigrationRecurringKindKey			= @"recurringKind";
 
 
 typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
@@ -83,7 +83,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 @interface APHAppDelegate ()
 
 @property (nonatomic, strong) APHProfileExtender *profileExtender;
-@property  (nonatomic, assign)  NSInteger environment;
+@property (nonatomic, assign) NSInteger environment;
 
 @end
 
@@ -95,12 +95,12 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     [APCUtilities setRealApplicationName: @"Share the Journey"];
     
     NSDictionary *permissionsDescriptions = @{
-                                              @(kSignUpPermissionsTypeLocation) : NSLocalizedString(@"Using your GPS enables the app to accurately determine distances travelled. Your actual location will never be shared.", @""),
-                                              @(kSignUpPermissionsTypeCoremotion) : NSLocalizedString(@"Using the motion co-processor allows the app to determine your activity, helping the study better understand how activity level may influence disease.", @""),
-                                              @(kSignUpPermissionsTypeMicrophone) : NSLocalizedString(@"Access to microphone is required for your Voice Recording Activity.", @""),
-                                              @(kSignUpPermissionsTypeLocalNotifications) : NSLocalizedString(@"Allowing notifications enables the app to show you reminders.", @""),
-                                              @(kSignUpPermissionsTypeHealthKit) : NSLocalizedString(@"On the next screen, you will be prompted to grant Share the Journey access to read and write some of your general and health information, such as height, weight and steps taken so you don't have to enter it again.", @""),
-                                              };
+                                              @(kSignUpPermissionsTypeLocation)				: NSLocalizedString(@"Using your GPS enables the app to accurately determine distances travelled. Your actual location will never be shared.", @""),
+                                              @(kSignUpPermissionsTypeCoremotion)			: NSLocalizedString(@"Using the motion co-processor allows the app to determine your activity, helping the study better understand how activity level may influence disease.", @""),
+                                              @(kSignUpPermissionsTypeMicrophone)			: NSLocalizedString(@"Access to microphone is required for your Voice Recording Activity.", @""),
+                                              @(kSignUpPermissionsTypeLocalNotifications)	: NSLocalizedString(@"Allowing notifications enables the app to show you reminders.", @""),
+                                              @(kSignUpPermissionsTypeHealthKit)			: NSLocalizedString(@"On the next screen, you will be prompted to grant Share the Journey access to read and write some of your general and health information, such as height, weight and steps taken so you don't have to enter it again.", @""),
+											};
     
     NSMutableDictionary * dictionary = [super defaultInitializationOptions];
 #ifdef DEBUG
@@ -108,13 +108,12 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 #else
     self.environment = SBBEnvironmentProd;
 #endif
-    
     [dictionary addEntriesFromDictionary:@{
                                            kStudyIdentifierKey                  : kStudyIdentifier,
                                            kAppPrefixKey                        : kAppPrefix,
                                            kBridgeEnvironmentKey                : @(self.environment),
                                            kHKReadPermissionsKey                : @[
-                                                   HKQuantityTypeIdentifierBodyMass,
+												   HKQuantityTypeIdentifierBodyMass,
                                                    HKQuantityTypeIdentifierHeight,
                                                    HKQuantityTypeIdentifierStepCount,
                                                    HKQuantityTypeIdentifierDistanceWalkingRunning,
@@ -130,20 +129,21 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                                    @(kSignUpPermissionsTypeLocalNotifications)
                                                    ],
                                            kAppServicesDescriptionsKey : permissionsDescriptions,
-                                           kAppProfileElementsListKey            : @[
-                                                   @(kAPCUserInfoItemTypeEmail),
+                                           kAppProfileElementsListKey  : @[
+												   @(kAPCUserInfoItemTypeEmail),
                                                    @(kAPCUserInfoItemTypeDateOfBirth),
                                                    @(kAPCUserInfoItemTypeHeight),
                                                    @(kAPCUserInfoItemTypeWeight)
                                                    ],
                                            kShareMessageKey : NSLocalizedString(@"Check out Share the Journey, a research study app about breast cancer survivorship.  Download it for iPhone at https://appsto.re/i6LF2f6", nil)
                                            }];
+	
     self.initializationOptions = dictionary;
     self.profileExtender = [[APHProfileExtender alloc] init];
 }
 
--(void)setUpTasksReminder{
-    
+-(void)setUpTasksReminder
+{
     APCTaskReminder *dailySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kDailySurveyIdentifier reminderBody:NSLocalizedString(@"Daily Survey", nil)];
     APCTaskReminder *dailyJournalReminder = [[APCTaskReminder alloc]initWithTaskID:kDailyJournalSurveyIdentifier reminderBody:NSLocalizedString(@"Daily Journal", nil)];
     APCTaskReminder *exerciseSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kExerciseSurveyIdentifier reminderBody:NSLocalizedString(@"Exercise Survey", nil)];
@@ -163,7 +163,6 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     [self.tasksReminder manageTaskReminder:sleepQualitySurveyReminder];
     [self.tasksReminder manageTaskReminder:generalHealthSurveyReminder];
     [self.tasksReminder manageTaskReminder:weeklySurveyReminder];
-
 }
 
 - (NSDictionary *)migrateTasksAndSchedules:(NSDictionary *)currentTaskAndSchedules
@@ -205,7 +204,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                             kMigrationOffsetByDaysKey: @(4),
                                             kMigrationGracePeriodInDaysKey: @(5),
                                             kMigrationRecurringKindKey: @(APHMigrationRecurringKindQuarterly)
-    }
+										}
                                        ];
     
         NSArray *schedules = migratedTaskAndSchedules[kJsonSchedulesKey];
@@ -267,7 +266,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 }
 
 - (NSDictionary *) tasksAndSchedulesWillBeLoaded
-            {
+{
     NSError *jsonError = nil;
     NSString *resource = [[NSBundle mainBundle] pathForResource:@"APHTasksAndSchedules" ofType:@"json"];
     NSData *jsonData = [NSData dataWithContentsOfFile:resource];
@@ -276,7 +275,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     NSDictionary *migratedSchedules = [self migrateTasksAndSchedules:tasksAndScheduledFromJSON];
                 
     return migratedSchedules;
-            }
+}
             
 - (void)performMigrationAfterDataSubstrateFrom:(NSInteger) __unused previousVersion currentVersion:(NSInteger) __unused currentVersion
 {
@@ -288,12 +287,9 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
             
     NSError *migrationError = nil;
             
-    if (self.doesPersisteStoreExist == NO)
-    {
+    if (self.doesPersisteStoreExist == NO) {
         APCLogEvent(@"This application is being launched for the first time. We know this because there is no persistent store.");
-        }
-    else if ( [defaults objectForKey:@"previousVersion"] == nil)
-        {
+	} else if ( [defaults objectForKey:@"previousVersion"] == nil) {
         APCLogEvent(@"The entire data model version %d", kTheEntireDataModelOfTheApp);
             
         NSError *jsonError = nil;
@@ -305,20 +301,18 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
             
         [APCSchedule updateSchedulesFromJSON:migratedSchedules[kJsonSchedulesKey]
                                    inContext:self.dataSubstrate.persistentContext];
-            }
+	}
             
     [defaults setObject:majorVersion forKey:@"shortVersionString"];
     [defaults setObject:minorVersion forKey:@"version"];
             
-    if (!migrationError)
-    {
+    if (!migrationError) {
         [defaults setObject:@(currentVersion) forKey:@"previousVersion"];
-        }
-    
+	}
 }
 
-- (id <APCProfileViewControllerDelegate>) profileExtenderDelegate {
-    
+- (id <APCProfileViewControllerDelegate>) profileExtenderDelegate
+{
     return self.profileExtender;
 }
 
@@ -360,7 +354,6 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     [self showStudyOverview];
 }
 
-
 - (void) showStudyOverview
 {
     APCStudyOverviewViewController *studyController = [[UIStoryboard storyboardWithName:@"APCOnboarding" bundle:[NSBundle appleCoreBundle]] instantiateViewControllerWithIdentifier:@"StudyOverviewVC"];
@@ -401,8 +394,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                                                            deferredUpdatesTimeout: 60.0 * 60.0
                                                                             andHomeLocationStatus: APCPassiveLocationTrackingHomeLocationUnavailable];
     
-    if (locationTracker != nil)
-    {
+    if (locationTracker != nil) {
         [self.passiveDataCollector addTracker: locationTracker];
     }
 }
@@ -425,11 +417,11 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 #pragma mark - Consent
 /*********************************************************************************/
 
-
 - (ORKTaskViewController *)consentViewController
 {
     APCConsentTask*         task = [[APCConsentTask alloc] initWithIdentifier:@"Consent"
                                                            propertiesFileName:kConsentPropertiesFileName];
+	
     ORKTaskViewController*  consentVC = [[ORKTaskViewController alloc] initWithTask:task
                                                                        taskRunUUID:[NSUUID UUID]];
     
