@@ -35,9 +35,9 @@
 #import "APHAppDelegate.h"
 #import "APHProfileExtender.h"
 
-/*********************************************************************************/
+
 #pragma mark - Survey Identifiers
-/*********************************************************************************/
+
 static NSString* const  kDailySurveyIdentifier              = @"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF";
 static NSString* const  kDailyJournalSurveyIdentifier       = @"6-APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9";
 static NSString* const  kExerciseSurveyIdentifier           = @"4-APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF";
@@ -52,9 +52,8 @@ static NSString* const  kWeeklySurveyIdentifier             = @"c-Weekly-394848c
 static NSString* const  kExerciseReadinessSurveyIdentifier  = @"5-parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77";
 static NSString* const  kBackgroundSurveyIdentifier         = @"1-BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 
-/*********************************************************************************/
 #pragma mark - Initializations Options
-/*********************************************************************************/
+
 static NSString* const  kStudyIdentifier                = @"studyname";
 static NSString* const  kAppPrefix                      = @"studyname";
 static NSString* const  kVideoShownKey                  = @"VideoShown";
@@ -127,12 +126,12 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds) {
                                                                             @(kAPCUserInfoItemTypeWeight) ],
                                             kShareMessageKey : NSLocalizedString(@"Check out Share the Journey, a research study app about breast cancer survivorship.  Download it for iPhone at https://appsto.re/i6LF2f6", nil) }];
     
-	self.initializationOptions = dictionary;
+    self.initializationOptions = dictionary;
 	self.profileExtender = [[APHProfileExtender alloc] init];
 }
 
-- (void)setUpTasksReminder{
-	
+- (void)setUpTasksReminder
+{	
 	APCTaskReminder *dailySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kDailySurveyIdentifier reminderBody:NSLocalizedString(@"Daily Survey", nil)];
 	APCTaskReminder *dailyJournalReminder = [[APCTaskReminder alloc]initWithTaskID:kDailyJournalSurveyIdentifier reminderBody:NSLocalizedString(@"Daily Journal", nil)];
 	APCTaskReminder *exerciseSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kExerciseSurveyIdentifier reminderBody:NSLocalizedString(@"Exercise Survey", nil)];
@@ -316,7 +315,6 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds) {
 	
 	[[UIView appearance] setTintColor:[UIColor appPrimaryColor]];
 	
-	//  Enable server bypass
 	self.dataSubstrate.parameters.bypassServer = YES;
 }
 
@@ -353,15 +351,10 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds) {
 	return allSetBlockOfText;
 }
 
-/*********************************************************************************/
 #pragma mark - Datasubstrate Delegate Methods
-/*********************************************************************************/
 
 - (void)setUpCollectors
 {
-	//
-	// Set up location tracker
-	//
 	APCCoreLocationTracker * locationTracker = [[APCCoreLocationTracker alloc] initWithIdentifier: @"locationTracker"
 																		   deferredUpdatesTimeout: 60.0 * 60.0
 																			andHomeLocationStatus: APCPassiveLocationTrackingHomeLocationUnavailable];
@@ -371,9 +364,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds) {
 	}
 }
 
-/*********************************************************************************/
 #pragma mark - APCOnboardingDelegate Methods
-/*********************************************************************************/
 
 - (APCScene *)inclusionCriteriaSceneForOnboarding:(APCOnboarding *)__unused onboarding
 {
@@ -385,9 +376,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds) {
 	return scene;
 }
 
-/*********************************************************************************/
 #pragma mark - Consent
-/*********************************************************************************/
 
 - (ORKTaskViewController *)consentViewController
 {
