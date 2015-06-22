@@ -164,42 +164,42 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     HKQuantityType *stepQuantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
     self.stepScoring= [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType unit:[HKUnit countUnit] numberOfDays:-kNumberOfDaysToDisplay];
     
-    self.moodScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.moodScoring = [[APCScoring alloc] initWithTask:kDailySurveyIdentifier
                                            numberOfDays:-kNumberOfDaysToDisplay
                                                valueKey:@"moodsurvey103"
                                              latestOnly:NO];
     self.moodScoring.customMinimumPoint = 1.0;
     self.moodScoring.customMaximumPoint = 5.0;
     
-    self.energyScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.energyScoring = [[APCScoring alloc] initWithTask:kDailySurveyIdentifier
                                              numberOfDays:-kNumberOfDaysToDisplay
                                                  valueKey:@"moodsurvey104"
                                                latestOnly:NO];
     self.energyScoring.customMinimumPoint = 1.0;
     self.energyScoring.customMaximumPoint = 5.0;
     
-    self.exerciseScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.exerciseScoring = [[APCScoring alloc] initWithTask:kDailySurveyIdentifier
                                                numberOfDays:-kNumberOfDaysToDisplay
                                                    valueKey:@"moodsurvey106"
                                                  latestOnly:NO];
     self.exerciseScoring.customMinimumPoint = 1.0;
     self.exerciseScoring.customMaximumPoint = 5.0;
     
-    self.sleepScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.sleepScoring = [[APCScoring alloc] initWithTask:kDailySurveyIdentifier
                                             numberOfDays:-kNumberOfDaysToDisplay
                                                 valueKey:@"moodsurvey105"
                                               latestOnly:NO];
     self.sleepScoring.customMinimumPoint = 1.0;
     self.sleepScoring.customMaximumPoint = 5.0;
     
-    self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.cognitiveScoring = [[APCScoring alloc] initWithTask:kDailySurveyIdentifier
                                                 numberOfDays:-kNumberOfDaysToDisplay
                                                     valueKey:@"moodsurvey102"
                                                   latestOnly:NO];
     self.cognitiveScoring.customMinimumPoint = 1.0;
     self.cognitiveScoring.customMaximumPoint = 5.0;
     
-    self.customScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.customScoring = [[APCScoring alloc] initWithTask:kDailySurveyIdentifier
                                              numberOfDays:-kNumberOfDaysToDisplay
                                                  valueKey:@"moodsurvey107"
                                                latestOnly:NO];

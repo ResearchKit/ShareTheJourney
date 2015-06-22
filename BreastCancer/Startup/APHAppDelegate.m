@@ -36,10 +36,9 @@
 #import "APHProfileExtender.h"
 #import "APHAppDelegate+APHMigration.h"
 
-/*********************************************************************************/
 #pragma mark - Survey Identifiers
-/*********************************************************************************/
-static NSString* const  kDailySurveyIdentifier              = @"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF";
+
+NSString* const  kDailySurveyIdentifier                     = @"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF";
 static NSString* const  kDailyJournalSurveyIdentifier       = @"6-APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9";
 static NSString* const  kExerciseSurveyIdentifier           = @"4-APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF";
 static NSString* const  kFeedbackSurveyIdentifier           = @"8-Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
@@ -50,9 +49,16 @@ static NSString* const  kGeneralHealthSurveyIdentifier      = @"b-SF36-394848ce-
 static NSString* const  kWeeklySurveyIdentifier             = @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 static NSString* const  kBackgroundSurveyIdentifier         = @"1-BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 
-/*********************************************************************************/
+#pragma mark Data Collector Identifiers
+
+static NSString* const kMotionActivityCollector   = @"motionActivityCollector";
+static NSString* const kDisplacementCollector     = @"displacementCollector";
+static NSString* const kHealthKitWorkoutCollector = @"HealthKitWorkoutCollector";
+static NSString* const kHealthKitDataCollector    = @"HealthKitDataCollector";
+static NSString* const kHealthKitSleepCollector   = @"HealthKitSleepCollector";
+
 #pragma mark - Initializations Options
-/*********************************************************************************/
+
 static NSString* const  kStudyIdentifier            = @"studyname";
 static NSString* const  kAppPrefix                  = @"studyname";
 static NSString* const  kVideoShownKey              = @"VideoShown";
@@ -67,6 +73,8 @@ static NSString *const kMigrationTaskIdKey              = @"taskId";
 static NSString *const kMigrationOffsetByDaysKey        = @"offsetByDays";
 static NSString *const kMigrationGracePeriodInDaysKey   = @"gracePeriodInDays";
 static NSString *const kMigrationRecurringKindKey       = @"recurringKind";
+
+static NSString *const kDatabaseName                    = @"db.sqlite";
 
 
 typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
@@ -251,153 +259,6 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     }
 }
 
-- (NSDictionary *)migrateTasksAndSchedules:(NSDictionary *)currentTaskAndSchedules
-{
-    NSMutableDictionary *migratedTaskAndSchedules = nil;
-    
-    if (currentTaskAndSchedules == nil) {
-        APCLogError(@"Nothing was loaded from the JSON file. Therefore nothing to migrate.");
-    } else {
-        migratedTaskAndSchedules = [currentTaskAndSchedules mutableCopy];
-        
-        NSArray *schedulesToMigrate = @[
-                                        @{
-                                           kMigrationTaskIdKey: @"9-PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
-                                           kMigrationOffsetByDaysKey: @(1),
-                                           kMigrationGracePeriodInDaysKey: @(5),
-                                           kMigrationRecurringKindKey: @(APHMigrationRecurringKindMonthly)
-                                         },
-                                        @{
-                                            kMigrationTaskIdKey: @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
-                                            kMigrationOffsetByDaysKey: @(5),
-                                            kMigrationGracePeriodInDaysKey: @(5),
-                                            kMigrationRecurringKindKey: @(APHMigrationRecurringKindWeekly)
-                                         },
-                                        @{
-                                            kMigrationTaskIdKey: @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
-                                            kMigrationOffsetByDaysKey: @(4),
-                                            kMigrationGracePeriodInDaysKey: @(5),
-                                            kMigrationRecurringKindKey: @(APHMigrationRecurringKindQuarterly)
-                                         }
-                                       ];
-        
-        NSArray *schedules = migratedTaskAndSchedules[kJsonSchedulesKey];
-        NSMutableArray *migratedSchedules = [NSMutableArray new];
-        NSDate *launchDate = [NSDate date];
-        
-        for (NSDictionary *schedule in schedules) {
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", kMigrationTaskIdKey, schedule[kJsonScheduleTaskIDKey]];
-            NSArray *matchedSchedule = [schedulesToMigrate filteredArrayUsingPredicate:predicate];
-            
-            if (matchedSchedule.count > 0) {
-                NSDictionary *taskInfo = [matchedSchedule firstObject];
-                
-                NSMutableDictionary *updatedSchedule = [schedule mutableCopy];
-                
-                NSDate *offsetDate = [launchDate dateByAddingDays:[taskInfo[kMigrationOffsetByDaysKey] integerValue]];
-                
-                NSCalendarUnit units = NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitWeekday;
-                
-                NSDateComponents *componentForGracePeriodStartOn = [[NSCalendar currentCalendar] components:units
-                                                                                                   fromDate:offsetDate];
-                
-                NSString *dayOfMonth = [NSString stringWithFormat:@"%ld", componentForGracePeriodStartOn.day];
-                NSString *dayOfWeek = nil;
-                
-                if ([taskInfo[kMigrationRecurringKindKey] integerValue] == APHMigrationRecurringKindWeekly) {
-                    dayOfWeek = [NSString stringWithFormat:@"%ld", componentForGracePeriodStartOn.weekday];
-                    dayOfMonth = @"*";
-                } else {
-                    dayOfWeek = @"*";
-                }
-                
-                NSString *months = nil;
-                
-                switch ([taskInfo[kMigrationRecurringKindKey] integerValue]) {
-                    case APHMigrationRecurringKindMonthly:
-                        months = @"1/1";
-                        break;
-                    case APHMigrationRecurringKindQuarterly:
-                        months = @"1/3";
-                        break;
-                    default:
-                        months = @"*";
-                        break;
-                }
-                
-                updatedSchedule[kJsonScheduleStringKey] = [NSString stringWithFormat:@"0 5 %@ %@ %@", dayOfMonth, months, dayOfWeek];
-                
-                [migratedSchedules addObject:updatedSchedule];
-            } else {
-                [migratedSchedules addObject:schedule];
-            }
-        }
-        
-        migratedTaskAndSchedules[kJsonSchedulesKey] = migratedSchedules;
-    }
-    
-    return migratedTaskAndSchedules;
-}
-
-- (NSDictionary *) tasksAndSchedulesWillBeLoaded
-{
-    NSError *jsonError = nil;
-    NSString *resource = [[NSBundle mainBundle] pathForResource:@"APHTasksAndSchedules" ofType:@"json"];
-    NSData *jsonData = [NSData dataWithContentsOfFile:resource];
-    NSDictionary *tasksAndScheduledFromJSON = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
-    
-    NSDictionary *migratedSchedules = [self migrateTasksAndSchedules:tasksAndScheduledFromJSON];
-    
-    return migratedSchedules;
-}
-
-- (void)performMigrationAfterDataSubstrateFrom:(NSInteger) __unused previousVersion currentVersion:(NSInteger) __unused currentVersion
-{
-    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    NSString *majorVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-    NSString *minorVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    NSError *migrationError = nil;
-    
-    if (self.doesPersisteStoreExist == NO)
-    {
-        APCLogEvent(@"This application is being launched for the first time. We know this because there is no persistent store.");
-    }
-    else if ( [defaults objectForKey:@"previousVersion"] == nil)
-    {
-        APCLogEvent(@"The entire data model version %d", kTheEntireDataModelOfTheApp);
-        
-        NSError *jsonError = nil;
-        NSString *resource = [[NSBundle mainBundle] pathForResource:@"APHTasksAndSchedules" ofType:@"json"];
-        NSData *jsonData = [NSData dataWithContentsOfFile:resource];
-        NSDictionary *tasksAndScheduledFromJSON = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
-        
-        NSDictionary *migratedSchedules = [self migrateTasksAndSchedules:tasksAndScheduledFromJSON];
-        
-        [APCSchedule updateSchedulesFromJSON:migratedSchedules[kJsonSchedulesKey]
-                                   inContext:self.dataSubstrate.persistentContext];
-    }
-    else if ([[defaults objectForKey:@"previousVersion"] isEqual: @3])
-    {
-        APCLogEvent(@"The entire data model version %d", kTheEntireDataModelOfTheApp);
-        if (![self performMigrationFromThreeToFourWithError:&migrationError])
-        {
-            APCLogEvent(@"Migration from version %@ to %@ has failed.", [defaults objectForKey:@"previousVersion"], @(kTheEntireDataModelOfTheApp));
-        }
-    }
-    
-    [defaults setObject:majorVersion forKey:@"shortVersionString"];
-    [defaults setObject:minorVersion forKey:@"version"];
-    
-    if (!migrationError)
-    {
-        [defaults setObject:@(currentVersion) forKey:@"previousVersion"];
-    }
-    
-}
-
 - (id <APCProfileViewControllerDelegate>) profileExtenderDelegate {
     
     return self.profileExtender;
@@ -450,11 +311,6 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     return [[NSUserDefaults standardUserDefaults] boolForKey:kVideoShownKey];
 }
 
-- (NSArray *)offsetForTaskSchedules
-{
-    return @[];
-}
-
 - (NSArray *)allSetTextBlocks
 {
     NSArray *allSetBlockOfText = nil;
@@ -466,13 +322,32 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     return allSetBlockOfText;
 }
 
+#pragma mark - Helper Method for Datasubstrate Delegate Methods
 
-/*********************************************************************************/
+static NSDate *determineConsentDate(id object)
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString      *filePath    = [[object applicationDocumentsDirectory] stringByAppendingPathComponent:kDatabaseName];
+    NSDate        *consentDate = nil;
+    
+    if ([fileManager fileExistsAtPath:filePath]) {
+        NSError      *error      = nil;
+        NSDictionary *attributes = [fileManager attributesOfItemAtPath:filePath error:&error];
+        
+        if (!attributes) {
+            if (error) {
+                APCLogError2(error);
+            }
+            consentDate = [[NSDate date] startOfDay];
+        } else {
+            consentDate = [attributes fileCreationDate];
+        }
+    }
+    return consentDate;
+}
+
 #pragma mark - Datasubstrate Delegate Methods
-/*********************************************************************************/
-/*********************************************************************************/
-#pragma mark - Datasubstrate Delegate Methods
-/*********************************************************************************/
+
 - (void) setUpCollectors
 {
     if (self.dataSubstrate.currentUser.consented)
@@ -514,31 +389,12 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
         }
         else
         {
-            NSFileManager*  fileManager = [NSFileManager defaultManager];
-            NSString*       filePath    = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"db.sqlite"];
-            
-            if ([fileManager fileExistsAtPath:filePath])
-            {
-                NSError*        error       = nil;
-                NSDictionary*   attributes  = [fileManager attributesOfItemAtPath:filePath error:&error];
-                
-                if (error)
-                {
-                    APCLogError2(error);
-                    
-                    consentDate = [[NSDate date] startOfDay];
-                }
-                else
-                {
-                    consentDate = [attributes fileCreationDate];
-                }
-            }
+            consentDate = determineConsentDate(self);
         }
-        
         return consentDate;
     };
     
-    APCCoreMotionBackgroundDataCollector *motionCollector = [[APCCoreMotionBackgroundDataCollector alloc] initWithIdentifier:@"motionActivityCollector"
+    APCCoreMotionBackgroundDataCollector *motionCollector = [[APCCoreMotionBackgroundDataCollector alloc] initWithIdentifier:kMotionActivityCollector
                                                                                                               dateAnchorName:@"APCCoreMotionCollectorAnchorName"
                                                                                                             launchDateAnchor:LaunchDate];
     
@@ -575,7 +431,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                                                         @"verticalAccuracy",
                                                                         @"verticalAccuracyUnit"];
     APCPassiveDisplacementTrackingDataUploader* displacementSinker  = [[APCPassiveDisplacementTrackingDataUploader alloc]
-                                                                       initWithIdentifier:@"locationTracker"
+                                                                       initWithIdentifier:kDisplacementCollector
                                                                        columnNames:locationColumns
                                                                        operationQueueName:@"APCDisplacement Tracker Sink"
                                                                        dataProcessor:nil
@@ -599,28 +455,24 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
         }
         else
         {
-            NSFileManager*  fileManager = [NSFileManager defaultManager];
-            NSString*       filePath    = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"db.sqlite"];
-            
-            if ([fileManager fileExistsAtPath:filePath])
-            {
-                NSError*        error       = nil;
-                NSDictionary*   attributes  = [fileManager attributesOfItemAtPath:filePath error:&error];
-                
-                if (error)
-                {
-                    APCLogError2(error);
-                    
-                    consentDate = [[NSDate date] startOfDay];
-                }
-                else
-                {
-                    consentDate = [attributes fileCreationDate];
-                }
+            consentDate = determineConsentDate(self);
+        }
+        return consentDate;
+    };
+    
+    NSString *(^determineQuantitySource)(NSString *) = ^(NSString  *source)
+    {
+        NSString  *answer = nil;
+        if (source == nil) {
+            answer = @"not available";
+        } else if ([UIDevice.currentDevice.name isEqualToString:source] == YES) {
+            if ([APCDeviceHardware platformString] != nil) {
+                answer = [APCDeviceHardware platformString];
+            } else {
+                answer = @"iPhone";    //    theoretically should not happen
             }
         }
-        
-        return consentDate;
+        return answer;
     };
     
     NSString*(^QuantityDataSerializer)(id, HKUnit*) = ^NSString*(id dataSample, HKUnit* unit)
@@ -634,22 +486,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
         NSString*           sourceIdentifier    = qtySample.source.bundleIdentifier;
         NSString*           quantitySource      = qtySample.source.name;
         
-        if (quantitySource == nil)
-        {
-            quantitySource = @"not available";
-        }
-        else if ([[[UIDevice currentDevice] name] isEqualToString:quantitySource])
-        {
-            if ([APCDeviceHardware platformString])
-            {
-                quantitySource = [APCDeviceHardware platformString];
-            }
-            else
-            {
-                //  This shouldn't get called.
-                quantitySource = @"iPhone";
-            }
-        }
+        quantitySource = determineQuantitySource(quantitySource);
         
         NSString *stringToWrite = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@\n",
                                    startDateTimeStamp,
@@ -679,22 +516,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
         NSString*   sourceIdentifier            = sample.source.bundleIdentifier;
         NSString*   quantitySource              = sample.source.name;
         
-        if (quantitySource == nil)
-        {
-            quantitySource = @"not available";
-        }
-        else if ([[[UIDevice currentDevice] name] isEqualToString:quantitySource])
-        {
-            if ([APCDeviceHardware platformString])
-            {
-                quantitySource = [APCDeviceHardware platformString];
-            }
-            else
-            {
-                //  This shouldn't get called.
-                quantitySource = @"iPhone";
-            }
-        }
+        quantitySource = determineQuantitySource(quantitySource);
         
         NSError*    error                       = nil;
         NSString*   metaData                    = [NSDictionary apc_stringFromDictionary:sample.metadata error:&error];
@@ -750,23 +572,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
             NSString*           sourceIdentifier    = catSample.source.bundleIdentifier;
             NSString*           quantitySource      = catSample.source.name;
             
-            if (quantitySource == nil)
-            {
-                quantitySource = @"not available";
-            }
-            else if ([[[UIDevice currentDevice] name] isEqualToString:quantitySource])
-            {
-                if ([APCDeviceHardware platformString])
-                {
-                    quantitySource = [APCDeviceHardware platformString];
-                }
-                else
-                {
-                    //  This shouldn't get called.
-                    quantitySource = @"iPhone";
-                }
-                
-            }
+            quantitySource = determineQuantitySource(quantitySource);
             
             // Get the difference in seconds between the start and end date for the sample
             NSDateComponents* secondsSpentInBedOrAsleep = [[NSCalendar currentCalendar] components:NSCalendarUnitSecond
@@ -797,19 +603,19 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     
     // Just a note here that we are using n collectors to 1 data sink for quantity sample type data.
     NSArray*                    quantityColumnNames = @[@"startTime,endTime,type,value,unit,source,sourceIdentifier"];
-    APCPassiveDataSink*         quantityreceiver    =[[APCPassiveDataSink alloc] initWithQuantityIdentifier:@"HealthKitDataCollector"
+    APCPassiveDataSink*         quantityreceiver    =[[APCPassiveDataSink alloc] initWithQuantityIdentifier:kHealthKitDataCollector
                                                                                                 columnNames:quantityColumnNames
                                                                                          operationQueueName:@"APCHealthKitQuantity Activity Collector"
                                                                                               dataProcessor:QuantityDataSerializer
                                                                                           fileProtectionKey:NSFileProtectionCompleteUnlessOpen];
     NSArray*                    workoutColumnNames  = @[@"startTime,endTime,type,workoutType,total distance,unit,energy consumed,unit,source,sourceIdentifier,metadata"];
-    APCPassiveDataSink*         workoutReceiver     = [[APCPassiveDataSink alloc] initWithIdentifier:@"HealthKitWorkoutCollector"
+    APCPassiveDataSink*         workoutReceiver     = [[APCPassiveDataSink alloc] initWithIdentifier:kHealthKitWorkoutCollector
                                                                                          columnNames:workoutColumnNames
                                                                                   operationQueueName:@"APCHealthKitWorkout Activity Collector"
                                                                                        dataProcessor:WorkoutDataSerializer
                                                                                    fileProtectionKey:NSFileProtectionCompleteUnlessOpen];
     NSArray*                    categoryColumnNames = @[@"startTime,type,category value,value,unit,source,sourceIdentifier"];
-    APCPassiveDataSink*         sleepReceiver       = [[APCPassiveDataSink alloc] initWithIdentifier:@"HealthKitSleepCollector"
+    APCPassiveDataSink*         sleepReceiver       = [[APCPassiveDataSink alloc] initWithIdentifier:kHealthKitSleepCollector
                                                                                          columnNames:categoryColumnNames
                                                                                   operationQueueName:@"APCHealthKitSleep Activity Collector"
                                                                                        dataProcessor:CategoryDataSerializer

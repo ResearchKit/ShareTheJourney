@@ -143,9 +143,9 @@ static CGFloat kCellTextPadding = 20;
     
     UITableViewHeaderFooterView *headerView = [[UITableViewHeaderFooterView alloc]init];
     if (section == 0) {
-        headerView.textLabel.text = @"Purpose";
+        headerView.textLabel.text = NSLocalizedString(@"Purpose", nil);
     }else if (section == 1) {
-        headerView.textLabel.text = @"Length";
+        headerView.textLabel.text = NSLocalizedString(@"Length", nil);
     }else{
         headerView = [UITableViewHeaderFooterView new];
     }
@@ -166,9 +166,9 @@ static CGFloat kCellTextPadding = 20;
 
 - (void)initializeStrings {
     
-    self.purpose = @"Tell us how you feel. We'll ask you to rate your mental clarity, mood and energy level today as well as how well you slept and how much exercise you have done in the last day. You will also have an opportunity to track any activity or thought that you choose yourself.";
+    self.purpose = NSLocalizedString(@"Tell us how you feel. We'll ask you to rate your mental clarity, mood and energy level today as well as how well you slept and how much exercise you have done in the last day. You will also have an opportunity to track any activity or thought that you choose yourself.", nil);
     
-    self.length = @"This activity should take less than two minutes to complete.";
+    self.length = NSLocalizedString(@"This activity should take less than two minutes to complete.", nil);
     
 }
 

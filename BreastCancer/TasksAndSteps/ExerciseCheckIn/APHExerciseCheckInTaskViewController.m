@@ -92,7 +92,7 @@ static NSString* const kExerciseSurveyStep106           = @"exercisesurvey106";
         
         [reasonsController.titleImageView setImage:[UIImage imageNamed:[self imageName:answ]]];
         [reasonsController setAnswersInTableview:(NSMutableArray*)reasons];
-        [reasonsController setGoalButtonTitle:@"Done"];
+        [reasonsController setGoalButtonTitle:NSLocalizedString(@"Done", nil)];
     }
 }
 
