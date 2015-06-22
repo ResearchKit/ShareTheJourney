@@ -68,6 +68,8 @@ static NSString *const kMigrationOffsetByDaysKey        = @"offsetByDays";
 static NSString *const kMigrationGracePeriodInDaysKey   = @"gracePeriodInDays";
 static NSString *const kMigrationRecurringKindKey       = @"recurringKind";
 
+static NSString *const kDatabaseName                    = @"db.sqlite";
+
 
 typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 {
@@ -319,7 +321,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 static NSDate *determineConsentDate(id object)
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString      *filePath    = [[object applicationDocumentsDirectory] stringByAppendingPathComponent:@"db.sqlite"];
+    NSString      *filePath    = [[object applicationDocumentsDirectory] stringByAppendingPathComponent:kDatabaseName];
     NSDate        *consentDate = nil;
     
     if ([fileManager fileExistsAtPath:filePath]) {
