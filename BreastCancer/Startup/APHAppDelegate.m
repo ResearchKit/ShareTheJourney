@@ -36,9 +36,8 @@
 #import "APHProfileExtender.h"
 #import "APHAppDelegate+APHMigration.h"
 
-/*********************************************************************************/
 #pragma mark - Survey Identifiers
-/*********************************************************************************/
+
 NSString* const  kDailySurveyIdentifier                     = @"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF";
 static NSString* const  kDailyJournalSurveyIdentifier       = @"6-APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9";
 static NSString* const  kExerciseSurveyIdentifier           = @"4-APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF";
@@ -50,9 +49,16 @@ static NSString* const  kGeneralHealthSurveyIdentifier      = @"b-SF36-394848ce-
 static NSString* const  kWeeklySurveyIdentifier             = @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 static NSString* const  kBackgroundSurveyIdentifier         = @"1-BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 
-/*********************************************************************************/
+#pragma mark Data Collector Identifiers
+
+static NSString* const kMotionActivityCollector   = @"motionActivityCollector";
+static NSString* const kDisplacementCollector     = @"displacementCollector";
+static NSString* const kHealthKitWorkoutCollector = @"HealthKitWorkoutCollector";
+static NSString* const kHealthKitDataCollector    = @"HealthKitDataCollector";
+static NSString* const kHealthKitSleepCollector   = @"HealthKitSleepCollector";
+
 #pragma mark - Initializations Options
-/*********************************************************************************/
+
 static NSString* const  kStudyIdentifier            = @"studyname";
 static NSString* const  kAppPrefix                  = @"studyname";
 static NSString* const  kVideoShownKey              = @"VideoShown";
@@ -328,8 +334,10 @@ static NSDate *determineConsentDate(id object)
         NSError      *error      = nil;
         NSDictionary *attributes = [fileManager attributesOfItemAtPath:filePath error:&error];
         
-        if (error != nil) {
-            APCLogError2(error);
+        if (!attributes) {
+            if (error) {
+                APCLogError2(error);
+            }
             consentDate = [[NSDate date] startOfDay];
         } else {
             consentDate = [attributes fileCreationDate];
@@ -386,7 +394,7 @@ static NSDate *determineConsentDate(id object)
         return consentDate;
     };
     
-    APCCoreMotionBackgroundDataCollector *motionCollector = [[APCCoreMotionBackgroundDataCollector alloc] initWithIdentifier:@"motionActivityCollector"
+    APCCoreMotionBackgroundDataCollector *motionCollector = [[APCCoreMotionBackgroundDataCollector alloc] initWithIdentifier:kMotionActivityCollector
                                                                                                               dateAnchorName:@"APCCoreMotionCollectorAnchorName"
                                                                                                             launchDateAnchor:LaunchDate];
     
@@ -423,7 +431,7 @@ static NSDate *determineConsentDate(id object)
                                                                         @"verticalAccuracy",
                                                                         @"verticalAccuracyUnit"];
     APCPassiveDisplacementTrackingDataUploader* displacementSinker  = [[APCPassiveDisplacementTrackingDataUploader alloc]
-                                                                       initWithIdentifier:@"displacementCollector"
+                                                                       initWithIdentifier:kDisplacementCollector
                                                                        columnNames:locationColumns
                                                                        operationQueueName:@"APCDisplacement Tracker Sink"
                                                                        dataProcessor:nil
@@ -595,19 +603,19 @@ static NSDate *determineConsentDate(id object)
     
     // Just a note here that we are using n collectors to 1 data sink for quantity sample type data.
     NSArray*                    quantityColumnNames = @[@"startTime,endTime,type,value,unit,source,sourceIdentifier"];
-    APCPassiveDataSink*         quantityreceiver    =[[APCPassiveDataSink alloc] initWithQuantityIdentifier:@"HealthKitDataCollector"
+    APCPassiveDataSink*         quantityreceiver    =[[APCPassiveDataSink alloc] initWithQuantityIdentifier:kHealthKitDataCollector
                                                                                                 columnNames:quantityColumnNames
                                                                                          operationQueueName:@"APCHealthKitQuantity Activity Collector"
                                                                                               dataProcessor:QuantityDataSerializer
                                                                                           fileProtectionKey:NSFileProtectionCompleteUnlessOpen];
     NSArray*                    workoutColumnNames  = @[@"startTime,endTime,type,workoutType,total distance,unit,energy consumed,unit,source,sourceIdentifier,metadata"];
-    APCPassiveDataSink*         workoutReceiver     = [[APCPassiveDataSink alloc] initWithIdentifier:@"HealthKitWorkoutCollector"
+    APCPassiveDataSink*         workoutReceiver     = [[APCPassiveDataSink alloc] initWithIdentifier:kHealthKitWorkoutCollector
                                                                                          columnNames:workoutColumnNames
                                                                                   operationQueueName:@"APCHealthKitWorkout Activity Collector"
                                                                                        dataProcessor:WorkoutDataSerializer
                                                                                    fileProtectionKey:NSFileProtectionCompleteUnlessOpen];
     NSArray*                    categoryColumnNames = @[@"startTime,type,category value,value,unit,source,sourceIdentifier"];
-    APCPassiveDataSink*         sleepReceiver       = [[APCPassiveDataSink alloc] initWithIdentifier:@"HealthKitSleepCollector"
+    APCPassiveDataSink*         sleepReceiver       = [[APCPassiveDataSink alloc] initWithIdentifier:kHealthKitSleepCollector
                                                                                          columnNames:categoryColumnNames
                                                                                   operationQueueName:@"APCHealthKitSleep Activity Collector"
                                                                                        dataProcessor:CategoryDataSerializer
