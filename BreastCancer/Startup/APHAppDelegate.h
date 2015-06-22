@@ -34,6 +34,8 @@
 #import <UIKit/UIKit.h>
 @import APCAppCore;
 
+extern NSString* const kDailySurveyIdentifier;
+
 @interface APHAppDelegate : APCAppDelegate
 
 @end
