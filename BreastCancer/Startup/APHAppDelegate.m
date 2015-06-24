@@ -269,16 +269,16 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     [APCAppearanceInfo setAppearanceDictionary:@{
                                                  kPrimaryAppColorKey : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
 
-                                                 @"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF":         [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
-                                                 @"6-APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9" :      [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
-                                                 @"4-APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF" :    [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
-                                                 @"8-Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" :             [UIColor lightGrayColor],
-                                                 @"7-MyThoughts-14ffde40-1551-4b48-aae2-8fef38d61b61" :           [UIColor lightGrayColor],
-                                                 @"2-BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" :   [UIColor lightGrayColor],
-                                                 @"9-PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":              [UIColor lightGrayColor],
-                                                 @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                  [UIColor lightGrayColor],
-                                                 @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                [UIColor lightGrayColor],
-                                                 @"1-BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":      [UIColor lightGrayColor],
+                                                 kDailySurveyIdentifier:         [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 kDailyJournalSurveyIdentifier:  [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 kExerciseSurveyIdentifier:      [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 kFeedbackSurveyIdentifier:      [UIColor lightGrayColor],
+                                                 kMyThoughtsSurveyIdentifier:    [UIColor lightGrayColor],
+                                                 kSymptomsSurveyIdentifier:      [UIColor lightGrayColor],
+                                                 kPersonalHealthSurveyIdentifier:[UIColor lightGrayColor],
+                                                 kGeneralHealthSurveyIdentifier: [UIColor lightGrayColor],
+                                                 kWeeklySurveyIdentifier:        [UIColor lightGrayColor],
+                                                 kBackgroundSurveyIdentifier:    [UIColor lightGrayColor],
                                                  }];
     
     [[UINavigationBar appearance] setTintColor:[UIColor appPrimaryColor]];
@@ -553,7 +553,7 @@ static NSDate *determineConsentDate(id object)
         HKCategorySample*   catSample       = (HKCategorySample *)dataSample;
         NSString*           stringToWrite   = nil;
         
-        if ([catSample.categoryType.identifier isEqualToString:@"HKCategoryTypeIdentifierSleepAnalysis"])
+        if ([catSample.categoryType.identifier isEqualToString:HKCategoryTypeIdentifierSleepAnalysis])
         {
             NSString*           startDateTime   = [catSample.startDate toStringInISO8601Format];
             NSString*           healthKitType   = catSample.sampleType.identifier;
