@@ -532,11 +532,7 @@ static NSInteger const kMaxTextInput        = 300;
     {
          stepIndex = [kUserProgressStepIndex integerValue];
     }
-    else if ([step.identifier isEqualToString:kUserInputStepID])
-    {
-        stepIndex = [kUserFailedStepIndex integerValue];
-    }
-    else if ([step.identifier isEqualToString:kReasonsStepID])
+    else if (([step.identifier isEqualToString:kUserInputStepID]) || ([step.identifier isEqualToString:kReasonsStepID]))
     {
         stepIndex = [kUserFailedStepIndex integerValue];
     }

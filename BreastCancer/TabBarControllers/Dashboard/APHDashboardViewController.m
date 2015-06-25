@@ -162,49 +162,41 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 - (void)prepareScoringObjects {
     
     HKQuantityType *stepQuantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
-    self.stepScoring= [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType unit:[HKUnit countUnit] numberOfDays:-kNumberOfDaysToDisplay];
+    self.stepScoring= [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType
+                                                                   unit:[HKUnit countUnit]
+                                                           numberOfDays:-kNumberOfDaysToDisplay];
     
-    self.moodScoring = [[APCScoring alloc] initWithTask:kDailySurveyIdentifier
-                                           numberOfDays:-kNumberOfDaysToDisplay
-                                               valueKey:@"moodsurvey103"
-                                             latestOnly:NO];
+    self.moodScoring = [self scoringForValueKey:@"moodsurvey103"];
     self.moodScoring.customMinimumPoint = 1.0;
     self.moodScoring.customMaximumPoint = 5.0;
     
-    self.energyScoring = [[APCScoring alloc] initWithTask:kDailySurveyIdentifier
-                                             numberOfDays:-kNumberOfDaysToDisplay
-                                                 valueKey:@"moodsurvey104"
-                                               latestOnly:NO];
+    self.energyScoring = [self scoringForValueKey:@"moodsurvey104"];
     self.energyScoring.customMinimumPoint = 1.0;
     self.energyScoring.customMaximumPoint = 5.0;
     
-    self.exerciseScoring = [[APCScoring alloc] initWithTask:kDailySurveyIdentifier
-                                               numberOfDays:-kNumberOfDaysToDisplay
-                                                   valueKey:@"moodsurvey106"
-                                                 latestOnly:NO];
+    self.exerciseScoring = [self scoringForValueKey:@"moodsurvey106"];
     self.exerciseScoring.customMinimumPoint = 1.0;
     self.exerciseScoring.customMaximumPoint = 5.0;
     
-    self.sleepScoring = [[APCScoring alloc] initWithTask:kDailySurveyIdentifier
-                                            numberOfDays:-kNumberOfDaysToDisplay
-                                                valueKey:@"moodsurvey105"
-                                              latestOnly:NO];
+    self.sleepScoring = [self scoringForValueKey:@"moodsurvey105"];
     self.sleepScoring.customMinimumPoint = 1.0;
     self.sleepScoring.customMaximumPoint = 5.0;
     
-    self.cognitiveScoring = [[APCScoring alloc] initWithTask:kDailySurveyIdentifier
-                                                numberOfDays:-kNumberOfDaysToDisplay
-                                                    valueKey:@"moodsurvey102"
-                                                  latestOnly:NO];
+    self.cognitiveScoring = [self scoringForValueKey:@"moodsurvey102"];
     self.cognitiveScoring.customMinimumPoint = 1.0;
     self.cognitiveScoring.customMaximumPoint = 5.0;
     
-    self.customScoring = [[APCScoring alloc] initWithTask:kDailySurveyIdentifier
-                                             numberOfDays:-kNumberOfDaysToDisplay
-                                                 valueKey:@"moodsurvey107"
-                                               latestOnly:NO];
+    self.customScoring = [self scoringForValueKey:@"moodsurvey107"];
     self.customScoring.customMinimumPoint = 1.0;
     self.customScoring.customMaximumPoint = 5.0;
+}
+
+- (APCScoring *)scoringForValueKey:(NSString *)valueKey
+{
+    return [[APCScoring alloc] initWithTask:kDailySurveyIdentifier
+                               numberOfDays:-kNumberOfDaysToDisplay
+                                   valueKey:valueKey
+                                 latestOnly:NO];
 }
 
 - (void)prepareData

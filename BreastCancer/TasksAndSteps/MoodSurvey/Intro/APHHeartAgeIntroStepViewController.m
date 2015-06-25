@@ -96,24 +96,24 @@ static CGFloat kCellTextPadding = 20;
 -(CGFloat)tableView:(UITableView *) __unused tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     float height = 0;
+    NSString *contentText = nil;
     
     switch (indexPath.section) {
         case 0:
-            height = ceil([self.purpose boundingRectWithSize:CGSizeMake(self.tableView.frame.size.width - kCellMargins, CGFLOAT_MAX)
-                                                options:NSStringDrawingUsesLineFragmentOrigin
-                                             attributes:@{ NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleBody]}
-                                                context:nil].size.height) + kCellTextPadding;
+            contentText = self.purpose;
             break;
         case 1:
-            height = ceil([self.length boundingRectWithSize:CGSizeMake(self.tableView.frame.size.width - kCellMargins, CGFLOAT_MAX)
-                                                    options:NSStringDrawingUsesLineFragmentOrigin
-                                                 attributes:@{ NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleBody]}
-                                                    context:nil].size.height) + kCellTextPadding;
+            contentText = self.length;
             break;
             
         default:
             break;
     }
+    
+    height = ceil([contentText boundingRectWithSize:CGSizeMake(self.tableView.frame.size.width - kCellMargins, CGFLOAT_MAX)
+                                            options:NSStringDrawingUsesLineFragmentOrigin
+                                         attributes:@{ NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleBody]}
+                                            context:nil].size.height) + kCellTextPadding;
     
     return height;
 }
