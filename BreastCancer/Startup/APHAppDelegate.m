@@ -266,12 +266,14 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 
 - (void) setUpAppAppearance
 {
+    UIColor *primaryColor = [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000];
+    
     [APCAppearanceInfo setAppearanceDictionary:@{
-                                                 kPrimaryAppColorKey : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 kPrimaryAppColorKey : primaryColor,
 
-                                                 kDailySurveyIdentifier:         [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
-                                                 kDailyJournalSurveyIdentifier:  [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
-                                                 kExerciseSurveyIdentifier:      [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 kDailySurveyIdentifier:         primaryColor,
+                                                 kDailyJournalSurveyIdentifier:  primaryColor,
+                                                 kExerciseSurveyIdentifier:      primaryColor,
                                                  kFeedbackSurveyIdentifier:      [UIColor lightGrayColor],
                                                  kMyThoughtsSurveyIdentifier:    [UIColor lightGrayColor],
                                                  kSymptomsSurveyIdentifier:      [UIColor lightGrayColor],
