@@ -280,38 +280,34 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds) {
 	self.dataSubstrate.parameters.bypassServer = YES;
 }
 
-- (void)showOnBoarding
+- (void) showOnBoarding
 {
-	[super showOnBoarding];
-	[self showStudyOverview];
+    [super showOnBoarding];
+    [self showStudyOverview];
 }
 
-#pragma mark - Helper Method for Datasubstrate Delegate Methods
 
-- (void)showStudyOverview
+- (void) showStudyOverview
 {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString      *filePath    = [[object applicationDocumentsDirectory] stringByAppendingPathComponent:kDatabaseName];
-    NSDate        *consentDate = nil;
+    APCStudyOverviewViewController *studyController = [[UIStoryboard storyboardWithName:@"APCOnboarding" bundle:[NSBundle appleCoreBundle]] instantiateViewControllerWithIdentifier:@"StudyOverviewVC"];
+    [self setUpRootViewController:studyController];
+}
+
+- (BOOL) isVideoShown
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kVideoShownKey];
+}
+
+- (NSArray *)allSetTextBlocks
+{
+    NSArray *allSetBlockOfText = nil;
     
-    if ([fileManager fileExistsAtPath:filePath]) {
-        NSError      *error      = nil;
-        NSDictionary *attributes = [fileManager attributesOfItemAtPath:filePath error:&error];
-        
-        if (!attributes) {
-            if (error) {
-                APCLogError2(error);
-            }
-            consentDate = [[NSDate date] startOfDay];
-        } else {
-            consentDate = [attributes fileCreationDate];
-        }
-    }
-
-	[self setUpRootViewController:studyController];
+    NSString *activitiesAdditionalText = NSLocalizedString(@"You will be able to log, as often as you like, your mood, energy, sleep, thinking and excercise, and an activity of your choice.",
+                                                           @"You will be able to log, as often as you like, your mood, energy, sleep, thinking and excercise, and an activity of your choice.");
+    allSetBlockOfText = @[@{kAllSetActivitiesTextAdditional: activitiesAdditionalText}];
+    
+    return allSetBlockOfText;
 }
-
-- (BOOL)isVideoShown
 
 - (void) setUpCollectors
 {
