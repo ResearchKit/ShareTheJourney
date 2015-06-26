@@ -217,13 +217,12 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 	self.profileExtender = [[APHProfileExtender alloc] init];
 }
 
+
 - (void)setUpTasksReminder
 {	
 	APCTaskReminder *dailySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kDailySurveyIdentifier reminderBody:NSLocalizedString(@"Daily Survey", nil)];
 	APCTaskReminder *dailyJournalReminder = [[APCTaskReminder alloc]initWithTaskID:kDailyJournalSurveyIdentifier reminderBody:NSLocalizedString(@"Daily Journal", nil)];
 	APCTaskReminder *exerciseSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kExerciseSurveyIdentifier reminderBody:NSLocalizedString(@"Exercise Survey", nil)];
-    @{
-      HKQuantityTypeIdentifierStepCount               : [HKUnit countUnit],
 	APCTaskReminder *myThoughtsSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kMyThoughtsSurveyIdentifier reminderBody:NSLocalizedString(@"My Thoughts Survey", nil)];
 	APCTaskReminder *assessFunctioningSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kBCSPAOFISurveyIdentifier reminderBody:NSLocalizedString(@"Assessment of Functioning", nil)];
 	APCTaskReminder *personalHealthSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kPersonalHealthSurveyIdentifier reminderBody:NSLocalizedString(@"Personal Health Survey", nil)];
