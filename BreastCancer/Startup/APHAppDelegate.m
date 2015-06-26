@@ -217,6 +217,21 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 	self.profileExtender = [[APHProfileExtender alloc] init];
 }
 
+- (NSDictionary*)researcherSpecifiedUnits
+{
+    NSDictionary* hkUnits =
+    @{
+      HKQuantityTypeIdentifierStepCount               : [HKUnit countUnit],
+      HKQuantityTypeIdentifierBodyMass                : [HKUnit gramUnitWithMetricPrefix:HKMetricPrefixKilo],
+      HKQuantityTypeIdentifierHeight                  : [HKUnit meterUnit],
+      HKQuantityTypeIdentifierDistanceCycling         : [HKUnit meterUnit],
+      HKQuantityTypeIdentifierDistanceWalkingRunning  : [HKUnit meterUnit],
+      HKQuantityTypeIdentifierFlightsClimbed          : [HKUnit countUnit]
+      };
+    
+    return hkUnits;
+}
+
 
 - (void)setUpTasksReminder
 {	
@@ -224,9 +239,9 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 	APCTaskReminder *dailyJournalReminder = [[APCTaskReminder alloc]initWithTaskID:kDailyJournalSurveyIdentifier reminderBody:NSLocalizedString(@"Daily Journal", nil)];
 	APCTaskReminder *exerciseSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kExerciseSurveyIdentifier reminderBody:NSLocalizedString(@"Exercise Survey", nil)];
 	APCTaskReminder *myThoughtsSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kMyThoughtsSurveyIdentifier reminderBody:NSLocalizedString(@"My Thoughts Survey", nil)];
-	APCTaskReminder *assessFunctioningSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kBCSPAOFISurveyIdentifier reminderBody:NSLocalizedString(@"Assessment of Functioning", nil)];
+//	APCTaskReminder *assessFunctioningSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kBCSPAOFISurveyIdentifier reminderBody:NSLocalizedString(@"Assessment of Functioning", nil)];
 	APCTaskReminder *personalHealthSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kPersonalHealthSurveyIdentifier reminderBody:NSLocalizedString(@"Personal Health Survey", nil)];
-	APCTaskReminder *sleepQualitySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kSleepQualitySurveyIdentifier reminderBody:NSLocalizedString(@"Sleep Quality Survey", nil)];
+//	APCTaskReminder *sleepQualitySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kSleepQualitySurveyIdentifier reminderBody:NSLocalizedString(@"Sleep Quality Survey", nil)];
 	APCTaskReminder *generalHealthSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kGeneralHealthSurveyIdentifier reminderBody:NSLocalizedString(@"General Health Survey", nil)];
 	APCTaskReminder *weeklySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeeklySurveyIdentifier reminderBody:NSLocalizedString(@"Weekly Survey", nil)];
 	
@@ -234,9 +249,9 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 	[self.tasksReminder manageTaskReminder:dailyJournalReminder];
 	[self.tasksReminder manageTaskReminder:exerciseSurveyReminder];
 	[self.tasksReminder manageTaskReminder:myThoughtsSurveyReminder];
-	[self.tasksReminder manageTaskReminder:assessFunctioningSurveyReminder];
+//	[self.tasksReminder manageTaskReminder:assessFunctioningSurveyReminder];
 	[self.tasksReminder manageTaskReminder:personalHealthSurveyReminder];
-	[self.tasksReminder manageTaskReminder:sleepQualitySurveyReminder];
+//	[self.tasksReminder manageTaskReminder:sleepQualitySurveyReminder];
 	[self.tasksReminder manageTaskReminder:generalHealthSurveyReminder];
 	[self.tasksReminder manageTaskReminder:weeklySurveyReminder];
 }
