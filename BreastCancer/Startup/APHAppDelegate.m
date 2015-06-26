@@ -84,15 +84,6 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds) {
 	APHMigrationRecurringKindAnnual
 };
 
-typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
-{
-    APHMigrationRecurringKindWeekly = 0,
-    APHMigrationRecurringKindMonthly,
-    APHMigrationRecurringKindQuarterly,
-    APHMigrationRecurringKindSemiAnnual,
-    APHMigrationRecurringKindAnnual
-};
-
 @interface APHAppDelegate()
 
 @property (nonatomic, strong) APHProfileExtender *profileExtender;
@@ -168,11 +159,13 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 {
 	[APCUtilities setRealApplicationName: @"Share the Journey"];
 	
+    NSDictionary *permissionsDescriptions = @{
                                               @(kAPCSignUpPermissionsTypeLocation) : NSLocalizedString(@"Using your GPS enables the app to accurately determine distances travelled. Your actual location will never be shared.", @""),
                                               @(kAPCSignUpPermissionsTypeCoremotion) : NSLocalizedString(@"Using the motion co-processor allows the app to determine your activity, helping the study better understand how activity level may influence disease.", @""),
                                               @(kAPCSignUpPermissionsTypeMicrophone) : NSLocalizedString(@"Access to microphone is required for your Voice Recording Activity.", @""),
                                               @(kAPCSignUpPermissionsTypeLocalNotifications) : NSLocalizedString(@"Allowing notifications enables the app to show you reminders.", @""),
                                               @(kAPCSignUpPermissionsTypeHealthKit) : NSLocalizedString(@"On the next screen, you will be prompted to grant Share the Journey access to read and write some of your general and health information, such as height, weight and steps taken so you don't have to enter it again.", @""),
+                                              };
 	
 	NSMutableDictionary * dictionary = [super defaultInitializationOptions];
 #ifdef DEBUG
