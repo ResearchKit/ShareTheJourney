@@ -34,7 +34,7 @@
 @import APCAppCore;
 #import "APHAppDelegate.h"
 #import "APHProfileExtender.h"
-#import "APHAppDelegate+APHMigration.h"
+
 
 #pragma mark - Survey Identifiers
 
@@ -43,9 +43,6 @@ static NSString* const  kDailyJournalSurveyIdentifier       = @"6-APHDailyJourna
 static NSString* const  kExerciseSurveyIdentifier           = @"4-APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF";
 static NSString* const  kFeedbackSurveyIdentifier           = @"8-Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 static NSString* const  kMyThoughtsSurveyIdentifier         = @"7-MyThoughts-14ffde40-1551-4b48-aae2-8fef38d61b61";
-static NSString* const  kSymptomsSurveyIdentifier           = @"2-BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
-static NSString* const  kPersonalHealthSurveyIdentifier     = @"9-PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
-static NSString* const  kGeneralHealthSurveyIdentifier      = @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 static NSString* const  kWeeklySurveyIdentifier             = @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 static NSString* const  kBackgroundSurveyIdentifier         = @"1-BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 
@@ -59,10 +56,10 @@ static NSString* const kHealthKitSleepCollector   = @"HealthKitSleepCollector";
 
 #pragma mark - Initializations Options
 
-static NSString* const  kStudyIdentifier            = @"studyname";
-static NSString* const  kAppPrefix                  = @"studyname";
-static NSString* const  kVideoShownKey              = @"VideoShown";
-static NSString* const  kConsentPropertiesFileName  = @"APHConsentSection";
+static NSString* const  kStudyIdentifier                = @"studyname";
+static NSString* const  kAppPrefix                      = @"studyname";
+static NSString* const  kVideoShownKey                  = @"VideoShown";
+static NSString* const  kConsentPropertiesFileName      = @"APHConsentSection";
 
 static NSString *const kJsonScheduleStringKey           = @"scheduleString";
 static NSString *const kJsonTasksKey                    = @"tasks";
@@ -73,25 +70,23 @@ static NSString *const kMigrationTaskIdKey              = @"taskId";
 static NSString *const kMigrationOffsetByDaysKey        = @"offsetByDays";
 static NSString *const kMigrationGracePeriodInDaysKey   = @"gracePeriodInDays";
 static NSString *const kMigrationRecurringKindKey       = @"recurringKind";
-
 static NSString *const kDatabaseName                    = @"db.sqlite";
 
-
-typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
-{
-    APHMigrationRecurringKindWeekly = 0,
-    APHMigrationRecurringKindMonthly,
-    APHMigrationRecurringKindQuarterly,
-    APHMigrationRecurringKindSemiAnnual,
-    APHMigrationRecurringKindAnnual
+typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds) {
+	APHMigrationRecurringKindWeekly = 0,
+	APHMigrationRecurringKindMonthly,
+	APHMigrationRecurringKindQuarterly,
+	APHMigrationRecurringKindSemiAnnual,
+	APHMigrationRecurringKindAnnual
 };
 
-@interface APHAppDelegate ()
+@interface APHAppDelegate()
 
 @property (nonatomic, strong) APHProfileExtender *profileExtender;
-@property  (nonatomic, assign)  NSInteger environment;
+@property (nonatomic, assign) NSInteger environment;
 
 @end
+
 
 @implementation APHAppDelegate
 
@@ -159,7 +154,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 - (void) setUpInitializationOptions
 {
     [APCUtilities setRealApplicationName: @"Share the Journey"];
-    
+	
     NSDictionary *permissionsDescriptions = @{
                                               @(kAPCSignUpPermissionsTypeLocation) : NSLocalizedString(@"Using your GPS enables the app to accurately determine distances travelled. Your actual location will never be shared.", @""),
                                               @(kAPCSignUpPermissionsTypeCoremotion) : NSLocalizedString(@"Using the motion co-processor allows the app to determine your activity, helping the study better understand how activity level may influence disease.", @""),
@@ -167,12 +162,12 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                               @(kAPCSignUpPermissionsTypeLocalNotifications) : NSLocalizedString(@"Allowing notifications enables the app to show you reminders.", @""),
                                               @(kAPCSignUpPermissionsTypeHealthKit) : NSLocalizedString(@"On the next screen, you will be prompted to grant Share the Journey access to read and write some of your general and health information, such as height, weight and steps taken so you don't have to enter it again.", @""),
                                               };
-    
-    NSMutableDictionary * dictionary = [super defaultInitializationOptions];
+	
+	NSMutableDictionary * dictionary = [super defaultInitializationOptions];
 #ifdef DEBUG
-    self.environment = SBBEnvironmentStaging;
+	self.environment = SBBEnvironmentStaging;
 #else
-    self.environment = SBBEnvironmentProd;
+	self.environment = SBBEnvironmentProd;
 #endif
     
     [dictionary addEntriesFromDictionary:@{
@@ -208,7 +203,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                            kShareMessageKey : NSLocalizedString(@"Check out Share the Journey, a research study app about breast cancer survivorship.  Download it for iPhone at https://appsto.re/i6LF2f6", nil)
                                            }];
     self.initializationOptions = dictionary;
-    self.profileExtender = [[APHProfileExtender alloc] init];
+	self.profileExtender = [[APHProfileExtender alloc] init];
 }
 
 - (NSDictionary*)researcherSpecifiedUnits
@@ -226,73 +221,43 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     return hkUnits;
 }
 
--(void)setUpTasksReminder{
-    
-    APCTaskReminder *dailySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kDailySurveyIdentifier reminderBody:NSLocalizedString(@"Daily Survey", nil)];
-    APCTaskReminder *dailyJournalReminder = [[APCTaskReminder alloc]initWithTaskID:kDailyJournalSurveyIdentifier reminderBody:NSLocalizedString(@"Daily Journal", nil)];
-    APCTaskReminder *exerciseSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kExerciseSurveyIdentifier reminderBody:NSLocalizedString(@"Exercise Survey", nil)];
-    APCTaskReminder *myThoughtsSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kMyThoughtsSurveyIdentifier reminderBody:NSLocalizedString(@"My Thoughts Survey", nil)];
-    APCTaskReminder *personalHealthSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kPersonalHealthSurveyIdentifier reminderBody:NSLocalizedString(@"Personal Health Survey", nil)];
-    APCTaskReminder *generalHealthSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kGeneralHealthSurveyIdentifier reminderBody:NSLocalizedString(@"General Health Survey", nil)];
-    APCTaskReminder *weeklySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeeklySurveyIdentifier reminderBody:NSLocalizedString(@"Weekly Survey", nil)];
-    
-    [self.tasksReminder.reminders removeAllObjects];
-    [self.tasksReminder manageTaskReminder:dailySurveyReminder];
-    [self.tasksReminder manageTaskReminder:dailyJournalReminder];
-    [self.tasksReminder manageTaskReminder:exerciseSurveyReminder];
-    [self.tasksReminder manageTaskReminder:myThoughtsSurveyReminder];
-    [self.tasksReminder manageTaskReminder:personalHealthSurveyReminder];
-    [self.tasksReminder manageTaskReminder:generalHealthSurveyReminder];
-    [self.tasksReminder manageTaskReminder:weeklySurveyReminder];
-    
-    if ([self doesPersisteStoreExist] == NO)
-    {
-        APCLogEvent(@"This app is being launched for the first time. Turn all reminders on");
-        for (APCTaskReminder *reminder in self.tasksReminder.reminders) {
-            [[NSUserDefaults standardUserDefaults]setObject:reminder.reminderBody forKey:reminder.reminderIdentifier];
-        }
-        
-        if ([[UIApplication sharedApplication] currentUserNotificationSettings].types != UIUserNotificationTypeNone){
-            [self.tasksReminder setReminderOn:@YES];
-        }
-        [[NSUserDefaults standardUserDefaults]synchronize];
-    }
+
+- (void)setUpTasksReminder
+{	
+	APCTaskReminder *dailySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kDailySurveyIdentifier reminderBody:NSLocalizedString(@"Daily Survey", nil)];
+	APCTaskReminder *dailyJournalReminder = [[APCTaskReminder alloc]initWithTaskID:kDailyJournalSurveyIdentifier reminderBody:NSLocalizedString(@"Daily Journal", nil)];
+	APCTaskReminder *exerciseSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kExerciseSurveyIdentifier reminderBody:NSLocalizedString(@"Exercise Survey", nil)];
+	APCTaskReminder *myThoughtsSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kMyThoughtsSurveyIdentifier reminderBody:NSLocalizedString(@"My Thoughts Survey", nil)];
+	APCTaskReminder *weeklySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeeklySurveyIdentifier reminderBody:NSLocalizedString(@"Weekly Survey", nil)];
+	
+	[self.tasksReminder manageTaskReminder:dailySurveyReminder];
+	[self.tasksReminder manageTaskReminder:dailyJournalReminder];
+	[self.tasksReminder manageTaskReminder:exerciseSurveyReminder];
+	[self.tasksReminder manageTaskReminder:myThoughtsSurveyReminder];
+	[self.tasksReminder manageTaskReminder:weeklySurveyReminder];
 }
 
-- (id <APCProfileViewControllerDelegate>) profileExtenderDelegate {
-    
-    return self.profileExtender;
-}
-
-- (void) setUpAppAppearance
+- (id<APCProfileViewControllerDelegate>)profileExtenderDelegate
 {
-    UIColor *primaryColor = [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000];
-    
-    [APCAppearanceInfo setAppearanceDictionary:@{
-                                                 kPrimaryAppColorKey : primaryColor,
+	return self.profileExtender;
+}
 
-                                                 kDailySurveyIdentifier:         primaryColor,
-                                                 kDailyJournalSurveyIdentifier:  primaryColor,
-                                                 kExerciseSurveyIdentifier:      primaryColor,
-                                                 kFeedbackSurveyIdentifier:      [UIColor lightGrayColor],
-                                                 kMyThoughtsSurveyIdentifier:    [UIColor lightGrayColor],
-                                                 kSymptomsSurveyIdentifier:      [UIColor lightGrayColor],
-                                                 kPersonalHealthSurveyIdentifier:[UIColor lightGrayColor],
-                                                 kGeneralHealthSurveyIdentifier: [UIColor lightGrayColor],
-                                                 kWeeklySurveyIdentifier:        [UIColor lightGrayColor],
-                                                 kBackgroundSurveyIdentifier:    [UIColor lightGrayColor],
-                                                 }];
-    
-    [[UINavigationBar appearance] setTintColor:[UIColor appPrimaryColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes: @{
-                                                            NSForegroundColorAttributeName : [UIColor appSecondaryColor2],
-                                                            NSFontAttributeName : [UIFont appNavBarTitleFont]
-                                                            }];
-    
-    [[UIView appearance] setTintColor:[UIColor appPrimaryColor]];
-    
-    self.dataSubstrate.parameters.bypassServer = YES;
-    self.dataSubstrate.parameters.hideExampleConsent = NO;
+- (void)setUpAppAppearance
+{
+	[APCAppearanceInfo setAppearanceDictionary : @{ kPrimaryAppColorKey : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                    @"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF" : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                    @"6-APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9" : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                    @"4-APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF" : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                    @"8-Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" : [UIColor lightGrayColor],
+                                                    @"7-MyThoughts-14ffde40-1551-4b48-aae2-8fef38d61b61" : [UIColor lightGrayColor],
+                                                    @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" : [UIColor lightGrayColor],
+                                                    @"1-BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" : [UIColor lightGrayColor] }];
+	[[UINavigationBar appearance] setTintColor:[UIColor appPrimaryColor]];
+	[[UINavigationBar appearance] setTitleTextAttributes : @{ NSForegroundColorAttributeName : [UIColor appSecondaryColor2],
+                                                              NSFontAttributeName : [UIFont appNavBarTitleFont] }];
+	[[UIView appearance] setTintColor:[UIColor appPrimaryColor]];
+	
+	self.dataSubstrate.parameters.bypassServer = YES;
 }
 
 - (void) showOnBoarding
@@ -324,8 +289,6 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     return allSetBlockOfText;
 }
 
-#pragma mark - Helper Method for Datasubstrate Delegate Methods
-
 static NSDate *determineConsentDate(id object)
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -347,8 +310,6 @@ static NSDate *determineConsentDate(id object)
     }
     return consentDate;
 }
-
-#pragma mark - Datasubstrate Delegate Methods
 
 - (void) setUpCollectors
 {
@@ -443,6 +404,8 @@ static NSDate *determineConsentDate(id object)
     [locationCollector start];
     [self.passiveDataCollector addDataSink:locationCollector];
 }
+
+#pragma mark - Datasubstrate Delegate Methods
 
 - (void)configureObserverQueries
 {
@@ -690,36 +653,31 @@ static NSDate *determineConsentDate(id object)
                 [self.passiveDataCollector addDataSink:collector];
             }
         }
-    }
+	}
 }
 
-/*********************************************************************************/
 #pragma mark - APCOnboardingDelegate Methods
-/*********************************************************************************/
 
-- (APCScene *)inclusionCriteriaSceneForOnboarding:(APCOnboarding *) __unused onboarding
+- (APCScene *)inclusionCriteriaSceneForOnboarding:(APCOnboarding *)__unused onboarding
 {
-    APCScene *scene = [APCScene new];
-    scene.name = @"APHInclusionCriteriaViewController";
-    scene.storyboardName = @"APHOnboarding";
-    scene.bundle = [NSBundle mainBundle];
-    
-    return scene;
+	APCScene *scene = [APCScene new];
+	scene.name = @"APHInclusionCriteriaViewController";
+	scene.storyboardName = @"APHOnboarding";
+	scene.bundle = [NSBundle mainBundle];
+	
+	return scene;
 }
 
-/*********************************************************************************/
 #pragma mark - Consent
-/*********************************************************************************/
-
 
 - (ORKTaskViewController *)consentViewController
 {
-    APCConsentTask*         task = [[APCConsentTask alloc] initWithIdentifier:@"Consent"
-                                                           propertiesFileName:kConsentPropertiesFileName];
-    ORKTaskViewController*  consentVC = [[ORKTaskViewController alloc] initWithTask:task
-                                                                       taskRunUUID:[NSUUID UUID]];
-    
-    return consentVC;
+	APCConsentTask *task = [[APCConsentTask alloc] initWithIdentifier:@"Consent"
+												   propertiesFileName:kConsentPropertiesFileName];
+	ORKTaskViewController *consentVC = [[ORKTaskViewController alloc] initWithTask:task
+																	   taskRunUUID:[NSUUID UUID]];
+	
+	return consentVC;
 }
 
 @end

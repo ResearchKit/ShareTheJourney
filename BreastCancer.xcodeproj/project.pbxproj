@@ -15,7 +15,6 @@
 		087B44C21B1B9C6000568999 /* BCS_feedback.json in Resources */ = {isa = PBXBuildFile; fileRef = 087B44BD1B1B9C6000568999 /* BCS_feedback.json */; };
 		087B44C31B1B9C6000568999 /* BCS_mythoughts.json in Resources */ = {isa = PBXBuildFile; fileRef = 087B44BE1B1B9C6000568999 /* BCS_mythoughts.json */; };
 		087B44C41B1B9C6000568999 /* BCSBackgroundSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 087B44BF1B1B9C6000568999 /* BCSBackgroundSurvey.json */; };
-		087B44C51B1B9C6000568999 /* BCSBCPTSymptomsSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 087B44C01B1B9C6000568999 /* BCSBCPTSymptomsSurvey.json */; };
 		087B44C61B1B9C6000568999 /* BCSWeeklySurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 087B44C11B1B9C6000568999 /* BCSWeeklySurvey.json */; };
 		215C53671A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 215C53651A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m */; };
 		215C53681A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 215C53661A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib */; };
@@ -212,7 +211,6 @@
 		087B44BD1B1B9C6000568999 /* BCS_feedback.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCS_feedback.json; sourceTree = "<group>"; };
 		087B44BE1B1B9C6000568999 /* BCS_mythoughts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCS_mythoughts.json; sourceTree = "<group>"; };
 		087B44BF1B1B9C6000568999 /* BCSBackgroundSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSBackgroundSurvey.json; sourceTree = "<group>"; };
-		087B44C01B1B9C6000568999 /* BCSBCPTSymptomsSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSBCPTSymptomsSurvey.json; sourceTree = "<group>"; };
 		087B44C11B1B9C6000568999 /* BCSWeeklySurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSWeeklySurvey.json; sourceTree = "<group>"; };
 		215C53641A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHNotesHeaderTableViewCell.h; path = DailyJournalControllers/APHNotesHeaderTableViewCell.h; sourceTree = "<group>"; };
 		215C53651A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHNotesHeaderTableViewCell.m; path = DailyJournalControllers/APHNotesHeaderTableViewCell.m; sourceTree = "<group>"; };
@@ -376,7 +374,6 @@
 				087B44BD1B1B9C6000568999 /* BCS_feedback.json */,
 				087B44BE1B1B9C6000568999 /* BCS_mythoughts.json */,
 				087B44BF1B1B9C6000568999 /* BCSBackgroundSurvey.json */,
-				087B44C01B1B9C6000568999 /* BCSBCPTSymptomsSurvey.json */,
 				087B44C11B1B9C6000568999 /* BCSWeeklySurvey.json */,
 			);
 			path = Surveys;
@@ -935,7 +932,6 @@
 				A7D61A5C1A97B2D700637EDA /* 11_IssuesToConsider1@2x.m4v in Resources */,
 				A7D61A5B1A97B2D700637EDA /* 10_PotentialBenifits@2x.m4v in Resources */,
 				087B44C21B1B9C6000568999 /* BCS_feedback.json in Resources */,
-				087B44C51B1B9C6000568999 /* BCSBCPTSymptomsSurvey.json in Resources */,
 				7BB24C321A831DC500AAE097 /* APHCustomSurveyTableViewCell.xib in Resources */,
 				F534B68A19E4689D00C3C152 /* APCParameters.json in Resources */,
 				A7D61A641A97B2D700637EDA /* 12_IssuesToConside2@3x.m4v in Resources */,
