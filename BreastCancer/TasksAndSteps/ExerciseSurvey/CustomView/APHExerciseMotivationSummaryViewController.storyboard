@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14E7f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -112,7 +112,7 @@
                                                 <constraint firstItem="D0G-Fm-3Fh" firstAttribute="top" secondItem="0gN-SL-8MR" secondAttribute="top" id="Acq-jN-Uwg"/>
                                                 <constraint firstItem="41h-iS-nio" firstAttribute="leading" secondItem="D0G-Fm-3Fh" secondAttribute="trailing" constant="15" id="BDN-fd-8mE"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="D0G-Fm-3Fh" secondAttribute="bottom" constant="-8.5" id="TGp-ej-Zaa"/>
-                                                <constraint firstItem="D0G-Fm-3Fh" firstAttribute="leading" secondItem="0gN-SL-8MR" secondAttribute="leadingMargin" constant="-8" id="ft2-YJ-UGI"/>
+                                                <constraint firstItem="D0G-Fm-3Fh" firstAttribute="leading" secondItem="0gN-SL-8MR" secondAttribute="leading" id="ft2-YJ-UGI"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="D0G-Fm-3Fh" secondAttribute="bottom" id="g7i-ok-hTA"/>
                                                 <constraint firstItem="DdA-fy-qnj" firstAttribute="top" secondItem="0gN-SL-8MR" secondAttribute="topMargin" id="lVg-l7-eQe"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="41h-iS-nio" secondAttribute="bottom" constant="4" id="msZ-d4-gV0"/>
@@ -167,7 +167,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="SPE-nT-F2Y" secondAttribute="bottom" constant="52.5" id="6qe-wN-wc6"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Vdc-Q7-Kaq" secondAttribute="bottom" constant="-9.5" id="CFx-Yh-45w"/>
                                                 <constraint firstItem="Vdc-Q7-Kaq" firstAttribute="top" secondItem="55Z-nv-htE" secondAttribute="topMargin" constant="-7" id="IMY-fY-ngS"/>
-                                                <constraint firstItem="Vdc-Q7-Kaq" firstAttribute="leading" secondItem="55Z-nv-htE" secondAttribute="leadingMargin" constant="-8" id="MDR-5P-ZZP"/>
+                                                <constraint firstItem="Vdc-Q7-Kaq" firstAttribute="leading" secondItem="55Z-nv-htE" secondAttribute="leading" id="MDR-5P-ZZP"/>
                                                 <constraint firstItem="Vdc-Q7-Kaq" firstAttribute="top" secondItem="55Z-nv-htE" secondAttribute="topMargin" constant="-7.5" id="Oxd-KC-VjP"/>
                                                 <constraint firstItem="WJn-Tx-xnQ" firstAttribute="width" secondItem="SPE-nT-F2Y" secondAttribute="width" id="PLD-Lz-gfl"/>
                                                 <constraint firstItem="SPE-nT-F2Y" firstAttribute="centerX" secondItem="55Z-nv-htE" secondAttribute="centerX" id="V2X-PH-Ci0"/>
@@ -226,7 +226,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="Ymq-8U-vbo" secondAttribute="bottom" constant="-9.5" id="CyB-pN-t6n"/>
                                                 <constraint firstItem="Ymq-8U-vbo" firstAttribute="top" secondItem="Ug5-gs-csV" secondAttribute="topMargin" constant="-7.5" id="Iiz-LP-FKp"/>
                                                 <constraint firstItem="sAS-tx-v06" firstAttribute="leading" secondItem="H49-TX-ZeE" secondAttribute="leading" id="Jxt-g3-TqG"/>
-                                                <constraint firstItem="Ymq-8U-vbo" firstAttribute="leading" secondItem="Ug5-gs-csV" secondAttribute="leadingMargin" constant="-8" id="Nmg-qz-7o1"/>
+                                                <constraint firstItem="Ymq-8U-vbo" firstAttribute="leading" secondItem="Ug5-gs-csV" secondAttribute="leading" id="Nmg-qz-7o1"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="H49-TX-ZeE" secondAttribute="bottom" constant="52.5" id="SAe-lb-tPK"/>
                                                 <constraint firstItem="H49-TX-ZeE" firstAttribute="leading" secondItem="Ymq-8U-vbo" secondAttribute="trailing" constant="15" id="Taj-Pq-gDS"/>
                                                 <constraint firstItem="H49-TX-ZeE" firstAttribute="centerX" secondItem="Ug5-gs-csV" secondAttribute="centerX" id="mUO-7p-Xgu"/>
@@ -277,7 +277,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="CgN-3h-ANJ" firstAttribute="leading" secondItem="LVx-sH-Wlj" secondAttribute="leadingMargin" constant="-8" id="15U-3a-LD3"/>
+                                                <constraint firstItem="CgN-3h-ANJ" firstAttribute="leading" secondItem="LVx-sH-Wlj" secondAttribute="leading" id="15U-3a-LD3"/>
                                                 <constraint firstItem="PVx-nr-PWH" firstAttribute="top" secondItem="LVx-sH-Wlj" secondAttribute="topMargin" id="6pH-w4-1rt"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="PVx-nr-PWH" secondAttribute="bottom" constant="52.5" id="BZT-Dt-v8Q"/>
                                                 <constraint firstItem="PVx-nr-PWH" firstAttribute="leading" secondItem="CgN-3h-ANJ" secondAttribute="trailing" constant="15" id="Hmo-Bd-LSa"/>
@@ -341,7 +341,7 @@
                                                 <constraint firstItem="dGe-il-d0Z" firstAttribute="top" secondItem="4YS-Ii-yxy" secondAttribute="topMargin" constant="-7" id="H8x-KA-4m5"/>
                                                 <constraint firstItem="LNm-4Y-LLd" firstAttribute="top" secondItem="xsh-r5-APr" secondAttribute="bottom" constant="8" id="HF8-bi-d3v"/>
                                                 <constraint firstItem="xsh-r5-APr" firstAttribute="leading" secondItem="LNm-4Y-LLd" secondAttribute="leading" id="OeQ-SW-Yqf"/>
-                                                <constraint firstItem="dGe-il-d0Z" firstAttribute="leading" secondItem="4YS-Ii-yxy" secondAttribute="leadingMargin" constant="-8" id="QcM-Bi-og7"/>
+                                                <constraint firstItem="dGe-il-d0Z" firstAttribute="leading" secondItem="4YS-Ii-yxy" secondAttribute="leading" id="QcM-Bi-og7"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="dGe-il-d0Z" secondAttribute="bottom" constant="-9.5" id="Wvd-Rk-gsl"/>
                                                 <constraint firstItem="xsh-r5-APr" firstAttribute="centerX" secondItem="4YS-Ii-yxy" secondAttribute="centerX" id="fKX-id-gEb"/>
                                                 <constraint firstItem="xsh-r5-APr" firstAttribute="leading" secondItem="dGe-il-d0Z" secondAttribute="trailing" constant="15" id="j8A-Gr-B0L"/>
