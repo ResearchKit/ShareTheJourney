@@ -70,7 +70,6 @@ static NSString *const kMigrationTaskIdKey              = @"taskId";
 static NSString *const kMigrationOffsetByDaysKey        = @"offsetByDays";
 static NSString *const kMigrationGracePeriodInDaysKey   = @"gracePeriodInDays";
 static NSString *const kMigrationRecurringKindKey       = @"recurringKind";
-static NSString *const kDatabaseName                    = @"db.sqlite";
 
 typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds) {
 	APHMigrationRecurringKindWeekly = 0,
@@ -101,7 +100,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds) {
 
 - (void)enableBackgroundDeliveryForHealthKitTypes
 {
-    NSArray* dataTypesWithReadPermission = self.initializationOptions[kHKReadPermissionsKey];
+    NSArray* dataTypesWithReadPermission = [self healthKitQuantityTypesToRead];
     
     if (dataTypesWithReadPermission)
     {
@@ -155,14 +154,6 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds) {
 {
     [APCUtilities setRealApplicationName: @"Share the Journey"];
 	
-    NSDictionary *permissionsDescriptions = @{
-                                              @(kAPCSignUpPermissionsTypeLocation) : NSLocalizedString(@"Using your GPS enables the app to accurately determine distances travelled. Your actual location will never be shared.", @""),
-                                              @(kAPCSignUpPermissionsTypeCoremotion) : NSLocalizedString(@"Using the motion co-processor allows the app to determine your activity, helping the study better understand how activity level may influence disease.", @""),
-                                              @(kAPCSignUpPermissionsTypeMicrophone) : NSLocalizedString(@"Access to microphone is required for your Voice Recording Activity.", @""),
-                                              @(kAPCSignUpPermissionsTypeLocalNotifications) : NSLocalizedString(@"Allowing notifications enables the app to show you reminders.", @""),
-                                              @(kAPCSignUpPermissionsTypeHealthKit) : NSLocalizedString(@"On the next screen, you will be prompted to grant Share the Journey access to read and write some of your general and health information, such as height, weight and steps taken so you don't have to enter it again.", @""),
-                                              };
-	
 	NSMutableDictionary * dictionary = [super defaultInitializationOptions];
 #ifdef DEBUG
 	self.environment = SBBEnvironmentStaging;
@@ -174,32 +165,6 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds) {
                                            kStudyIdentifierKey                  : kStudyIdentifier,
                                            kAppPrefixKey                        : kAppPrefix,
                                            kBridgeEnvironmentKey                : @(self.environment),
-                                           kHKReadPermissionsKey                : @[
-                                                   HKQuantityTypeIdentifierBodyMass,
-                                                   HKQuantityTypeIdentifierHeight,
-                                                   HKQuantityTypeIdentifierStepCount,
-                                                   HKQuantityTypeIdentifierDistanceWalkingRunning,
-                                                   HKQuantityTypeIdentifierDistanceCycling,
-                                                   HKQuantityTypeIdentifierFlightsClimbed,
-                                                   @{kHKWorkoutTypeKey  : HKWorkoutTypeIdentifier},
-                                                   @{kHKCategoryTypeKey : HKCategoryTypeIdentifierSleepAnalysis}
-                                                   ],
-                                           kHKWritePermissionsKey                : @[
-//                                                   HKQuantityTypeIdentifierBodyMass,
-//                                                   HKQuantityTypeIdentifierHeight
-                                                   ],
-                                           kAppServicesListRequiredKey           : @[
-                                                   @(kAPCSignUpPermissionsTypeLocation),
-                                                   @(kAPCSignUpPermissionsTypeCoremotion),
-                                                   @(kAPCSignUpPermissionsTypeLocalNotifications)
-                                                   ],
-                                           kAppServicesDescriptionsKey : permissionsDescriptions,
-                                           kAppProfileElementsListKey            : @[
-                                                   @(kAPCUserInfoItemTypeEmail),
-                                                   @(kAPCUserInfoItemTypeDateOfBirth),
-                                                   @(kAPCUserInfoItemTypeHeight),
-                                                   @(kAPCUserInfoItemTypeWeight)
-                                                   ],
                                            kShareMessageKey : NSLocalizedString(@"Check out Share the Journey, a research study app about breast cancer survivorship.  Download it for iPhone at https://appsto.re/i6LF2f6", nil)
                                            }];
     self.initializationOptions = dictionary;
@@ -559,7 +524,7 @@ static NSDate *determineConsentDate(id object)
         return stringToWrite;
     };
     
-    NSArray* dataTypesWithReadPermission = self.initializationOptions[kHKReadPermissionsKey];
+    NSArray* dataTypesWithReadPermission = [self healthKitQuantityTypesToRead];
     
     if (!self.passiveDataCollector)
     {
@@ -656,7 +621,7 @@ static NSDate *determineConsentDate(id object)
 	}
 }
 
-#pragma mark - APCOnboardingDelegate Methods
+#pragma mark - APCOnboardingManagerProvider Methods
 
 - (APCScene *)inclusionCriteriaSceneForOnboarding:(APCOnboarding *)__unused onboarding
 {
@@ -666,6 +631,58 @@ static NSDate *determineConsentDate(id object)
 	scene.bundle = [NSBundle mainBundle];
 	
 	return scene;
+}
+
+-(APCPermissionsManager * __nonnull)permissionsManager
+{
+    return [[APCPermissionsManager alloc] initWithHealthKitCharacteristicTypesToRead:[self healthKitCharacteristicTypesToRead]
+                                                        healthKitQuantityTypesToRead:[self healthKitQuantityTypesToRead]
+                                                       healthKitQuantityTypesToWrite:[self healthKitQuantityTypesToWrite]
+                                                                   userInfoItemTypes:[self userInfoItemTypes]
+                                                               signUpPermissionTypes:[self signUpPermissionsTypes]];
+}
+
+- (NSArray *)healthKitCharacteristicTypesToRead
+{
+    return @[];
+}
+
+- (NSArray *)healthKitQuantityTypesToWrite
+{
+    return @[];
+}
+
+- (NSArray *)healthKitQuantityTypesToRead
+{
+    return @[
+             HKQuantityTypeIdentifierBodyMass,
+             HKQuantityTypeIdentifierHeight,
+             HKQuantityTypeIdentifierStepCount,
+             HKQuantityTypeIdentifierDistanceWalkingRunning,
+             HKQuantityTypeIdentifierDistanceCycling,
+             HKQuantityTypeIdentifierFlightsClimbed,
+             @{kHKWorkoutTypeKey  : HKWorkoutTypeIdentifier},
+             @{kHKCategoryTypeKey : HKCategoryTypeIdentifierSleepAnalysis}
+             ];
+}
+
+- (NSArray *)signUpPermissionsTypes
+{
+    return @[
+             @(kAPCSignUpPermissionsTypeLocation),
+             @(kAPCSignUpPermissionsTypeCoremotion),
+             @(kAPCSignUpPermissionsTypeLocalNotifications)
+             ];
+}
+
+- (NSArray *)userInfoItemTypes
+{
+    return  @[
+              @(kAPCUserInfoItemTypeEmail),
+              @(kAPCUserInfoItemTypeDateOfBirth),
+              @(kAPCUserInfoItemTypeHeight),
+              @(kAPCUserInfoItemTypeWeight)
+              ];
 }
 
 #pragma mark - Consent

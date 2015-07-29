@@ -165,6 +165,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     self.stepScoring= [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType
                                                                    unit:[HKUnit countUnit]
                                                            numberOfDays:-kNumberOfDaysToDisplay];
+    self.stepScoring.caption = NSLocalizedString(@"Steps", nil);
     
     self.moodScoring = [self scoringForValueKey:@"moodsurvey103"];
     self.moodScoring.customMinimumPoint = 1.0;
@@ -206,8 +207,8 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     {
         NSMutableArray *rowItems = [NSMutableArray new];
         
-        NSUInteger allScheduledTasks = ((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.countOfAllScheduledTasksForToday;
-        NSUInteger completedScheduledTasks = ((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.countOfCompletedScheduledTasksForToday;
+        NSUInteger allScheduledTasks = ((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.countOfTotalRequiredTasksForToday;
+        NSUInteger completedScheduledTasks = ((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.countOfTotalCompletedTasksForToday;
         
         {
             APCTableViewDashboardProgressItem *item = [APCTableViewDashboardProgressItem new];
