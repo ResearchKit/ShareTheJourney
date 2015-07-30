@@ -2,12 +2,12 @@
     "name" : "Weekly Survey",
     "type" : "Survey",
   	"identifier" : "BCSweeklySurvey",
-  	"questions" : [
+  	"elements" : [
         {
             "guid": "6c9b5475-278c-4bf6-836b-bf9b4b0f3f00",
             "identifier": "FSI-1",
             "type": "SurveyQuestion",
-            "detail": "Rate your level of fatigue on the day you felt MOST fatigued during the past week (10 is the most fatigued you can be):",
+            "prompt": "Rate your level of fatigue on the day you felt MOST fatigued during the past week (10 is the most fatigued you can be):",
             "constraints": {
                 "dataType": "integer",
                 "rules": [],
@@ -21,7 +21,7 @@
             "guid": "96537f1a-c821-42ba-89d9-a4171d1ab4a6",
             "identifier": "FSI-2",
             "type": "SurveyQuestion",
-            "detail": "Rate your level of fatigue on the day you felt LEAST fatigued during the past week (10 is the most fatigued you can be):",
+            "prompt": "Rate your level of fatigue on the day you felt LEAST fatigued during the past week (10 is the most fatigued you can be):",
             "constraints": {
                 "dataType": "integer",
                 "rules": [],
@@ -35,7 +35,7 @@
             "guid": "76e0e658-aeab-42ae-b026-13b36ce1ae06",
             "identifier": "FSI-3",
             "type": "SurveyQuestion",
-            "detail": "Rate your level of fatigue on the AVERAGE in the past week (10 is the most fatigued you can be):",
+            "prompt": "Rate your level of fatigue on the AVERAGE in the past week (10 is the most fatigued you can be):",
             "constraints": {
                 "dataType": "integer",
                 "rules": [],
@@ -49,7 +49,7 @@
             "guid": "6c9d8884-88df-4531-83cb-d7f0830622cb",
             "identifier": "FSI-4",
             "type": "SurveyQuestion",
-            "detail": "Indicate how many days, in the past week, you felt fatigued for any part of the day:",
+            "prompt": "Indicate how many days, in the past week, you felt fatigued for any part of the day:",
             "constraints": {
                 "dataType": "integer",
                 "rules": [],
@@ -63,7 +63,7 @@
             "guid": "421842d6-91ad-41f5-9af3-28f5461dcfee",
             "identifier": "q5a",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt interested:",
+            "prompt": "During the past week, how much have you felt interested:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -104,7 +104,7 @@
             "guid": "7db81f13-0e5b-43dc-b0e0-4b0f3b9d1c05",
             "identifier": "q5b",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt distressed:",
+            "prompt": "During the past week, how much have you felt distressed:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -145,7 +145,7 @@
             "guid": "f7837dcf-6414-4052-ba51-bd99b6f65fb2",
             "identifier": "q5c",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt excited:",
+            "prompt": "During the past week, how much have you felt excited:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -186,7 +186,7 @@
             "guid": "aeaf9313-1122-4459-8688-5ca8a0660ba5",
             "identifier": "q5d",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt upset:",
+            "prompt": "During the past week, how much have you felt upset:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -227,7 +227,7 @@
             "guid": "305fc160-fc25-49b2-9a6c-592b70619465",
             "identifier": "q5e",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt strong:",
+            "prompt": "During the past week, how much have you felt strong:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -268,7 +268,7 @@
             "guid": "914fdf15-c6a2-4511-b62f-604021058ffd",
             "identifier": "q5f",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt guilty:",
+            "prompt": "During the past week, how much have you felt guilty:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -309,7 +309,7 @@
             "guid": "47f0f1ff-69a2-4d53-bb4a-6bafe56e6f7e",
             "identifier": "q5g",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt scared:",
+            "prompt": "During the past week, how much have you felt scared:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -350,7 +350,7 @@
             "guid": "309284ff-78d4-4472-9f64-a16ee31adbea",
             "identifier": "q5h",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt hostile:",
+            "prompt": "During the past week, how much have you felt hostile:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -391,7 +391,7 @@
             "guid": "1d7b22e0-7af0-411d-ad27-4e991df6aaae",
             "identifier": "q5i",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt enthusiastic:",
+            "prompt": "During the past week, how much have you felt enthusiastic:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -432,7 +432,7 @@
             "guid": "b69733fb-e56d-4139-b732-275540723c39",
             "identifier": "q5j",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt proud:",
+            "prompt": "During the past week, how much have you felt proud:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -473,7 +473,7 @@
             "guid": "4b44c39b-ba8a-461a-b0dc-87e74c9bad31",
             "identifier": "q5k",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt irritable:",
+            "prompt": "During the past week, how much have you felt irritable:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -514,7 +514,7 @@
             "guid": "2fb55cab-e029-48b8-a780-19e92e1ee369",
             "identifier": "q5l",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt alert:",
+            "prompt": "During the past week, how much have you felt alert:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -555,7 +555,7 @@
             "guid": "4881fe82-f9c7-4202-92e1-59cb036b0b45",
             "identifier": "q5m",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt ashamed:",
+            "prompt": "During the past week, how much have you felt ashamed:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -596,7 +596,7 @@
             "guid": "429bab37-f56c-47e7-9bc0-744c0d4d67e1",
             "identifier": "q5n",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt inspired:",
+            "prompt": "During the past week, how much have you felt inspired:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -637,7 +637,7 @@
             "guid": "14e4e9c6-0cf6-4b19-aa55-12993367f361",
             "identifier": "q5o",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt nervous:",
+            "prompt": "During the past week, how much have you felt nervous:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -678,7 +678,7 @@
             "guid": "3e165696-563c-4b1e-90f5-c5f493b6b40a",
             "identifier": "q5p",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt determined:",
+            "prompt": "During the past week, how much have you felt determined:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -719,7 +719,7 @@
             "guid": "4e274a05-75e7-4d0a-8130-8d1342acfe18",
             "identifier": "q5q",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt attentive:",
+            "prompt": "During the past week, how much have you felt attentive:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -760,7 +760,7 @@
             "guid": "9f1e0d37-ec12-4d65-a446-8cd8d7cc0ca1",
             "identifier": "q5r",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt jittery:",
+            "prompt": "During the past week, how much have you felt jittery:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -801,7 +801,7 @@
             "guid": "8611e8b9-f288-4243-a386-231937546a13",
             "identifier": "q5s",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt active:",
+            "prompt": "During the past week, how much have you felt active:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -842,7 +842,7 @@
             "guid": "e69590d2-2bff-4e94-b875-a5268c3e4465",
             "identifier": "q5t",
             "type": "SurveyQuestion",
-            "detail": "During the past week, how much have you felt afraid:",
+            "prompt": "During the past week, how much have you felt afraid:",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -883,7 +883,7 @@
             "guid": "6ff36ff2-e599-4183-a7e7-8396b48ceb55",
             "identifier": "GELTQ-1a",
             "type": "SurveyQuestion",
-            "detail": "Over the past week, how many times did you do the following kinds of exercise for more than 15 minutes? Strenuous exercise (heart beats rapidly):",
+            "prompt": "Over the past week, how many times did you do the following kinds of exercise for more than 15 minutes? Strenuous exercise (heart beats rapidly):",
             "constraints": {
                 "dataType": "integer",
                 "rules": [],
@@ -895,7 +895,7 @@
             "guid": "adff7bf9-cc12-4358-a6d8-4c013ca0f721",
             "identifier": "GELTQ-1b",
             "type": "SurveyQuestion",
-            "detail": "Over the past week, how many times did you do the following kinds of exercise for more than 15 minutes? Moderate exercise (not exhausting):",
+            "prompt": "Over the past week, how many times did you do the following kinds of exercise for more than 15 minutes? Moderate exercise (not exhausting):",
             "constraints": {
                 "dataType": "integer",
                 "rules": [],
@@ -907,7 +907,7 @@
             "guid": "a4189166-8892-4533-8a29-ff457b0a45b2",
             "identifier": "GELTQ-1c",
             "type": "SurveyQuestion",
-            "detail": "Over the past week, how many times did you do the following kinds of exercise for more than 15 minutes? Minimal effort:",
+            "prompt": "Over the past week, how many times did you do the following kinds of exercise for more than 15 minutes? Minimal effort:",
             "constraints": {
                 "dataType": "integer",
                 "rules": [],
@@ -919,7 +919,7 @@
             "guid": "8d79d6a6-a016-4732-8f30-08bcc89bba35",
             "identifier": "GELTQ-2",
             "type": "SurveyQuestion",
-            "detail": "During your leisure time in the past week, how often do you engage in any regular activity long enough to work up a sweat (heart beats rapidly)?",
+            "prompt": "During your leisure time in the past week, how often do you engage in any regular activity long enough to work up a sweat (heart beats rapidly)?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
