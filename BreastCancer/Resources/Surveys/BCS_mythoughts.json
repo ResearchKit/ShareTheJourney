@@ -1,12 +1,12 @@
 {
     "name":"My Thoughts",
     "identifier":"mythoughts",
-    "questions":
+    "elements":
     [
          {
          "guid": "454afd00-3d2b-41c2-9b36-17c72287819b",
          "identifier": "feeling_better",
-         "detail": "What, if anything, has made you feel better in the last day?",
+         "prompt": "What, if anything, has made you feel better in the last day?",
          "detail" : "Please provide your thoughts on what has made you feel better the last day.  Your answers will help researchers explore the connections between your activities and your symptoms.",
      
          "constraints":
@@ -20,7 +20,7 @@
          {
          "guid": "456afd23-3d2b-41c2-9b36-17c72287819b",
          "identifier": "feeling_worse",
-         "detail": "What, if anything, has made you feel worse in the last day?",
+         "prompt": "What, if anything, has made you feel worse in the last day?",
         "detail" : "Please provide your thoughts on what has made you feel worse the last day.  Your answers will help researchers explore the connections between your activities and your symptoms.",
          
          "constraints":
