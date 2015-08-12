@@ -644,7 +644,9 @@ static NSDate *determineConsentDate(id object)
 
 - (NSArray *)healthKitCharacteristicTypesToRead
 {
-    return @[];
+    return @[
+             HKCharacteristicTypeIdentifierDateOfBirth
+             ];
 }
 
 - (NSArray *)healthKitQuantityTypesToWrite

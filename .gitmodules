@@ -4,7 +4,7 @@
 	branch = rk-compat
 [submodule "AppCore"]
 	path = AppCore
-	url = https://github.com/ResearchKit/AppCore.git
+	url = https://github.com/Sage-Bionetworks/AppCore.git
 [submodule "ResearchKit"]
 	path = ResearchKit
 	url = https://github.com/ResearchKit/ResearchKit.git
